@@ -1,8 +1,7 @@
 CREATE sequence USERS_SEQ;
-CREATE sequence ORDERS_SEQ;
 CREATE sequence FLOWERS_SEQ;
 CREATE sequence ROWS_ORDERS_SEQ;
-
+CREATE sequence ORDERS_SEQ;
 --------------------------------------------------------
 --  DDL for Table Users
 --------------------------------------------------------
@@ -53,3 +52,4 @@ CREATE sequence ROWS_ORDERS_SEQ;
         CONSTRAINT "Orders_Users_FK1" FOREIGN KEY ("Users_Id") REFERENCES "Users" ("IdUser")
    );
 
+COMMIT;

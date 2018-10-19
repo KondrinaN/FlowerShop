@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a362d6b7-453a-43ea-8c3a-0b88971a1cbd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/user/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/user/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/user/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/user/UserInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/dbscripts/scriptCreateBD.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dbscripts/scriptCreateBD.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dbscripts/scriptFillTables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dbscripts/scriptFillTables.sql" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -19,8 +18,8 @@
     <session id="1383831137">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="31" />
-          <entry key="project.open.time.1" value="11" />
+          <entry key="project.closed" value="34" />
+          <entry key="project.open.time.1" value="12" />
           <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="2" />
@@ -29,9 +28,10 @@
           <entry key="project.open.time.15" value="3" />
           <entry key="project.open.time.17" value="2" />
           <entry key="project.open.time.19" value="1" />
-          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.2" value="2" />
           <entry key="project.open.time.20" value="1" />
-          <entry key="project.opened" value="32" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.opened" value="35" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -41,8 +41,8 @@
           <entry key="java" value="1224" />
           <entry key="jsp" value="1602" />
           <entry key="properties" value="34" />
-          <entry key="sql" value="568" />
-          <entry key="txt" value="105" />
+          <entry key="sql" value="790" />
+          <entry key="txt" value="121" />
           <entry key="xml" value="1873" />
         </counts>
       </usages-collector>
@@ -50,10 +50,10 @@
         <counts>
           <entry key="CLASS" value="2" />
           <entry key="CSS" value="622" />
-          <entry key="DBN-SQL" value="568" />
+          <entry key="DBN-SQL" value="790" />
           <entry key="JAVA" value="1224" />
           <entry key="JSP" value="1602" />
-          <entry key="PLAIN_TEXT" value="105" />
+          <entry key="PLAIN_TEXT" value="121" />
           <entry key="Properties" value="34" />
           <entry key="XML" value="1873" />
         </counts>
@@ -67,7 +67,7 @@
           <entry key="java" value="8" />
           <entry key="jsp" value="3" />
           <entry key="properties" value="2" />
-          <entry key="sql" value="8" />
+          <entry key="sql" value="10" />
           <entry key="xml" value="3" />
         </counts>
       </usages-collector>
@@ -75,7 +75,7 @@
         <counts>
           <entry key="CLASS" value="4" />
           <entry key="CSS" value="1" />
-          <entry key="DBN-SQL" value="8" />
+          <entry key="DBN-SQL" value="10" />
           <entry key="IDEA_MODULE" value="1" />
           <entry key="JAVA" value="8" />
           <entry key="JSP" value="3" />
@@ -86,12 +86,21 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/dbscripts/scriptCreateBD.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+            <state relative-caret-position="51">
+              <caret line="3" column="26" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/dbscripts/scriptFillTables.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="117" selection-start-line="14" selection-start-column="117" selection-end-line="14" selection-end-column="117" />
             </state>
           </provider>
         </entry>
@@ -126,6 +135,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/user/Customer.java" />
         <option value="$PROJECT_DIR$/../../SE project/participant/src/sef/module13/activity/SEF Activity.sql" />
         <option value="$PROJECT_DIR$/src/main/resources/dbscripts/scriptCreateBD.sql" />
+        <option value="$PROJECT_DIR$/src/main/resources/dbscripts/scriptFillTables.sql" />
       </list>
     </option>
   </component>
@@ -174,118 +184,16 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="949" />
-    <option name="width" value="980" />
-    <option name="height" value="1031" />
+    <option name="x" value="948" />
+    <option name="width" value="981" />
+    <option name="height" value="1032" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="flowershop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlowerShopProject" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flowershop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlowerShopProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flowershop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlowerShopProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flowershop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlowerShopProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flowershop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlowerShopProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com.accenture.flowershop" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flowershop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlowerShopProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com.accenture.flowershop" type="462c0819:PsiDirectoryNode" />
-              <item name="be" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flowershop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlowerShopProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com.accenture.flowershop" type="462c0819:PsiDirectoryNode" />
-              <item name="fe" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flowershop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlowerShopProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flowershop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlowerShopProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="dbscripts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flowershop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlowerShopProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flowershop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlowerShopProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flowershop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlowerShopProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flowershop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlowerShopProject" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539950227325" />
@@ -448,14 +356,28 @@
       <option name="project" value="LOCAL" />
       <updated>1539950198035</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add script create bd">
+      <created>1539957752833</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1539957752833</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add script create bd">
+      <created>1539957791571</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1539957791571</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="633" y="0" width="653" height="687" extended-state="0" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.54468805" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.24210526" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -530,7 +452,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add main menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="add main menu" />
+    <MESSAGE value="add script create bd" />
+    <option name="LAST_COMMIT_MESSAGE" value="add script create bd" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -571,9 +494,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../SE project/participant/src/sef/module18/activity/Employee.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/dbscripts/scriptFillTables.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/servlets/FlowerShopCatalogServlet.java">
@@ -627,15 +547,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../SE project/participant/src/sef/module13/activity/SEF Activity.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
+        <state relative-caret-position="452">
+          <caret line="68" column="7" lean-forward="true" selection-start-line="49" selection-end-line="68" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/dbscripts/scriptCreateBD.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+        <state relative-caret-position="51">
+          <caret line="3" column="26" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/dbscripts/scriptFillTables.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="117" selection-start-line="14" selection-start-column="117" selection-end-line="14" selection-end-column="117" />
         </state>
       </provider>
     </entry>
