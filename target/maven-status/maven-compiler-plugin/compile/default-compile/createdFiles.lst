@@ -1,1 +1,4 @@
-servlets\FlowerShopCatalogServlet.class
+com\accenture\flowershop\be\entity\user\Customer.class
+com\accenture\flowershop\be\entity\user\UserInterface.class
+com\accenture\flowershop\be\entity\user\User.class
+com\accenture\flowershop\fe\servlets\FlowerShopCatalogServlet.class

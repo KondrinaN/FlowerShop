@@ -1,4 +1,4 @@
-package servlets;
+package com.accenture.flowershop.fe.servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,11 +16,11 @@ public class FlowerShopCatalogServlet extends HttpServlet{
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
-       /* response.setContentType("text/html"); //отображение как html
+        response.setContentType("text/html"); //отображение как html
         PrintWriter out = response.getWriter();
         out.println("Heeeeello!"); //отправка ответа с сервера клиенту
-        */
-       response.getWriter().print("I am servlet!");
+        request.getRequestDispatcher("index.jsp").forward(request, response);
+       //response.getWriter().print("I am servlet!");
     }
 
     /**
