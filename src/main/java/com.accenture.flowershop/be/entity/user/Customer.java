@@ -16,4 +16,6 @@ public class Customer extends User {
         this.cashBalance = cashBalance;
         this.discount = discount;
     }
+
+
 }
