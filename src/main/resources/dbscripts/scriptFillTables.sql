@@ -5,6 +5,8 @@ CREATE sequence ORDERS_SEQ;
 --------------------------------------------------------
 Insert into Users ("IdUser", "Surname", "Name", "Patronymic", "Address", "Cashbalance", "Discount", "Password") values (USERS_SEQ.NEXTVAL, 'Surname1', 'Name1','Patronymic1','Address1', 12000, 30, 'k��x_۠ZdF4}��');
 Insert into Users ("IdUser", "Surname", "Name", "Patronymic", "Address", "Cashbalance", "Discount", "Password") values (USERS_SEQ.NEXTVAL, 'Surname2', 'Name2','Patronymic2','Address2', 22000, 0, '����9��M����X*');;
+Insert into Users ("IdUser", "Surname", "Name", "Patronymic", "Address", "Cashbalance", "Discount", "Password") values (USERS_SEQ.NEXTVAL, 'admin', '','','', 0, 0, '�:{�s%�i��');
+
 
 Insert into Flowers ("IdFlower", "NameFlower", "Balance", "Price") values (FLOWERS_SEQ.NEXTVAL, 'NameFlower1', 15, 120);
 Insert into Flowers ("IdFlower", "NameFlower", "Balance", "Price") values (FLOWERS_SEQ.NEXTVAL, 'NameFlower2', 35, 70);
@@ -21,7 +23,5 @@ Insert into RowsOrders ("IdRowOrder", "Order_Id", "NameProduct", "Count", "Price
 Insert into RowsOrders ("IdRowOrder", "Order_Id", "NameProduct", "Count", "Price") values (ROWS_ORDERS_SEQ.NEXTVAL, 3, 'NameProduct2', 4, 120);
 Insert into RowsOrders ("IdRowOrder", "Order_Id", "NameProduct", "Count", "Price") values (ROWS_ORDERS_SEQ.NEXTVAL, 1, 'NameProduct3', 1, 150);
 Insert into RowsOrders ("IdRowOrder", "Order_Id", "NameProduct", "Count", "Price") values (ROWS_ORDERS_SEQ.NEXTVAL, 4, 'NameProduct4', 20, 100);
-
-
 
 COMMIT;
