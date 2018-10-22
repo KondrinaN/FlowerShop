@@ -4,6 +4,7 @@
 
   CREATE TABLE Users
    (	"IdUser" NUMBER(10,0) PRIMARY KEY,
+        "Login" VARCHAR2(45 CHAR) NOT NULL,
         "Surname" VARCHAR2(45 CHAR) NOT NULL,
         "Name" VARCHAR2(45 CHAR) NOT NULL,
         "Patronymic" VARCHAR2(45 CHAR) NULL,

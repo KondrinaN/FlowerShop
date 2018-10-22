@@ -1,4 +1,6 @@
 com\accenture\flowershop\be\entity\user\Customer.class
+com\accenture\flowershop\fe\enums\order\StatusOrder.class
 com\accenture\flowershop\be\entity\user\UserInterface.class
+com\accenture\flowershop\fe\enums\customer\UserShop.class
 com\accenture\flowershop\be\entity\user\User.class
 com\accenture\flowershop\fe\servlets\FlowerShopCatalogServlet.class

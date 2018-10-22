@@ -41,7 +41,7 @@
     		dialog.dialog( "open" );
     	});
     </script>
-    <a href="index">Click here to see servlet</a>
+    <a href="signUp">Click here to see servlet</a>
 
 
 </body>

@@ -1,7 +1,12 @@
 package com.accenture.flowershop.be.entity.user;
 
+import javax.persistence.Column;
+
 public class User implements UserInterface{
+    @Column(name = "Login", unique = true)
     protected String login;
+
+    @Column(name = "Password")
     protected String password;
 
     public User(String login, String password)

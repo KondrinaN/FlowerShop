@@ -19,8 +19,8 @@ public class FlowerShopCatalogServlet extends HttpServlet{
         response.setContentType("text/html"); //отображение как html
         PrintWriter out = response.getWriter();
         out.println("Heeeeello!"); //отправка ответа с сервера клиенту
-        request.getRequestDispatcher("index.jsp").forward(request, response);
-       //response.getWriter().print("I am servlet!");
+        request.getRequestDispatcher("/webapp/signUp.jsp").forward(request, response);
+        response.getWriter().print("I am servlet!");
     }
 
     /**
