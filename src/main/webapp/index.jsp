@@ -22,10 +22,10 @@
     </ul>
 
     <div id="dialog" class="modalDialog">
-        <form id="main" action="mainPage.jsp">
-            <p><input type='text' name='Login' placeholder="Login" value="admin" /></p>
+        <form id="main" action="/mainPage">
+            <p><input type='text' name='Login' placeholder="Login" /></p>
             <p><input type='password' name='Password' placeholder="Password" /></p>
-            <p><input type='button' name='OK' value="OK" align="center" onclick="openPage('mainPage')" /></p>
+            <p><input type='submit' name='OK' value="OK" align="center" onclick="openPage('mainPage')" /></p>
             <p></p>
         </form>
     </div>
@@ -45,6 +45,10 @@
         function openPage(pageURL)
         {
             window.location.href = pageURL;
+            var logIn=request.getParameter("Login");
+            <c:if test="${empty logIn}">
+                <p>Login can't be empty!</p>
+            </c:if>
         }
     </script>
 

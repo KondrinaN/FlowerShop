@@ -14,7 +14,7 @@
     </head>
 <body>
     <h2>Home Flower Shop</h2>
-    <h4>You are logged in as: </h4>
+    <h4>You are logged in as:  <%= request.getParameter("Login") %></h4>
 
 </body>
 </html>

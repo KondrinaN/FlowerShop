@@ -33,7 +33,6 @@ public class mainPageServlet extends HttpServlet{
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws  ServletException, IOException{
-        String out = request.getParameter("Login");
         String param = (String)request.getSession().getAttribute("Login");
         super.doPost(request, response);
     }
