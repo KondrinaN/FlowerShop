@@ -7,9 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Enumeration;
 
-@WebServlet(urlPatterns = "/signUp")
-public class SignUpServlet extends HttpServlet{
+@WebServlet(urlPatterns = "/mainPage")
+public class mainPageServlet extends HttpServlet{
 
     private static final long serialVersionUID = 1L;
 
@@ -18,10 +19,8 @@ public class SignUpServlet extends HttpServlet{
             throws ServletException, IOException{
         response.setContentType("text/html"); //отображение как html
         PrintWriter out = response.getWriter();
-      //  out.println("Heeeeello!"); //отправка ответа с сервера клиенту
-        String val = request.getParameter("Login");
-        request.getRequestDispatcher("/signUp.jsp").forward(request, response);
-       // response.getWriter().print("I am servlet!");
+
+        request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
     }
 
     /**
@@ -33,9 +32,9 @@ public class SignUpServlet extends HttpServlet{
      */
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
-        throws  ServletException, IOException{
-
-        String param = (String)request.getSession().getAttribute("parameter");
+            throws  ServletException, IOException{
+        String out = request.getParameter("Login");
+        String param = (String)request.getSession().getAttribute("Login");
         super.doPost(request, response);
     }
 }

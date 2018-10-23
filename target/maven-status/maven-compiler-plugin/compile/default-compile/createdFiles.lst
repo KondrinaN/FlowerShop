@@ -1,5 +1,6 @@
 com\accenture\flowershop\fe\enums\order\StatusOrder.class
 com\accenture\flowershop\be\entity\flower\FlowerInterface.class
+com\accenture\flowershop\fe\servlets\mainPageServlet.class
 com\accenture\flowershop\be\access\OracleConnectionBD.class
 com\accenture\flowershop\be\entity\order\RowOrder.class
 com\accenture\flowershop\be\entity\user\User.class

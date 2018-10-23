@@ -14,12 +14,13 @@
 
   <servlet>
     <servlet-name>SignUpServlet</servlet-name>
-    <servlet-class>servlets.FlowerShopCatalogServlet</servlet-class>
+    <servlet-class>servlets.SignUpServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>
     <servlet-name>SignUpServlet</servlet-name>
     <url-pattern>/index</url-pattern>
   </servlet-mapping>
+
 
 </web-app>

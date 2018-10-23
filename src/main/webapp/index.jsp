@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Flower Shop</title>
-        <link href="styleMainPage.css" rel="stylesheet" type="text/css"/>
+        <link href="styleStart.css" rel="stylesheet" type="text/css"/>
         <style>
          body{
             background: lavender;
@@ -18,14 +18,14 @@
     <ul class="menu-main">
 
         <li><h4 name="signIn">Sign in</h4></li>
-        <li><h4 name="signUp" onclick="openPage('signUp.jsp')">Sign up</h4></li>
+        <li><h4 name="signUp" onclick="openPage('signUp')">Sign up</h4></li>
     </ul>
 
     <div id="dialog" class="modalDialog">
-        <form id="main">
-            <p><input type='text' name='Login' placeholder="Login"></p>
-            <p><input type='text' name='Password' placeholder="Password"></p>
-            <p><input type='button' name='OK' value="OK" align="center"></p>
+        <form id="main" action="mainPage.jsp">
+            <p><input type='text' name='Login' placeholder="Login" value="admin" /></p>
+            <p><input type='password' name='Password' placeholder="Password" /></p>
+            <p><input type='button' name='OK' value="OK" align="center" onclick="openPage('mainPage')" /></p>
             <p></p>
         </form>
     </div>
@@ -44,7 +44,7 @@
     <script>
         function openPage(pageURL)
         {
-            window.location.href = 'signUp';
+            window.location.href = pageURL;
         }
     </script>
 
