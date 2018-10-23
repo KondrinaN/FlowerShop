@@ -44,7 +44,7 @@
     <script>
         function openPage(pageURL)
         {
-            window.location.href = 'home';
+            window.location.href = 'signUp';
         }
     </script>
 
