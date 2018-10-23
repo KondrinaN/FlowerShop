@@ -3,6 +3,8 @@ package com.accenture.flowershop.be.entity.order;
 import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "Orders")
 public class Order implements OrderInterface{
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ORDERS_SEQ")

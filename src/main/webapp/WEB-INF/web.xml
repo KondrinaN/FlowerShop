@@ -13,12 +13,12 @@
   <display-name>Archetype Created Web Application</display-name>
 
   <servlet>
-    <servlet-name>FlowerShopCatalogServlet</servlet-name>
+    <servlet-name>SignUpServlet</servlet-name>
     <servlet-class>servlets.FlowerShopCatalogServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>FlowerShopCatalogServlet</servlet-name>
+    <servlet-name>SignUpServlet</servlet-name>
     <url-pattern>/index</url-pattern>
   </servlet-mapping>
 

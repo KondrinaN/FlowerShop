@@ -2,6 +2,8 @@ package com.accenture.flowershop.be.entity.order;
 
 import javax.persistence.*;
 
+@Entity
+@Table(name = "RowsOrders")
 public class RowOrder implements RowOrderInterface{
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ROWS_ORDERS_SEQ")

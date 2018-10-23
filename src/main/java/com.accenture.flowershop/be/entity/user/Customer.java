@@ -3,6 +3,7 @@ package com.accenture.flowershop.be.entity.user;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "Users")
 public class Customer extends User {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USERS_SEQ")

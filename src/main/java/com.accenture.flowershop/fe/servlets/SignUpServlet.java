@@ -8,19 +8,20 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(urlPatterns = "/catalog")
-public class FlowerShopCatalogServlet extends HttpServlet{
+@WebServlet(urlPatterns = "/home")
+public class SignUpServlet extends HttpServlet{
 
     private static final long serialVersionUID = 1L;
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
-        response.setContentType("text/html"); //отображение как html
+      /*  response.setContentType("text/html"); //отображение как html
         PrintWriter out = response.getWriter();
         out.println("Heeeeello!"); //отправка ответа с сервера клиенту
-        request.getRequestDispatcher("/webapp/signUp.jsp").forward(request, response);
-        response.getWriter().print("I am servlet!");
+       */
+        request.getRequestDispatcher("/signUp.jsp").forward(request, response);
+       // response.getWriter().print("I am servlet!");
     }
 
     /**

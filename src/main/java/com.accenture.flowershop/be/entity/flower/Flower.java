@@ -1,5 +1,10 @@
 package com.accenture.flowershop.be.entity.flower;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Flowers")
 public class Flower implements FlowerInterface{
     private int idFlower;
     private String nameFlower;

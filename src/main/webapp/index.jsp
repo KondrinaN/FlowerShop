@@ -18,7 +18,7 @@
     <ul class="menu-main">
 
         <li><h4 name="signIn">Sign in</h4></li>
-        <li><h4 name="signUp">Sign up</h4></li>
+        <li><h4 name="signUp" onclick="openPage('signUp.jsp')">Sign up</h4></li>
     </ul>
 
     <div id="dialog" class="modalDialog">
@@ -41,8 +41,12 @@
     		dialog.dialog( "open" );
     	});
     </script>
-    <a href="signUp">Click here to see servlet</a>
-
+    <script>
+        function openPage(pageURL)
+        {
+            window.location.href = 'home';
+        }
+    </script>
 
 </body>
 </html>
