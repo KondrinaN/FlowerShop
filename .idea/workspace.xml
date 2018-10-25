@@ -2,33 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a362d6b7-453a-43ea-8c3a-0b88971a1cbd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/access/OrderDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/access/OrderDAOlmpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/access/RowOrderDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/access/RowOrderDAOlmpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/dto/CustomerDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/dto/FlowerDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/dto/OrderDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/dto/RowOrderDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/enums/flower/FlowerAvailability.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/config/logback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/access/FlowerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/access/FlowerDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/access/FlowerDAOlmpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/access/FlowerDAOlmpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/access/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/access/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/access/UserDAOlmpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/access/UserDAOlmpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/flower/Flower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/flower/Flower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/flower/FlowerInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/flower/FlowerInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/order/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/order/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/order/RowOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/order/RowOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/user/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/user/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/user/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/user/UserInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config/application-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/application-context.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dbscripts/scriptCreateBD.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dbscripts/scriptCreateBD.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dbscripts/scriptFillTables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dbscripts/scriptFillTables.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/logback.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
@@ -67,11 +42,12 @@
         <counts>
           <entry key="FlowerShopCatalogServlet" value="2" />
           <entry key="css" value="714" />
+          <entry key="gitignore" value="7" />
           <entry key="java" value="6112" />
           <entry key="jsp" value="3403" />
           <entry key="properties" value="34" />
           <entry key="sql" value="1174" />
-          <entry key="txt" value="201" />
+          <entry key="txt" value="208" />
           <entry key="xml" value="2341" />
         </counts>
       </usages-collector>
@@ -82,7 +58,7 @@
           <entry key="DBN-SQL" value="1174" />
           <entry key="JAVA" value="6112" />
           <entry key="JSP" value="3403" />
-          <entry key="PLAIN_TEXT" value="201" />
+          <entry key="PLAIN_TEXT" value="215" />
           <entry key="Properties" value="34" />
           <entry key="XML" value="2341" />
         </counts>
@@ -92,6 +68,7 @@
           <entry key="FlowerShopCatalogServlet" value="3" />
           <entry key="class" value="5" />
           <entry key="css" value="9" />
+          <entry key="gitignore" value="1" />
           <entry key="iml" value="1" />
           <entry key="java" value="169" />
           <entry key="jsp" value="13" />
@@ -108,6 +85,7 @@
           <entry key="IDEA_MODULE" value="1" />
           <entry key="JAVA" value="169" />
           <entry key="JSP" value="13" />
+          <entry key="PLAIN_TEXT" value="1" />
           <entry key="Properties" value="4" />
           <entry key="XML" value="28" />
         </counts>
@@ -150,12 +128,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/dto/RowOrderDTO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="32" lean-forward="true" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+            <state relative-caret-position="272">
+              <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
               <folding>
+                <element signature="e#533#534#0" expanded="true" />
                 <element signature="e#566#567#0" expanded="true" />
                 <element signature="e#615#616#0" expanded="true" />
                 <element signature="e#659#660#0" expanded="true" />
@@ -176,6 +155,15 @@
                 <element signature="e#1199#1200#0" expanded="true" />
                 <element signature="e#1233#1234#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="18" column="8" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -262,7 +250,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/servlets/FlowerShopCatalogServlet.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/styleStart.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/styleMainPage.css" />
         <option value="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/servlets/SignUpServlet.java" />
@@ -313,6 +300,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/dto/OrderDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/dto/RowOrderDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/enums/flower/FlowerAvailability.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -603,7 +591,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540475145879" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540475222243" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../SE project/participant/src/sef/module13/activity/SEF Activity.sql" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
@@ -841,7 +829,14 @@
       <option name="project" value="LOCAL" />
       <updated>1540451140396</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="add DTO">
+      <created>1540475179922</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1540475179922</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -957,7 +952,8 @@
     <MESSAGE value="add mainpage" />
     <MESSAGE value="add out login" />
     <MESSAGE value="add spring" />
-    <option name="LAST_COMMIT_MESSAGE" value="add spring" />
+    <MESSAGE value="add DTO" />
+    <option name="LAST_COMMIT_MESSAGE" value="add DTO" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1037,16 +1033,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/servlets/SignUpServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="49" lean-forward="true" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/flowershop3-master/flowershop3-master/src/main/java/com/accenture/be/access/category/CategoryDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-204" />
@@ -1512,9 +1498,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/dto/RowOrderDTO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="32" lean-forward="true" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+        <state relative-caret-position="272">
+          <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
           <folding>
+            <element signature="e#533#534#0" expanded="true" />
             <element signature="e#566#567#0" expanded="true" />
             <element signature="e#615#616#0" expanded="true" />
             <element signature="e#659#660#0" expanded="true" />
@@ -1535,6 +1522,13 @@
             <element signature="e#1199#1200#0" expanded="true" />
             <element signature="e#1233#1234#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="18" column="8" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
         </state>
       </provider>
     </entry>
