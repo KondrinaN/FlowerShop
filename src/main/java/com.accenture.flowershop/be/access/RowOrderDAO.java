@@ -1,8 +1,6 @@
 package com.accenture.flowershop.be.access;
 
 import com.accenture.flowershop.be.entity.order.RowOrder;
-import com.sun.rowset.internal.Row;
-
 import java.util.List;
 
 public interface RowOrderDAO {

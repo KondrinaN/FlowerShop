@@ -1,15 +1,17 @@
 package com.accenture.flowershop.be.business;
 
-import com.accenture.flowershop.be.access.FlowerDAO;
+import com.accenture.flowershop.be.access.FlowerDAOlmpl;
 import com.accenture.flowershop.be.entity.flower.Flower;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service("flowerBusinessService")
 public class FlowerBusinessServicelmpl implements FlowerBusinessService {
 
     @Autowired
-    protected FlowerDAO flowerDAO;
+    private FlowerDAOlmpl flowerDAO;
 
     @Override
     public List<Flower> findAllFlowers() {

@@ -1,13 +1,15 @@
 package com.accenture.flowershop.be.business;
 
-import com.accenture.flowershop.be.access.UserDAO;
+import com.accenture.flowershop.be.access.UserDAOlmpl;
 import com.accenture.flowershop.be.entity.user.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service("userBusinessService")
 public class UserBusinessServicelmpl implements UserBusinessService{
 
     @Autowired
-    protected UserDAO userDAO;
+    private UserDAOlmpl userDAO;
 
     @Override
     public String logIn(String user, String password) {

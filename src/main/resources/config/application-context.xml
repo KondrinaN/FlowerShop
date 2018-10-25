@@ -1,25 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:p="http://www.springframework.org/schema/p"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xmlns:tx="http://www.springframework.org/schema/cache"
-       xmlns:cache="http://www.springframework.org/schema/cache"
+       xmlns:util="http://www.springframework.org/schema/util"
+
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd
-    http://www.springframework.org/schema/tx
-    http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
-    http://www.springframework.org/schema/mvc
-    http://www.springframework.org/schema/mvc/spring-mvc.xsd
-    http://www.springframework.org/schema/cache
-    http://www.springframework.org/schema/cache/spring-cache.xsd">
+    http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util.xsd">
 
     <context:annotation-config/>
+    <context:component-scan base-package="com.accenture.flowershop"/>
 
+    <bean class="com.accenture.flowershop.be.business.UserBusinessServicelmpl" />
 
+    <bean name="userDAO" class="com.accenture.flowershop.be.access.UserDAO" />
+
+    <bean name="UserBusinessService" class="com.accenture.flowershop.be.business.UserBusinessServicelmpl">
+
+    </bean>
+
+    <bean class="com.accenture.flowershop.be.business.OrderBusinessServicelmpl" />
+
+    <bean name="orderDAO" class="com.accenture.flowershop.be.access.OrderDAO" />
+
+    <bean name="OrderBusinessService" class="com.accenture.flowershop.be.business.OrderBusinessServicelmpl">
+
+    </bean>
+
+    <bean class="com.accenture.flowershop.be.business.FlowerBusinessServicelmpl" />
+
+    <bean name="flowerDAO" class="com.accenture.flowershop.be.access.FlowerDAO" />
+
+    <bean name="FlowerBusinessService" class="com.accenture.flowershop.be.business.FlowerBusinessServicelmpl">
+    </bean>
+
+    <bean class="com.accenture.flowershop.be.business.RowOrderBusinessServicelmpl" />
+
+    <bean name="rowOrderDAO" class="com.accenture.flowershop.be.access.RowOrderDAO" />
+
+    <bean name="RowOrderBusinessService" class="com.accenture.flowershop.be.business.RowOrderBusinessServicelmpl">
+    </bean>
 
 </beans>
 
