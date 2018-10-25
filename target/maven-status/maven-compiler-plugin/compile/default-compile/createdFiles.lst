@@ -6,11 +6,15 @@ com\accenture\flowershop\fe\servlets\MainPageServlet.class
 com\accenture\flowershop\be\business\UserBusinessService.class
 com\accenture\flowershop\be\business\UserBusinessServicelmpl.class
 com\accenture\flowershop\be\entity\user\Customer.class
+com\accenture\flowershop\fe\enums\flower\FlowerAvailability.class
 com\accenture\flowershop\be\entity\order\Order.class
 com\accenture\flowershop\be\entity\order\OrderInterface.class
 com\accenture\flowershop\be\entity\user\UserInterface.class
+com\accenture\flowershop\fe\dto\FlowerDTO.class
 com\accenture\flowershop\be\entity\flower\FlowerInterface.class
 com\accenture\flowershop\be\entity\order\RowOrder.class
+com\accenture\flowershop\fe\dto\RowOrderDTO.class
+com\accenture\flowershop\fe\dto\OrderDTO.class
 com\accenture\flowershop\be\access\UserDAO.class
 com\accenture\flowershop\be\access\OrderDAO.class
 com\accenture\flowershop\be\access\FlowerDAOlmpl.class
