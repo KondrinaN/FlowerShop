@@ -1,19 +1,30 @@
 package com.accenture.flowershop.be.entity.flower;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Flowers")
 public class Flower implements FlowerInterface{
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "FLOWERS_SEQ")
+    @SequenceGenerator(name="FLOWERS_SEQ", sequenceName = "FLOWERS_SEQ", allocationSize = 1)
     private int idFlower;
+
+    @Column(name = "NameFlower")
     private String nameFlower;
+
+    @Column(name = "Balance")
     private int balance;
-    private int price;
 
-    public Flower()
+    @Column(name = "Price")
+    private double price;
+
+    public Flower(int idFlower, String nameFlower, int balance, double price)
     {
-
+        this.idFlower = idFlower;
+        this.nameFlower = nameFlower;
+        this.balance = balance;
+        this.price = price;
     }
 
     @Override
@@ -52,7 +63,7 @@ public class Flower implements FlowerInterface{
     }
 
     @Override
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 }

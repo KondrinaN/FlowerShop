@@ -11,7 +11,8 @@
         "Address" VARCHAR2(45 CHAR) NOT NULL,
         "Cashbalance" NUMBER(10,2) NOT NULL,
         "Discount" NUMBER(3,0) NOT NULL,
-        "Password" VARCHAR2(45 CHAR) NOT NULL
+        "Password" VARCHAR2(45 CHAR) NOT NULL,
+        "UserRole" VARCHAR2(45 CHAR) NOT NULL,
    );
 --------------------------------------------------------
 --  DDL for Table Flowers

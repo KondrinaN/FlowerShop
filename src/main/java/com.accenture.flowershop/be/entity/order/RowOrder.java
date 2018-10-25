@@ -10,8 +10,7 @@ public class RowOrder implements RowOrderInterface{
     @SequenceGenerator(name="ROWS_ORDERS_SEQ", sequenceName = "ROWS_ORDERS_SEQ", allocationSize = 1)
     private int idRowOrder;
 
-    @OneToMany
-    @JoinColumn(name = "idOrder")
+    @Column(name = "idOrder")
     private int orderId;
 
     @Column(name = "NameProduct")
@@ -23,8 +22,13 @@ public class RowOrder implements RowOrderInterface{
     @Column(name = "Price")
     private int price;
 
-    public RowOrder()
-    {}
+    public RowOrder(int idRowOrder, int orderId, String nameProduct, int count, int price) {
+        this.idRowOrder = idRowOrder;
+        this.orderId = orderId;
+        this.nameProduct = nameProduct;
+        this.count = count;
+        this.price = price;
+    }
 
     @Override
     public void setIdRowOrder(int id) {

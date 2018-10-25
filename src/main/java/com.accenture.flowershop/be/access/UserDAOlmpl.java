@@ -22,4 +22,9 @@ public class UserDAOlmpl implements UserDAO{
         return null;
     }
 
+    @Override
+    public int save() {
+        return 0;
+    }
+
 }

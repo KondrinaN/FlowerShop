@@ -1,41 +1,30 @@
-package com.accenture.flowershop.be.entity.user;
+package com.accenture.flowershop.fe.dto;
 
 import com.accenture.flowershop.fe.enums.customer.UserShop;
 
-import javax.persistence.*;
+public class CustomerDTO {
 
-@Entity
-@Table(name = "Users")
-public class Customer extends User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USERS_SEQ")
-    @SequenceGenerator(name="USERS_SEQ", sequenceName = "USERS_SEQ", allocationSize = 1)
     private int idUser;
-
-    @Column(name = "Surname")
+    private String login;
+    private String password;
     private String surname;
-
-    @Column(name = "Name")
     private String name;
-
-    @Column(name = "Patronymic")
     private String patronymic;
-
-    @Column(name = "Address")
     private String address;
-
-    @Column(name = "CashBalance")
     private double cashBalance;
-
-    @Column(name = "Discount")
     private int discount;
-
-    @Column(name = "UserRole")
     private UserShop userRole;
 
-    public Customer(String login, String password, String surname, String name, String patronymic, String address, double cashBalance, int discount, UserShop userRole)
+    public CustomerDTO()
     {
-        super(login, password);
+
+    }
+
+    public CustomerDTO(int idUser, String login, String password, String surname, String name, String patronymic, String address, double cashBalance, int discount, UserShop userRole)
+    {
+        this.idUser = idUser;
+        this.login = login;
+        this.password = password;
         this.surname = surname;
         this.name = name;
         this.patronymic = patronymic;
@@ -45,12 +34,29 @@ public class Customer extends User {
         this.userRole = userRole;
     }
 
+
     public int getIdUser() {
         return idUser;
     }
 
     public void setIdUser(int idUser) {
         this.idUser = idUser;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getSurname() {
@@ -108,4 +114,5 @@ public class Customer extends User {
     public void setUserRole(UserShop userRole) {
         this.userRole = userRole;
     }
+
 }

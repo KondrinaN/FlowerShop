@@ -11,8 +11,8 @@ public class Order implements OrderInterface{
     @SequenceGenerator(name="ORDERS_SEQ", sequenceName = "ORDERS_SEQ", allocationSize = 1)
     private int idOrder;
 
-    @OneToMany
-    @JoinColumn(name = "IdUser")
+
+    @Column(name = "IdUser")
     private int users_Id;
 
     @Column(name = "Status")
@@ -27,9 +27,13 @@ public class Order implements OrderInterface{
     @Column(name = "DateClose")
     private Date dateClose;
 
-    public Order()
-    {
-
+    public Order(int idOrder, int users_Id, String status, int amount, Date dateCreate, Date dateClose) {
+        this.idOrder = idOrder;
+        this.users_Id = users_Id;
+        this.status = status;
+        this.amount = amount;
+        this.dateCreate = dateCreate;
+        this.dateClose = dateClose;
     }
 
     @Override

@@ -8,5 +8,5 @@ public interface UserDAO {
     List<Customer> findAll();
     Customer findCustomerById();
     Customer findCustomerByLogin();
-
+    int save();
 }

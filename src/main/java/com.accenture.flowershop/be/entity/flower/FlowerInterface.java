@@ -11,5 +11,5 @@ public interface FlowerInterface {
     public int getBalance();
 
     public void setPrice(int price);
-    public int getPrice();
+    public double getPrice();
 }
