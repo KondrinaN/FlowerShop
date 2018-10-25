@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 import java.util.Enumeration;
 
 @WebServlet(urlPatterns = "/mainPage")
-public class mainPageServlet extends HttpServlet{
+public class MainPageServlet extends HttpServlet{
 
     private static final long serialVersionUID = 1L;
 
@@ -33,7 +33,9 @@ public class mainPageServlet extends HttpServlet{
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws  ServletException, IOException{
-        String param = (String)request.getSession().getAttribute("Login");
-        super.doPost(request, response);
+        String param = request.getParameter("Login");
+        request.setAttribute("Login", param);
+        request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
+        //super.doPost(request, response);
     }
 }

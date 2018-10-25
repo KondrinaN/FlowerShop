@@ -17,42 +17,42 @@ public class Flower implements FlowerInterface{
     }
 
     @Override
-    public void SetId(int id) {
+    public void setId(int id) {
         this.idFlower = id;
     }
 
     @Override
-    public int GetId() {
+    public int getId() {
         return idFlower;
     }
 
     @Override
-    public void SetNameFlower(String nameFlower) {
+    public void setNameFlower(String nameFlower) {
         this.nameFlower = nameFlower;
     }
 
     @Override
-    public String GetNameFlower() {
+    public String getNameFlower() {
         return nameFlower;
     }
 
     @Override
-    public void SetBalance(int balance) {
+    public void setBalance(int balance) {
         this.balance = balance;
     }
 
     @Override
-    public int GetBalance() {
+    public int getBalance() {
         return balance;
     }
 
     @Override
-    public void SetPrice(int price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
     @Override
-    public int GetPrice() {
+    public int getPrice() {
         return price;
     }
 }

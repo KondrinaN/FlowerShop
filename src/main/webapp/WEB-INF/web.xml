@@ -12,15 +12,13 @@
 
   <display-name>Archetype Created Web Application</display-name>
 
-  <servlet>
-    <servlet-name>SignUpServlet</servlet-name>
-    <servlet-class>servlets.SignUpServlet</servlet-class>
-  </servlet>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:config/application-context.xml</param-value>
+  </context-param>
 
-  <servlet-mapping>
-    <servlet-name>SignUpServlet</servlet-name>
-    <url-pattern>/index</url-pattern>
-  </servlet-mapping>
-
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
 
 </web-app>

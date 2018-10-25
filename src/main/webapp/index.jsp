@@ -45,10 +45,6 @@
         function openPage(pageURL)
         {
             window.location.href = pageURL;
-            var logIn=request.getParameter("Login");
-            <c:if test="${empty logIn}">
-                <p>Login can't be empty!</p>
-            </c:if>
         }
     </script>
 

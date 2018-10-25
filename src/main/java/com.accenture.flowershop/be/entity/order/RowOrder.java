@@ -27,52 +27,52 @@ public class RowOrder implements RowOrderInterface{
     {}
 
     @Override
-    public void SetIdRowOrder(int id) {
+    public void setIdRowOrder(int id) {
         this.idRowOrder=id;
     }
 
     @Override
-    public int GetIdRowOrder() {
+    public int getIdRowOrder() {
         return idRowOrder;
     }
 
     @Override
-    public void SetIdOrder(int orderId) {
+    public void setIdOrder(int orderId) {
         this.orderId =orderId;
     }
 
     @Override
-    public int GetIdOrder() {
+    public int getIdOrder() {
         return orderId;
     }
 
     @Override
-    public void SetNameProduct(String nameProduct) {
+    public void setNameProduct(String nameProduct) {
         this.nameProduct = nameProduct;
     }
 
     @Override
-    public String GetNameProduct() {
+    public String getNameProduct() {
         return nameProduct;
     }
 
     @Override
-    public void SetCount(int count) {
+    public void setCount(int count) {
         this.count = count;
     }
 
     @Override
-    public int GetCount() {
+    public int getCount() {
         return count;
     }
 
     @Override
-    public void SetPrice(int price) {
+    public void setPrice(int price) {
         this.price=price;
     }
 
     @Override
-    public int GetPrice() {
+    public int getPrice() {
         return price;
     }
 }

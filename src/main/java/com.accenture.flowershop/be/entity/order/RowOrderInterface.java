@@ -2,18 +2,18 @@ package com.accenture.flowershop.be.entity.order;
 
 public interface RowOrderInterface {
 
-    public void SetIdRowOrder(int id);
-    public int GetIdRowOrder();
+    public void setIdRowOrder(int id);
+    public int getIdRowOrder();
 
-    public void SetIdOrder(int orderId);
-    public int GetIdOrder();
+    public void setIdOrder(int orderId);
+    public int getIdOrder();
 
-    public void SetNameProduct(String nameProduct);
-    public String GetNameProduct();
+    public void setNameProduct(String nameProduct);
+    public String getNameProduct();
 
-    public void SetCount(int count);
-    public int GetCount();
+    public void setCount(int count);
+    public int getCount();
 
-    public void SetPrice(int price);
-    public int GetPrice();
+    public void setPrice(int price);
+    public int getPrice();
 }

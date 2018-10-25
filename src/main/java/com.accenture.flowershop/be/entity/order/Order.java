@@ -33,62 +33,62 @@ public class Order implements OrderInterface{
     }
 
     @Override
-    public void SetIdOrder(int id) {
+    public void setIdOrder(int id) {
         this.idOrder = id;
     }
 
     @Override
-    public int GetIdOrder() {
+    public int getIdOrder() {
         return idOrder;
     }
 
     @Override
-    public void SetUsersId(int users_Id) {
+    public void setUsersId(int users_Id) {
         this.users_Id = users_Id;
     }
 
     @Override
-    public int GetUsersId() {
+    public int getUsersId() {
         return users_Id;
     }
 
     @Override
-    public void SetStatus(String status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
     @Override
-    public String GetStatus() {
+    public String getStatus() {
         return status;
     }
 
     @Override
-    public void SetAmount(int amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 
     @Override
-    public int GetAmount() {
+    public int getAmount() {
         return amount;
     }
 
     @Override
-    public void SetDateCreate(Date dateCreate) {
+    public void setDateCreate(Date dateCreate) {
         this.dateCreate = dateCreate;
     }
 
     @Override
-    public Date GetDateCreate() {
+    public Date getDateCreate() {
         return dateCreate;
     }
 
     @Override
-    public void SetDateClose(Date dateClose) {
+    public void setDateClose(Date dateClose) {
         this.dateClose = dateClose;
     }
 
     @Override
-    public Date GetDateClose() {
+    public Date getDateClose() {
         return dateClose;
     }
 }

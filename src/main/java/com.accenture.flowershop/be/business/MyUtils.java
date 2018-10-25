@@ -42,7 +42,7 @@ public class MyUtils {
      */
     public static void storeLoginedUser(HttpSession session, Customer loginedUser)
     {
-        session.setAttribute("loginedUser", loginedUser);
+        session.setAttribute(loginedUser.getLogin(), loginedUser);
     }
 
     /**

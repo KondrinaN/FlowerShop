@@ -1,15 +1,15 @@
 package com.accenture.flowershop.be.entity.flower;
 
 public interface FlowerInterface {
-    public void SetId(int id);
-    public int GetId();
+    public void setId(int id);
+    public int getId();
 
-    public void SetNameFlower(String nameFlower);
-    public String GetNameFlower();
+    public void setNameFlower(String nameFlower);
+    public String getNameFlower();
 
-    public void SetBalance(int balance);
-    public int GetBalance();
+    public void setBalance(int balance);
+    public int getBalance();
 
-    public void SetPrice(int price);
-    public int GetPrice();
+    public void setPrice(int price);
+    public int getPrice();
 }

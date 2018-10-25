@@ -1,4 +1,4 @@
-package com.accenture.flowershop.be.access;
+/*package com.accenture.flowershop.be.access;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -25,3 +25,4 @@ public class OracleConnectionBD {
         return connection;
     }
 }
+*/
