@@ -16,10 +16,10 @@
 <body>
     <h2>Home Flower Shop</h2>
             <% String login=request.getParameter("Login"); %>
-            <% String login=request.getParameter("CashBalance"); %>
-            <% String login=request.getParameter("Discount"); %>
+            <% String cashBalance=request.getParameter("CashBalance"); %>
+            <% String discount=request.getParameter("Discount"); %>
 
-            <h4>You are logged in as: <%= login %> Balance: 0 Discount: 0%</h4>
+            <h4>You are logged in as: <%= login %> Balance: <%= cashBalance %> Discount: <%= discount %>%</h4>
 
     <p><a href="/">LogOut</a></p>
 </body>
