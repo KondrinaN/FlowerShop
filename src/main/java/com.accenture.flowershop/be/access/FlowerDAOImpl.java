@@ -1,10 +1,12 @@
 package com.accenture.flowershop.be.access;
 
 import com.accenture.flowershop.be.entity.flower.Flower;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public class FlowerDAOlmpl implements FlowerDAO {
+@Repository("flowerDAOImpl")
+public class FlowerDAOImpl implements FlowerDAO {
 
     @Override
     public List<Flower> findAll() {

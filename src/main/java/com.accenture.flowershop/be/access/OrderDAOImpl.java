@@ -1,18 +1,24 @@
 package com.accenture.flowershop.be.access;
 
-import com.accenture.flowershop.be.entity.order.RowOrder;
+import com.accenture.flowershop.be.entity.order.Order;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public class RowOrderDAOlmpl implements RowOrderDAO {
-
+@Repository("orderDAOImpl")
+public class OrderDAOImpl implements OrderDAO {
     @Override
-    public List<RowOrder> findAll() {
+    public List<Order> findAll() {
         return null;
     }
 
     @Override
-    public RowOrder findRowOrderById() {
+    public Order findOrderById() {
+        return null;
+    }
+
+    @Override
+    public Order findOrderByUser() {
         return null;
     }
 

@@ -1,6 +1,6 @@
 package com.accenture.flowershop.be.business;
 
-import com.accenture.flowershop.be.access.FlowerDAOlmpl;
+import com.accenture.flowershop.be.access.FlowerDAOImpl;
 import com.accenture.flowershop.be.entity.flower.Flower;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,10 +8,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service("flowerBusinessService")
-public class FlowerBusinessServicelmpl implements FlowerBusinessService {
+public class FlowerBusinessServiceImpl implements FlowerBusinessService {
 
     @Autowired
-    private FlowerDAOlmpl flowerDAO;
+    private FlowerDAOImpl flowerDAO;
+
+    public FlowerBusinessServiceImpl(){
+        System.out.println("flowerBusinessService");
+    }
 
     @Override
     public List<Flower> findAllFlowers() {
@@ -27,4 +31,5 @@ public class FlowerBusinessServicelmpl implements FlowerBusinessService {
     public void deleteFlower(int idFlower) {
 
     }
+
 }

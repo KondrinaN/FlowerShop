@@ -1,10 +1,12 @@
 package com.accenture.flowershop.be.access;
 
 import com.accenture.flowershop.be.entity.user.Customer;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public class UserDAOlmpl implements UserDAO{
+@Repository("userDAOImpl")
+public class UserDAOImpl implements UserDAO{
 
 
     @Override

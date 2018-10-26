@@ -9,5 +9,4 @@ public interface FlowerBusinessService {
     List<Flower> findAllFlowers();
     Flower findFlowerById(int idFlower);
     void deleteFlower(int idFlower);
-
 }
