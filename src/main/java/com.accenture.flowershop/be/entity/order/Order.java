@@ -1,5 +1,7 @@
 package com.accenture.flowershop.be.entity.order;
 
+import com.accenture.flowershop.fe.enums.order.StatusOrder;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -12,11 +14,12 @@ public class Order implements OrderInterface{
     private int idOrder;
 
 
-    @Column(name = "IdUser")
+    @OneToMany
+    @JoinColumn(name = "IdUser")
     private int users_Id;
 
     @Column(name = "Status")
-    private String status;
+    private StatusOrder status;
 
     @Column(name = "Amount")
     private int amount;
@@ -27,7 +30,9 @@ public class Order implements OrderInterface{
     @Column(name = "DateClose")
     private Date dateClose;
 
-    public Order(int idOrder, int users_Id, String status, int amount, Date dateCreate, Date dateClose) {
+    public Order(){}
+
+    public Order(int idOrder, int users_Id, StatusOrder status, int amount, Date dateCreate, Date dateClose) {
         this.idOrder = idOrder;
         this.users_Id = users_Id;
         this.status = status;
@@ -57,12 +62,12 @@ public class Order implements OrderInterface{
     }
 
     @Override
-    public void setStatus(String status) {
+    public void setStatus(StatusOrder status) {
         this.status = status;
     }
 
     @Override
-    public String getStatus() {
+    public StatusOrder getStatus() {
         return status;
     }
 

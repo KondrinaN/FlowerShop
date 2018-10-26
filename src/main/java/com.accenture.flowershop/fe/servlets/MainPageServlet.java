@@ -1,5 +1,11 @@
 package com.accenture.flowershop.fe.servlets;
 
+import com.accenture.flowershop.be.access.UserDAO;
+import com.accenture.flowershop.be.business.UserBusinessService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
+
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,7 +18,15 @@ import java.util.Enumeration;
 @WebServlet(urlPatterns = "/mainPage")
 public class MainPageServlet extends HttpServlet{
 
+    @Autowired
+    private UserBusinessService userService;
+
     private static final long serialVersionUID = 1L;
+
+    public void init(ServletConfig servletConfig) throws ServletException {
+        super.init(servletConfig);
+        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, servletConfig.getServletContext());
+    }
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -33,9 +47,19 @@ public class MainPageServlet extends HttpServlet{
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws  ServletException, IOException{
+
         String param = request.getParameter("Login");
+        String pwd = request.getParameter("Password");
         request.setAttribute("Login", param);
-        request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
+
+        if (!param.isEmpty() && !pwd.isEmpty())
+            request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
+        else
+        {
+            request.setAttribute("Error", "Login can't be empty!");
+            request.getRequestDispatcher("/").forward(request, response);
+        }
+
         //super.doPost(request, response);
     }
 }

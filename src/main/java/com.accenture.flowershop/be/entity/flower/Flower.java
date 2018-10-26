@@ -19,6 +19,8 @@ public class Flower implements FlowerInterface{
     @Column(name = "Price")
     private double price;
 
+    public Flower(){}
+
     public Flower(int idFlower, String nameFlower, int balance, double price)
     {
         this.idFlower = idFlower;

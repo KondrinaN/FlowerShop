@@ -20,9 +20,8 @@ public class CustomerDTO {
 
     }
 
-    public CustomerDTO(int idUser, String login, String password, String surname, String name, String patronymic, String address, double cashBalance, int discount, UserShop userRole)
+    public CustomerDTO(String login, String password, String surname, String name, String patronymic, String address, double cashBalance, int discount, UserShop userRole)
     {
-        this.idUser = idUser;
         this.login = login;
         this.password = password;
         this.surname = surname;

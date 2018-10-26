@@ -2,6 +2,9 @@ package com.accenture.flowershop.be.business;
 
 import com.accenture.flowershop.be.access.UserDAOImpl;
 import com.accenture.flowershop.be.entity.user.Customer;
+import com.accenture.flowershop.fe.dto.CustomerDTO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +14,12 @@ public class UserBusinessServiceImpl implements UserBusinessService{
     @Autowired
     private UserDAOImpl userDAO;
 
+    private static final Logger LOG = 	LoggerFactory.getLogger(UserBusinessServiceImpl.class);
+
     public UserBusinessServiceImpl()
     {
-        System.out.println("userBusinessService");
+       // LOG.debug("User");
+        //System.out.println("userBusinessService");
     }
 
     @Override
@@ -23,7 +29,7 @@ public class UserBusinessServiceImpl implements UserBusinessService{
     }
 
     @Override
-    public Customer register(String login, String password, String surname, String name, String patronymic, String address, double cashBalance, int discount) {
+    public Customer register(CustomerDTO customerDTO) {
         return null;
     }
 

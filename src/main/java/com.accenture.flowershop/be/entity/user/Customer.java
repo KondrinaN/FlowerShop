@@ -33,6 +33,8 @@ public class Customer extends User {
     @Column(name = "UserRole")
     private UserShop userRole;
 
+    public Customer(){}
+
     public Customer(String login, String password, String surname, String name, String patronymic, String address, double cashBalance, int discount, UserShop userRole)
     {
         super(login, password);

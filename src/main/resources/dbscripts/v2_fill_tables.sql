@@ -8,13 +8,13 @@ Insert into Users ("IdUser", "Login", "Surname", "Name", "Patronymic", "Address"
 Insert into Users ("IdUser", "Login", "Surname", "Name", "Patronymic", "Address", "Cashbalance", "Discount", "Password", "UserRole") values (USERS_SEQ.NEXTVAL, 'admin', '', '','','', 0, 0, '�:{�s%�i��', 'admin');
 
 
-Insert into Flowers ("IdFlower", "NameFlower", "Balance", "Price") values (FLOWERS_SEQ.NEXTVAL, 'NameFlower1', 15, 120);
-Insert into Flowers ("IdFlower", "NameFlower", "Balance", "Price") values (FLOWERS_SEQ.NEXTVAL, 'NameFlower2', 35, 70);
-Insert into Flowers ("IdFlower", "NameFlower", "Balance", "Price") values (FLOWERS_SEQ.NEXTVAL, 'NameFlower3', 0, 90);
-Insert into Flowers ("IdFlower", "NameFlower", "Balance", "Price") values (FLOWERS_SEQ.NEXTVAL, 'NameFlower4', 2, 150);
-Insert into Flowers ("IdFlower", "NameFlower", "Balance", "Price") values (FLOWERS_SEQ.NEXTVAL, 'NameFlower5', 10, 100);
+Insert into Flowers ("IdFlower", "NameFlower", "Balance", "Price", "FlowerAvailability") values (FLOWERS_SEQ.NEXTVAL, 'NameFlower1', 15, 120, 'areAvailable');
+Insert into Flowers ("IdFlower", "NameFlower", "Balance", "Price", "FlowerAvailability") values (FLOWERS_SEQ.NEXTVAL, 'NameFlower2', 35, 70, 'notAvailable');
+Insert into Flowers ("IdFlower", "NameFlower", "Balance", "Price", "FlowerAvailability") values (FLOWERS_SEQ.NEXTVAL, 'NameFlower3', 0, 90, 'areAvailable');
+Insert into Flowers ("IdFlower", "NameFlower", "Balance", "Price", "FlowerAvailability") values (FLOWERS_SEQ.NEXTVAL, 'NameFlower4', 2, 150, 'notAvailable');
+Insert into Flowers ("IdFlower", "NameFlower", "Balance", "Price", "FlowerAvailability") values (FLOWERS_SEQ.NEXTVAL, 'NameFlower5', 10, 100, 'areAvailable');
 
-Insert into Orders ("IdOrder", "Users_Id", "Status", "Amount", "DateCreate", "DateClose") values (ORDERS_SEQ.NEXTVAL, 1, 'закрыт', 5, to_date('2018-09-22 11:00:00', 'YYYY-MM-DD hh:mm:ss'), to_date('2018-09-25 10:00:00', 'YYYY-MM-DD hh:mm:ss'));
+Insert into Orders ("IdOrder", "Users_Id", "Status", "Amount", "DateCreate", "DateClose") values (ORDERS_SEQ.NEXTVAL, 1, 'закрыт', 5, to_date('2018-09-22 11:00:00', 'YYYY-MM-DD hh:mm:ss'), to_date('2018-09-25 10:00:00', 'YYYY-MM-DD hh:mm:ss'), '');
 Insert into Orders ("IdOrder", "Users_Id", "Status", "Amount", "DateCreate", "DateClose") values (ORDERS_SEQ.NEXTVAL, 2, 'оплачен', 10, to_date('2018-09-27 12:00:00', 'YYYY-MM-DD hh:mm:ss'), to_date('2018-10-01 08:00:00', 'YYYY-MM-DD hh:mm:ss'));
 Insert into Orders ("IdOrder", "Users_Id", "Status", "Amount", "DateCreate", "DateClose") values (ORDERS_SEQ.NEXTVAL, 2, 'оплачен', 3, to_date('2018-10-01 10:00:00', 'YYYY-MM-DD hh:mm:ss'), to_date('2018-10-12 09:00:00', 'YYYY-MM-DD hh:mm:ss'));
 Insert into Orders ("IdOrder", "Users_Id", "Status", "Amount", "DateCreate", "DateClose") values (ORDERS_SEQ.NEXTVAL, 1, 'создан', 12, to_date('2018-10-03 11:00:00', 'YYYY-MM-DD hh:mm:ss'), to_date('2018-10-05 11:00:00', 'YYYY-MM-DD hh:mm:ss'));

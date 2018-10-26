@@ -2,6 +2,8 @@ package com.accenture.flowershop.be.business;
 
 import com.accenture.flowershop.be.access.RowOrderDAOImpl;
 import com.accenture.flowershop.be.entity.order.RowOrder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,9 +15,12 @@ public class RowOrderBusinessServiceImpl implements  RowOrderBusinessService{
     @Autowired
     private RowOrderDAOImpl rowOrderDAO;
 
+    private static final Logger LOG = 	LoggerFactory.getLogger(RowOrderBusinessServiceImpl.class);
+
     public RowOrderBusinessServiceImpl()
     {
-        System.out.println("rowOrderBusinessService");
+        //LOG.debug("RowOrder");
+        //System.out.println("rowOrderBusinessService");
     }
 
     @Override

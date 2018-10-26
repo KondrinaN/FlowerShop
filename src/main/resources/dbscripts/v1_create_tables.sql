@@ -23,6 +23,7 @@
         "NameFlower" VARCHAR2(45 CHAR) NOT NULL,
         "Balance" NUMBER(10,0) NOT NULL,
         "Price" NUMBER(10,2) NOT NULL,
+        "FlowerAvailability" VARCHAR2(45 CHAR) NOT NULL,
    );
 --------------------------------------------------------
 --  DDL for Table Orders

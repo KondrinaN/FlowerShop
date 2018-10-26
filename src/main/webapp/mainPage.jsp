@@ -15,11 +15,12 @@
     </head>
 <body>
     <h2>Home Flower Shop</h2>
-            <h4>You are logged in as:  <%= request.getParameter("Login") %></h4>
+            <% String login=request.getParameter("Login"); %>
+            <% String login=request.getParameter("CashBalance"); %>
+            <% String login=request.getParameter("Discount"); %>
 
-            <c:if test="${Login == null}" >
-                 <div>"Login can't be empty!"</div>
-            </c:if>
-    <p><a href="LogOut">LogOut</a></p>
+            <h4>You are logged in as: <%= login %> Balance: 0 Discount: 0%</h4>
+
+    <p><a href="/">LogOut</a></p>
 </body>
 </html>

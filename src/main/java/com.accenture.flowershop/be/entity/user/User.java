@@ -9,6 +9,10 @@ public class User implements UserInterface{
     @Column(name = "Password")
     protected String password;
 
+    public User() {
+    }
+
+
     public User(String login, String password)
     {
         this.login = login;

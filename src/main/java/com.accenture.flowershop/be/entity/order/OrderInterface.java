@@ -1,5 +1,7 @@
 package com.accenture.flowershop.be.entity.order;
 
+import com.accenture.flowershop.fe.enums.order.StatusOrder;
+
 import java.util.Date;
 
 public interface OrderInterface {
@@ -9,8 +11,8 @@ public interface OrderInterface {
     public void setUsersId(int users_Id);
     public int getUsersId();
 
-    public void setStatus(String status);
-    public String getStatus();
+    public void setStatus(StatusOrder status);
+    public StatusOrder getStatus();
 
     public void setAmount(int amount);
     public int getAmount();
