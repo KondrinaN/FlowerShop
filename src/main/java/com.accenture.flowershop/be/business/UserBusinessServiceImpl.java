@@ -3,6 +3,7 @@ package com.accenture.flowershop.be.business;
 import com.accenture.flowershop.be.access.UserDAOImpl;
 import com.accenture.flowershop.be.entity.user.Customer;
 import com.accenture.flowershop.fe.dto.CustomerDTO;
+import com.accenture.flowershop.fe.enums.customer.UserShop;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +30,11 @@ public class UserBusinessServiceImpl implements UserBusinessService{
     }
 
     @Override
-    public Customer register(CustomerDTO customerDTO) {
-        return null;
+    public Customer register(String login, String password, String surname, String name, String patronymic, String address, double cashBalance, int discount, UserShop userRole) {
+
+        Customer customer = new Customer(login, password, surname, name, patronymic, address, cashBalance, discount, userRole);
+
+        return customer;
     }
 
     @Override

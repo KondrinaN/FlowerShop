@@ -14,12 +14,11 @@
                 </style>
     </head>
 <body>
-    <h2>Home Flower Shop</h2>
-            <% String login=request.getParameter("Login"); %>
-            <% String cashBalance=request.getParameter("CashBalance"); %>
-            <% String discount=request.getParameter("Discount"); %>
 
-            <h4>You are logged in as: <%= login %> Balance: <%= cashBalance %> Discount: <%= discount %>%</h4>
+    <h2>Home Flower Shop</h2>
+
+
+            <h4>You are logged in as: ${sessionScope.customer.login} Balance: ${sessionScope.customer.cashBalance} Discount: ${sessionScope.customer.discount}</h4>
 
     <p><a href="/">LogOut</a></p>
 </body>

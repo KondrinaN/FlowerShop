@@ -1,5 +1,6 @@
 package com.accenture.flowershop.fe.dto;
 
+import com.accenture.flowershop.be.entity.user.Customer;
 import com.accenture.flowershop.fe.enums.customer.UserShop;
 
 public class CustomerDTO {
@@ -31,6 +32,17 @@ public class CustomerDTO {
         this.cashBalance = cashBalance;
         this.discount = discount;
         this.userRole = userRole;
+    }
+
+    public CustomerDTO convertCustomerToCustomerDTO(Customer customer)
+    {
+        if (customer!= null)
+        {
+            return new CustomerDTO(customer.getLogin(), customer.getPassword(), customer.getSurname(),
+                    customer.getName(), customer.getPatronymic(), customer.getAddress(),
+                    customer.getCashBalance(), customer.getDiscount(), customer.getUserRole());
+        }
+        return null;
     }
 
 

@@ -49,10 +49,8 @@ public class MainPageServlet extends HttpServlet{
             throws  ServletException, IOException{
 
         String param = request.getParameter("Login");
-        String pwd = request.getParameter("Password");
-        request.setAttribute("Login", param);
 
-        if (!param.isEmpty() && !pwd.isEmpty())
+        if (!param.isEmpty())
             request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
         else
         {

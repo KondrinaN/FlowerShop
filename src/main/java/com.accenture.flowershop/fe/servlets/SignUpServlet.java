@@ -1,18 +1,21 @@
 package com.accenture.flowershop.fe.servlets;
 
 import com.accenture.flowershop.be.business.UserBusinessService;
+import com.accenture.flowershop.be.business.UserBusinessServiceImpl;
 import com.accenture.flowershop.be.entity.user.Customer;
 import com.accenture.flowershop.fe.dto.CustomerDTO;
 import com.accenture.flowershop.fe.enums.customer.UserShop;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -49,24 +52,32 @@ public class SignUpServlet extends HttpServlet{
         throws  ServletException, IOException{
 
         String param = request.getParameter("Login");
-        String pwd = request.getParameter("Password");
-        request.setAttribute("Login", param);
-        request.setAttribute("CashBalance", request.getParameter("CashBalance"));
-        request.setAttribute("Discount", request.getParameter("Discount"));
+      //  String pwd = request.getParameter("Password");
 
-        CustomerDTO customerDTO = new CustomerDTO(request.getParameter("Login"), request.getParameter("Password"), request.getParameter("Surname"),
+        request.setAttribute("Login", param);
+
+        CustomerDTO customerDTO = new CustomerDTO(param, request.getParameter("Password"), request.getParameter("Surname"),
                 request.getParameter("Name"), request.getParameter("Patronymic"), request.getParameter("Address"),
                 2000, 0, UserShop.buyer);
 
-        Customer customer = userService.register(customerDTO);
+        Customer customer = null;
 
-
-        if (!param.isEmpty() && !pwd.isEmpty())
-            request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
-        else
+        try{
+            customer = userService.register(param, request.getParameter("Password"), request.getParameter("Surname"),
+                    request.getParameter("Name"), request.getParameter("Patronymic"), request.getParameter("Address"),
+                    2000, 0, UserShop.buyer);
+        }
+        catch (Exception exc)
         {
-            request.setAttribute("Error", "Login can't be empty!");
-            request.getRequestDispatcher("/").forward(request, response);
+            request.setAttribute("Error", "User not created!");
+        }
+
+        if (customer!=null)
+        {
+            HttpSession session = request.getSession();
+            session.setAttribute("customer", customerDTO.convertCustomerToCustomerDTO(customer));
+            response.sendRedirect("/mainPage");
+            //request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
         }
     }
 }

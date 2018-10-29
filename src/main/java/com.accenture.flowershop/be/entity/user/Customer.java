@@ -1,5 +1,6 @@
 package com.accenture.flowershop.be.entity.user;
 
+import com.accenture.flowershop.fe.dto.CustomerDTO;
 import com.accenture.flowershop.fe.enums.customer.UserShop;
 
 import javax.persistence.*;
@@ -46,6 +47,7 @@ public class Customer extends User {
         this.discount = discount;
         this.userRole = userRole;
     }
+
 
     public int getIdUser() {
         return idUser;
