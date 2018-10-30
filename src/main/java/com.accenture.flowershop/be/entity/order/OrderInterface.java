@@ -5,11 +5,11 @@ import com.accenture.flowershop.fe.enums.order.StatusOrder;
 import java.util.Date;
 
 public interface OrderInterface {
-    public void setIdOrder(int id);
-    public int getIdOrder();
+    public void setIdOrder(Long id);
+    public Long getIdOrder();
 
-    public void setUsersId(int users_Id);
-    public int getUsersId();
+    public void setUsersId(Long users_Id);
+    public Long getUsersId();
 
     public void setStatus(StatusOrder status);
     public StatusOrder getStatus();

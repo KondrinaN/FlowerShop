@@ -1,6 +1,8 @@
 package com.accenture.flowershop.be.entity.order;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "RowsOrders")
@@ -8,11 +10,11 @@ public class RowOrder implements RowOrderInterface{
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ROWS_ORDERS_SEQ")
     @SequenceGenerator(name="ROWS_ORDERS_SEQ", sequenceName = "ROWS_ORDERS_SEQ", allocationSize = 1)
-    private int idRowOrder;
+    private Long idRowOrder;
 
     @OneToMany
     @JoinColumn(name = "idOrder")
-    private int orderId;
+    private Long orderId;
 
     @Column(name = "NameProduct")
     private String nameProduct;
@@ -25,33 +27,32 @@ public class RowOrder implements RowOrderInterface{
 
     public RowOrder(){}
 
-    public RowOrder(int idRowOrder, int orderId, String nameProduct, int count, int price) {
+    public RowOrder(Long idRowOrder, String nameProduct, int count, int price) {
         this.idRowOrder = idRowOrder;
-        this.orderId = orderId;
         this.nameProduct = nameProduct;
         this.count = count;
         this.price = price;
     }
 
+
+
     @Override
-    public void setIdRowOrder(int id) {
+    public void setIdRowOrder(Long id) {
         this.idRowOrder=id;
     }
 
     @Override
-    public int getIdRowOrder() {
+    public Long getIdRowOrder() {
         return idRowOrder;
     }
 
     @Override
-    public void setIdOrder(int orderId) {
-        this.orderId =orderId;
-    }
+    public Long getOrderId() { return orderId; }
 
     @Override
-    public int getIdOrder() {
-        return orderId;
+    public void setOrderId(Long orderId) { this.orderId = orderId;
     }
+
 
     @Override
     public void setNameProduct(String nameProduct) {

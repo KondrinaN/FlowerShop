@@ -1,7 +1,11 @@
 package com.accenture.flowershop.be.entity.user;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Table;
 
+@MappedSuperclass
 public class User implements UserInterface{
     @Column(name = "Login", unique = true)
     protected String login;

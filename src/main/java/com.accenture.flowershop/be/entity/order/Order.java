@@ -11,12 +11,12 @@ public class Order implements OrderInterface{
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ORDERS_SEQ")
     @SequenceGenerator(name="ORDERS_SEQ", sequenceName = "ORDERS_SEQ", allocationSize = 1)
-    private int idOrder;
+    private Long idOrder;
 
 
     @OneToMany
     @JoinColumn(name = "IdUser")
-    private int users_Id;
+    private Long users_Id;
 
     @Column(name = "Status")
     private StatusOrder status;
@@ -32,7 +32,7 @@ public class Order implements OrderInterface{
 
     public Order(){}
 
-    public Order(int idOrder, int users_Id, StatusOrder status, int amount, Date dateCreate, Date dateClose) {
+    public Order(Long idOrder, Long users_Id, StatusOrder status, int amount, Date dateCreate, Date dateClose) {
         this.idOrder = idOrder;
         this.users_Id = users_Id;
         this.status = status;
@@ -42,22 +42,22 @@ public class Order implements OrderInterface{
     }
 
     @Override
-    public void setIdOrder(int id) {
+    public void setIdOrder(Long id) {
         this.idOrder = id;
     }
 
     @Override
-    public int getIdOrder() {
+    public Long getIdOrder() {
         return idOrder;
     }
 
     @Override
-    public void setUsersId(int users_Id) {
+    public void setUsersId(Long users_Id) {
         this.users_Id = users_Id;
     }
 
     @Override
-    public int getUsersId() {
+    public Long getUsersId() {
         return users_Id;
     }
 

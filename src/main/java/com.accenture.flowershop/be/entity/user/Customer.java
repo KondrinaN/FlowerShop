@@ -4,6 +4,7 @@ import com.accenture.flowershop.fe.dto.CustomerDTO;
 import com.accenture.flowershop.fe.enums.customer.UserShop;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "Users")
@@ -11,7 +12,7 @@ public class Customer extends User {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USERS_SEQ")
     @SequenceGenerator(name="USERS_SEQ", sequenceName = "USERS_SEQ", allocationSize = 1)
-    private int idUser;
+    private Long idUser;
 
     @Column(name = "Surname")
     private String surname;
@@ -26,10 +27,10 @@ public class Customer extends User {
     private String address;
 
     @Column(name = "CashBalance")
-    private double cashBalance;
+    private BigDecimal cashBalance;
 
     @Column(name = "Discount")
-    private int discount;
+    private BigDecimal discount;
 
     @Column(name = "UserRole")
     private UserShop userRole;
@@ -38,9 +39,11 @@ public class Customer extends User {
 
     public Customer(String login, String password){
         super(login, password);
+        this.cashBalance= new BigDecimal(0);
+        this.discount = new BigDecimal(0);
     }
 
-    public Customer(String login, String password, String surname, String name, String patronymic, String address, double cashBalance, int discount, UserShop userRole)
+    public Customer(String login, String password, String surname, String name, String patronymic, String address, BigDecimal cashBalance, BigDecimal discount, UserShop userRole)
     {
         super(login, password);
         this.surname = surname;
@@ -63,11 +66,11 @@ public class Customer extends User {
         return null;
     }
 
-    public int getIdUser() {
+    public Long getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(int idUser) {
+    public void setIdUser(Long idUser) {
         this.idUser = idUser;
     }
 
@@ -103,19 +106,19 @@ public class Customer extends User {
         this.address = address;
     }
 
-    public double getCashBalance() {
+    public BigDecimal getCashBalance() {
         return cashBalance;
     }
 
-    public void setCashBalance(double cashBalance) {
+    public void setCashBalance(BigDecimal cashBalance) {
         this.cashBalance = cashBalance;
     }
 
-    public int getDiscount() {
+    public BigDecimal getDiscount() {
         return discount;
     }
 
-    public void setDiscount(int discount) {
+    public void setDiscount(BigDecimal discount) {
         this.discount = discount;
     }
 

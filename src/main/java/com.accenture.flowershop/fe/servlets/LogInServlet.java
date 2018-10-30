@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 
 @WebServlet("/index")
 public class LogInServlet extends HttpServlet {
@@ -34,7 +35,6 @@ public class LogInServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html"); //отображение как html
-        PrintWriter out = response.getWriter();
         request.getRequestDispatcher("/").forward(request, response);
     }
 

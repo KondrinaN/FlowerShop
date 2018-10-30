@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 
 @WebServlet(urlPatterns = "/signUp")
 public class SignUpServlet extends HttpServlet{
@@ -58,14 +59,14 @@ public class SignUpServlet extends HttpServlet{
 
             CustomerDTO customerDTO = new CustomerDTO(param, request.getParameter("Password"), request.getParameter("Surname"),
                     request.getParameter("Name"), request.getParameter("Patronymic"), request.getParameter("Address"),
-                    2000, 0, UserShop.buyer);
+                    new BigDecimal(2000),  new BigDecimal(0), UserShop.buyer);
 
             Customer customer = null;
 
             try {
                 customer = userService.register(param, request.getParameter("Password"), request.getParameter("Surname"),
                         request.getParameter("Name"), request.getParameter("Patronymic"), request.getParameter("Address"),
-                        2000, 0, UserShop.buyer);
+                        new BigDecimal(2000), new BigDecimal(0), UserShop.buyer);
             } catch (Exception exc) {
                 request.setAttribute("Error", "User not created!");
             }

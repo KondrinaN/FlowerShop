@@ -1,6 +1,7 @@
 package com.accenture.flowershop.be.entity.flower;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "Flowers")
@@ -8,20 +9,20 @@ public class Flower implements FlowerInterface{
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "FLOWERS_SEQ")
     @SequenceGenerator(name="FLOWERS_SEQ", sequenceName = "FLOWERS_SEQ", allocationSize = 1)
-    private int idFlower;
+    private Long idFlower;
 
     @Column(name = "NameFlower")
     private String nameFlower;
 
     @Column(name = "Balance")
-    private int balance;
+    private BigDecimal balance;
 
     @Column(name = "Price")
-    private double price;
+    private BigDecimal price;
 
     public Flower(){}
 
-    public Flower(int idFlower, String nameFlower, int balance, double price)
+    public Flower(Long idFlower, String nameFlower, BigDecimal balance, BigDecimal price)
     {
         this.idFlower = idFlower;
         this.nameFlower = nameFlower;
@@ -30,12 +31,12 @@ public class Flower implements FlowerInterface{
     }
 
     @Override
-    public void setId(int id) {
+    public void setId(Long id) {
         this.idFlower = id;
     }
 
     @Override
-    public int getId() {
+    public Long getId() {
         return idFlower;
     }
 
@@ -50,22 +51,22 @@ public class Flower implements FlowerInterface{
     }
 
     @Override
-    public void setBalance(int balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
 
     @Override
-    public int getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
     @Override
-    public void setPrice(int price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
     @Override
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 }

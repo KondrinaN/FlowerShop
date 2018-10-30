@@ -1,12 +1,14 @@
 package com.accenture.flowershop.be.entity.order;
 
+import java.util.List;
+
 public interface RowOrderInterface {
 
-    public void setIdRowOrder(int id);
-    public int getIdRowOrder();
+    public void setIdRowOrder(Long id);
+    public Long getIdRowOrder();
 
-    public void setIdOrder(int orderId);
-    public int getIdOrder();
+    public Long getOrderId();
+    public void setOrderId(Long orderId);
 
     public void setNameProduct(String nameProduct);
     public String getNameProduct();

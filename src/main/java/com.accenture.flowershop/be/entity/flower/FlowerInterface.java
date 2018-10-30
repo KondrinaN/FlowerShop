@@ -1,15 +1,17 @@
 package com.accenture.flowershop.be.entity.flower;
 
+import java.math.BigDecimal;
+
 public interface FlowerInterface {
-    public void setId(int id);
-    public int getId();
+    public void setId(Long id);
+    public Long getId();
 
     public void setNameFlower(String nameFlower);
     public String getNameFlower();
 
-    public void setBalance(int balance);
-    public int getBalance();
+    public void setBalance(BigDecimal balance);
+    public BigDecimal getBalance();
 
-    public void setPrice(int price);
-    public double getPrice();
+    public void setPrice(BigDecimal price);
+    public BigDecimal getPrice();
 }
