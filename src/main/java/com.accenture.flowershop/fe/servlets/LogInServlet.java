@@ -43,27 +43,38 @@ public class LogInServlet extends HttpServlet {
         String param = request.getParameter("Login");
         String pwd = request.getParameter("Password");
 
-        request.setAttribute("Login", param);
+        if(!param.isEmpty() && !pwd.isEmpty()) {
+            request.setAttribute("Login", param);
 
-        CustomerDTO customerDTO = new CustomerDTO(param, request.getParameter("Password"));
+            CustomerDTO customerDTO = new CustomerDTO(param, request.getParameter("Password"));
 
-        Customer customer = null;
+            Customer customer = null;
 
-        try{
-            customer = userService.logIn(param, pwd);
+            try{
+                customer = userService.logIn(param, pwd);
+            }
+            catch (Exception exc)
+            {
+                request.setAttribute("Error", "User not created!");
+            }
+
+            if (customer!=null)
+            {
+                HttpSession session = request.getSession();
+                session.setAttribute("customer", customerDTO.convertCustomerToCustomerDTO(customer));
+
+                response.sendRedirect("/mainPage");
+                //request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
+            }
         }
-        catch (Exception exc)
-        {
-            request.setAttribute("Error", "User not created!");
-        }
-
-        if (customer!=null)
-        {
-            HttpSession session = request.getSession();
-            session.setAttribute("customer", customerDTO.convertCustomerToCustomerDTO(customer));
-
-            response.sendRedirect("/mainPage");
-            //request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
+        else {
+            request.setAttribute("Error", "Login or password can't be empty!");
+            PrintWriter out = response.getWriter();
+            out.println("<HTML>");
+            out.println("<BODY>");
+            out.println("ERROR: " + request.getAttribute("Error"));
+            out.println("</BODY></HTML>");
+            request.getRequestDispatcher("/").forward(request, response);
         }
     }
 }

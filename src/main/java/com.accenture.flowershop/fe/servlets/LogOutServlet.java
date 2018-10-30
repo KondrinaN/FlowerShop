@@ -35,7 +35,6 @@ public class LogOutServlet extends HttpServlet {
 
         response.setContentType("text/html"); //отображение как html
         PrintWriter out = response.getWriter();
-        //response.sendRedirect("/");
 
         HttpSession session = request.getSession();
 

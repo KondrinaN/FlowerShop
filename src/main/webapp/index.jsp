@@ -30,6 +30,12 @@
         </form>
     </div>
 
+<p></p>
+        <% if (request.getAttribute("Error") != null) { %>
+                    <%= (String)request.getAttribute("Error") %>
+                <% }
+         %>
+
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/eggplant/jquery-ui.css">

@@ -19,11 +19,13 @@
              <p><input type='submit' name='OK' value="OK" align="center" onclick="openPage('mainPage')"/></p>
              <p></p>
          </form>
+
         <script>
                 function openPage(pageURL)
                 {
                     window.location.href = pageURL;
                 }
         </script>
+
 </body>
 </html>

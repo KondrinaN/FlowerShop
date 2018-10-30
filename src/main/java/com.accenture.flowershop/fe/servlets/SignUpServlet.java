@@ -36,7 +36,6 @@ public class SignUpServlet extends HttpServlet{
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
         response.setContentType("text/html"); //отображение как html
-        PrintWriter out = response.getWriter();
         request.getRequestDispatcher("/signUp.jsp").forward(request, response);
     }
 
@@ -52,33 +51,41 @@ public class SignUpServlet extends HttpServlet{
         throws  ServletException, IOException{
 
         String param = request.getParameter("Login");
-      //  String pwd = request.getParameter("Password");
+        String pwd = request.getParameter("Password");
 
-        request.setAttribute("Login", param);
+        if(!param.isEmpty() && !pwd.isEmpty()) {
+            request.setAttribute("Login", param);
 
-        CustomerDTO customerDTO = new CustomerDTO(param, request.getParameter("Password"), request.getParameter("Surname"),
-                request.getParameter("Name"), request.getParameter("Patronymic"), request.getParameter("Address"),
-                2000, 0, UserShop.buyer);
-
-        Customer customer = null;
-
-        try{
-            customer = userService.register(param, request.getParameter("Password"), request.getParameter("Surname"),
+            CustomerDTO customerDTO = new CustomerDTO(param, request.getParameter("Password"), request.getParameter("Surname"),
                     request.getParameter("Name"), request.getParameter("Patronymic"), request.getParameter("Address"),
                     2000, 0, UserShop.buyer);
-        }
-        catch (Exception exc)
-        {
-            request.setAttribute("Error", "User not created!");
-        }
 
-        if (customer!=null)
-        {
-            HttpSession session = request.getSession();
-            session.setAttribute("customer", customerDTO.convertCustomerToCustomerDTO(customer));
+            Customer customer = null;
 
-            response.sendRedirect("/mainPage");
-            //request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
+            try {
+                customer = userService.register(param, request.getParameter("Password"), request.getParameter("Surname"),
+                        request.getParameter("Name"), request.getParameter("Patronymic"), request.getParameter("Address"),
+                        2000, 0, UserShop.buyer);
+            } catch (Exception exc) {
+                request.setAttribute("Error", "User not created!");
+            }
+
+            if (customer != null) {
+                HttpSession session = request.getSession();
+                session.setAttribute("customer", customerDTO.convertCustomerToCustomerDTO(customer));
+
+                response.sendRedirect("/mainPage");
+                //request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
+            }
+        }
+        else {
+            request.setAttribute("Error", "First fill in the fields!");
+            PrintWriter out = response.getWriter();
+            out.println("<HTML>");
+            out.println("<BODY>");
+            out.println("ERROR: " + request.getAttribute("Error"));
+            out.println("</BODY></HTML>");
+            request.getRequestDispatcher("/signUp.jsp").forward(request, response);
         }
     }
 }
