@@ -1,5 +1,6 @@
 package com.accenture.flowershop.be.business;
 
+import com.accenture.flowershop.be.access.UserDAO;
 import com.accenture.flowershop.be.access.UserDAOImpl;
 import com.accenture.flowershop.be.entity.user.Customer;
 import com.accenture.flowershop.fe.dto.CustomerDTO;
@@ -16,7 +17,7 @@ import java.util.*;
 public class UserBusinessServiceImpl implements UserBusinessService{
 
     @Autowired
-    private UserDAOImpl userDAO;
+    private UserDAO userDAO;
 
     private Map<String, Customer> users;
 

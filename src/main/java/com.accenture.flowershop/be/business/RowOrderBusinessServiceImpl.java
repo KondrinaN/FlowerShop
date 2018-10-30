@@ -1,5 +1,6 @@
 package com.accenture.flowershop.be.business;
 
+import com.accenture.flowershop.be.access.RowOrderDAO;
 import com.accenture.flowershop.be.access.RowOrderDAOImpl;
 import com.accenture.flowershop.be.entity.order.RowOrder;
 import org.slf4j.Logger;
@@ -13,7 +14,7 @@ import java.util.List;
 public class RowOrderBusinessServiceImpl implements  RowOrderBusinessService{
 
     @Autowired
-    private RowOrderDAOImpl rowOrderDAO;
+    private RowOrderDAO rowOrderDAO;
 
     private static final Logger LOG = 	LoggerFactory.getLogger(RowOrderBusinessServiceImpl.class);
 

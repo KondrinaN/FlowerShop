@@ -28,8 +28,8 @@ public class LogInServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     public void init(ServletConfig servletConfig) throws ServletException {
-        super.init(servletConfig);
-        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, servletConfig.getServletContext());
+
+        SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext(this);//processInjectionBasedOnCurrentContext(this); //processInjectionBasedOnServletContext(this, servletConfig.getServletContext());
     }
 
     @Override

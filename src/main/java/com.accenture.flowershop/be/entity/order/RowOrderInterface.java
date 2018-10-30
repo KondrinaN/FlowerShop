@@ -7,8 +7,8 @@ public interface RowOrderInterface {
     public void setIdRowOrder(Long id);
     public Long getIdRowOrder();
 
-    public Long getOrderId();
-    public void setOrderId(Long orderId);
+    public Order getOrderId();
+    public void setOrderId(Order orderId);
 
     public void setNameProduct(String nameProduct);
     public String getNameProduct();

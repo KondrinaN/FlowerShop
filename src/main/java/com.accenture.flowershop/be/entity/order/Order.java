@@ -1,5 +1,6 @@
 package com.accenture.flowershop.be.entity.order;
 
+import com.accenture.flowershop.be.entity.user.Customer;
 import com.accenture.flowershop.fe.enums.order.StatusOrder;
 
 import javax.persistence.*;
@@ -14,9 +15,9 @@ public class Order implements OrderInterface{
     private Long idOrder;
 
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "IdUser")
-    private Long users_Id;
+    private Customer users_Id;
 
     @Column(name = "Status")
     private StatusOrder status;
@@ -32,7 +33,7 @@ public class Order implements OrderInterface{
 
     public Order(){}
 
-    public Order(Long idOrder, Long users_Id, StatusOrder status, int amount, Date dateCreate, Date dateClose) {
+    public Order(Long idOrder, Customer users_Id, StatusOrder status, int amount, Date dateCreate, Date dateClose) {
         this.idOrder = idOrder;
         this.users_Id = users_Id;
         this.status = status;
@@ -52,12 +53,12 @@ public class Order implements OrderInterface{
     }
 
     @Override
-    public void setUsersId(Long users_Id) {
+    public void setUsersId(Customer users_Id) {
         this.users_Id = users_Id;
     }
 
     @Override
-    public Long getUsersId() {
+    public Customer getUsersId() {
         return users_Id;
     }
 

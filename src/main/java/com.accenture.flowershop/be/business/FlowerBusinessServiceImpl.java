@@ -1,5 +1,6 @@
 package com.accenture.flowershop.be.business;
 
+import com.accenture.flowershop.be.access.FlowerDAO;
 import com.accenture.flowershop.be.access.FlowerDAOImpl;
 import com.accenture.flowershop.be.entity.flower.Flower;
 import org.slf4j.Logger;
@@ -15,7 +16,7 @@ public class FlowerBusinessServiceImpl implements FlowerBusinessService {
     private static final Logger LOG = 	LoggerFactory.getLogger(FlowerBusinessServiceImpl.class);
 
     @Autowired
-    private FlowerDAOImpl flowerDAO;
+    private FlowerDAO flowerDAO;
 
     public FlowerBusinessServiceImpl(){
         //System.out.println("flowerBusinessService");

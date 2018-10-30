@@ -12,9 +12,9 @@ public class RowOrder implements RowOrderInterface{
     @SequenceGenerator(name="ROWS_ORDERS_SEQ", sequenceName = "ROWS_ORDERS_SEQ", allocationSize = 1)
     private Long idRowOrder;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "idOrder")
-    private Long orderId;
+    private Order orderId;
 
     @Column(name = "NameProduct")
     private String nameProduct;
@@ -47,10 +47,10 @@ public class RowOrder implements RowOrderInterface{
     }
 
     @Override
-    public Long getOrderId() { return orderId; }
+    public Order getOrderId() { return orderId; }
 
     @Override
-    public void setOrderId(Long orderId) { this.orderId = orderId;
+    public void setOrderId(Order orderId) { this.orderId = orderId;
     }
 
 
