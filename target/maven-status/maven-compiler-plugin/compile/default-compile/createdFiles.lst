@@ -2,6 +2,7 @@ com\accenture\flowershop\fe\enums\order\StatusOrder.class
 com\accenture\flowershop\be\entity\user\User.class
 com\accenture\flowershop\be\access\FlowerDAO.class
 com\accenture\flowershop\be\business\FlowerBusinessService.class
+com\accenture\flowershop\fe\servlets\LogOutServlet.class
 com\accenture\flowershop\fe\servlets\MainPageServlet.class
 com\accenture\flowershop\be\business\UserBusinessService.class
 com\accenture\flowershop\be\entity\user\Customer.class
@@ -24,6 +25,7 @@ com\accenture\flowershop\be\access\OrderDAO.class
 com\accenture\flowershop\be\business\OrderBusinessServiceImpl.class
 com\accenture\flowershop\be\access\RowOrderDAO.class
 com\accenture\flowershop\be\access\UserDAOImpl.class
+com\accenture\flowershop\fe\servlets\LogInServlet.class
 com\accenture\flowershop\be\business\OrderBusinessService.class
 com\accenture\flowershop\fe\enums\customer\UserShop.class
 com\accenture\flowershop\be\access\RowOrderDAOImpl.class

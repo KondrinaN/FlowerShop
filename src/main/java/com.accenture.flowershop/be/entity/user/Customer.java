@@ -36,6 +36,10 @@ public class Customer extends User {
 
     public Customer(){}
 
+    public Customer(String login, String password){
+        super(login, password);
+    }
+
     public Customer(String login, String password, String surname, String name, String patronymic, String address, double cashBalance, int discount, UserShop userRole)
     {
         super(login, password);
@@ -48,6 +52,16 @@ public class Customer extends User {
         this.userRole = userRole;
     }
 
+    public Customer convertCustomerDTOToCustomer(CustomerDTO customerDTO)
+    {
+        if (customerDTO!= null)
+        {
+            return new Customer(customerDTO.getLogin(), customerDTO.getPassword(), customerDTO.getSurname(),
+                    customerDTO.getName(), customerDTO.getPatronymic(), customerDTO.getAddress(),
+                    customerDTO.getCashBalance(), customerDTO.getDiscount(), customerDTO.getUserRole());
+        }
+        return null;
+    }
 
     public int getIdUser() {
         return idUser;

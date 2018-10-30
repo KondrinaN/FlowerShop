@@ -21,6 +21,12 @@ public class CustomerDTO {
 
     }
 
+    public CustomerDTO(String login, String password)
+    {
+        this.login = login;
+        this.password = password;
+    }
+
     public CustomerDTO(String login, String password, String surname, String name, String patronymic, String address, double cashBalance, int discount, UserShop userRole)
     {
         this.login = login;

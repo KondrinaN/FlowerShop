@@ -17,9 +17,12 @@
 
     <h2>Home Flower Shop</h2>
 
+            <c:if test="${not empty sessionScope.customer}">
+                <h4>You are logged in as: ${sessionScope.customer.login} Balance: ${sessionScope.customer.cashBalance} Discount: ${sessionScope.customer.discount}</h4>
+            </c:if>
 
-            <h4>You are logged in as: ${sessionScope.customer.login} Balance: ${sessionScope.customer.cashBalance} Discount: ${sessionScope.customer.discount}</h4>
 
-    <p><a href="/">LogOut</a></p>
+    <p><a href="/logOut" action="/logOut" method="GET">LogOut</a></p>
+
 </body>
 </html>

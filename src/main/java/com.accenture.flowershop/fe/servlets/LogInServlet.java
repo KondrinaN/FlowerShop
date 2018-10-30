@@ -1,14 +1,12 @@
 package com.accenture.flowershop.fe.servlets;
 
 import com.accenture.flowershop.be.business.UserBusinessService;
-import com.accenture.flowershop.be.business.UserBusinessServiceImpl;
 import com.accenture.flowershop.be.entity.user.Customer;
 import com.accenture.flowershop.fe.dto.CustomerDTO;
 import com.accenture.flowershop.fe.enums.customer.UserShop;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,11 +17,12 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(urlPatterns = "/signUp")
-public class SignUpServlet extends HttpServlet{
+@WebServlet("/index")
+public class LogInServlet extends HttpServlet {
 
     @Autowired
     private UserBusinessService userService;
+
 
     private static final long serialVersionUID = 1L;
 
@@ -33,39 +32,25 @@ public class SignUpServlet extends HttpServlet{
     }
 
     @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException{
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html"); //отображение как html
         PrintWriter out = response.getWriter();
-        request.getRequestDispatcher("/signUp.jsp").forward(request, response);
+        request.getRequestDispatcher("/").forward(request, response);
     }
 
-    /**
-     * Принимает и отправляет POST посредством запроса
-     * @param request запрос со стороны клиента
-     * @param response ответ сервера
-     * @throws ServletException
-     * @throws IOException
-     */
     @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response)
-        throws  ServletException, IOException{
-
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String param = request.getParameter("Login");
-      //  String pwd = request.getParameter("Password");
+        String pwd = request.getParameter("Password");
 
         request.setAttribute("Login", param);
 
-        CustomerDTO customerDTO = new CustomerDTO(param, request.getParameter("Password"), request.getParameter("Surname"),
-                request.getParameter("Name"), request.getParameter("Patronymic"), request.getParameter("Address"),
-                2000, 0, UserShop.buyer);
+        CustomerDTO customerDTO = new CustomerDTO(param, request.getParameter("Password"));
 
         Customer customer = null;
 
         try{
-            customer = userService.register(param, request.getParameter("Password"), request.getParameter("Surname"),
-                    request.getParameter("Name"), request.getParameter("Patronymic"), request.getParameter("Address"),
-                    2000, 0, UserShop.buyer);
+            customer = userService.logIn(param, pwd);
         }
         catch (Exception exc)
         {

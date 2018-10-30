@@ -5,6 +5,7 @@ C:\Java Projects\EE project\FlowerShopProject\src\main\java\com.accenture.flower
 C:\Java Projects\EE project\FlowerShopProject\src\main\java\com.accenture.flowershop\be\business\FlowerBusinessServiceImpl.java
 C:\Java Projects\EE project\FlowerShopProject\src\main\java\com.accenture.flowershop\be\business\RowOrderBusinessService.java
 C:\Java Projects\EE project\FlowerShopProject\src\main\java\com.accenture.flowershop\be\business\RowOrderBusinessServiceImpl.java
+C:\Java Projects\EE project\FlowerShopProject\src\main\java\com.accenture.flowershop\fe\servlets\LogOutServlet.java
 C:\Java Projects\EE project\FlowerShopProject\src\main\java\com.accenture.flowershop\fe\enums\customer\UserShop.java
 C:\Java Projects\EE project\FlowerShopProject\src\main\java\com.accenture.flowershop\be\entity\order\RowOrderInterface.java
 C:\Java Projects\EE project\FlowerShopProject\src\main\java\com.accenture.flowershop\be\business\MyUtils.java
@@ -25,6 +26,7 @@ C:\Java Projects\EE project\FlowerShopProject\src\main\java\com.accenture.flower
 C:\Java Projects\EE project\FlowerShopProject\src\main\java\com.accenture.flowershop\fe\dto\FlowerDTO.java
 C:\Java Projects\EE project\FlowerShopProject\src\main\java\com.accenture.flowershop\be\access\UserDAO.java
 C:\Java Projects\EE project\FlowerShopProject\src\main\java\com.accenture.flowershop\be\entity\order\OrderInterface.java
+C:\Java Projects\EE project\FlowerShopProject\src\main\java\com.accenture.flowershop\fe\servlets\LogInServlet.java
 C:\Java Projects\EE project\FlowerShopProject\src\main\java\com.accenture.flowershop\be\access\OracleConnectionBD.java
 C:\Java Projects\EE project\FlowerShopProject\src\main\java\com.accenture.flowershop\fe\dto\OrderDTO.java
 C:\Java Projects\EE project\FlowerShopProject\src\main\java\com.accenture.flowershop\be\access\UserDAOImpl.java

@@ -9,24 +9,47 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.*;
+
 @Service("userBusinessService")
 public class UserBusinessServiceImpl implements UserBusinessService{
 
     @Autowired
     private UserDAOImpl userDAO;
 
+    private Map<String, Customer> users;
+
     private static final Logger LOG = 	LoggerFactory.getLogger(UserBusinessServiceImpl.class);
 
     public UserBusinessServiceImpl()
     {
+        users = new HashMap<String, Customer>();
        // LOG.debug("User");
         //System.out.println("userBusinessService");
     }
 
-    @Override
-    public String logIn(String user, String password) {
 
-        return null;
+    public void DeleteUserInMap(String loginUser)
+    {
+        for(Iterator<Map.Entry<String, Customer>> it = users.entrySet().iterator(); it.hasNext(); )
+        {
+            Map.Entry<String, Customer> entry = it.next();
+            if(entry.getKey().equals(loginUser)) {
+                it.remove();
+            }
+        }
+    }
+
+    @Override
+    public Customer logIn(String login, String password) {
+       Customer customer = new Customer(login, password);
+
+       if (users== null)
+           users = new HashMap<String, Customer>();
+
+       users.put(login, customer);
+
+        return customer;
     }
 
     @Override
@@ -34,6 +57,10 @@ public class UserBusinessServiceImpl implements UserBusinessService{
 
         Customer customer = new Customer(login, password, surname, name, patronymic, address, cashBalance, discount, userRole);
 
+        if (users== null)
+            users = new HashMap<String, Customer>();
+
+        users.put("customer", customer);
         return customer;
     }
 
