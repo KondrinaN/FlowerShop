@@ -21,39 +21,45 @@
         <property name="entityManagerFactory" ref="entityManagerFactory" />
     </bean>
 
+    <bean id="flyway" class="org.flywaydb.core.Flyway" init-method="migrate">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="locations">
+            <array><value>dbscripts</value></array>
+        </property>
+        <property name="baselineOnMigrate" value="false"/>
+        <property name="outOfOrder" value="true"/>
+        <property name="sqlMigrationPrefix" value="v"/>
+        <property name="sqlMigrationSeparator" value="_"/>
+        <property name="placeholderPrefix" value="@{"/>
+        <property name="placeholderSuffix" value="}"/>
+    </bean>
+
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" depends-on="flyway">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan">
+            <list><value>com.accenture.flowershop.be.entity</value></list>
+        </property>
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="database" value="ORACLE"/>
+                <property name="generateDdl" value="false"/>
+                <property name="showSql" value="true"/>
+            </bean>
+        </property>
+        <property name="jpaDialect">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect" />
+        </property>
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+            </props>
+        </property>
+    </bean>
+
     <tx:annotation-driven/>
     <jee:jndi-lookup id="dataSource" jndi-name="jdbc/flowerShopDS "/>
 
-    <!--
-        <bean class="com.accenture.flowershop.be.business.UserBusinessServicelmpl" />
 
-        <bean name="userDAO" class="com.accenture.flowershop.be.access.UserDAO" />
-
-        <bean name="UserBusinessService" class="com.accenture.flowershop.be.business.UserBusinessServicelmpl">
-
-        </bean>
-
-        <bean class="com.accenture.flowershop.be.business.OrderBusinessServicelmpl" />
-
-        <bean name="orderDAO" class="com.accenture.flowershop.be.access.OrderDAO" />
-
-        <bean name="OrderBusinessService" class="com.accenture.flowershop.be.business.OrderBusinessServicelmpl">
-
-        </bean>
-
-        <bean class="com.accenture.flowershop.be.business.FlowerBusinessServicelmpl" />
-
-        <bean name="flowerDAO" class="com.accenture.flowershop.be.access.FlowerDAO" />
-
-        <bean name="FlowerBusinessService" class="com.accenture.flowershop.be.business.FlowerBusinessServicelmpl">
-        </bean>
-
-        <bean class="com.accenture.flowershop.be.business.RowOrderBusinessServicelmpl" />
-
-        <bean name="rowOrderDAO" class="com.accenture.flowershop.be.access.RowOrderDAO" />
-
-        <bean name="RowOrderBusinessService" class="com.accenture.flowershop.be.business.RowOrderBusinessServicelmpl">
-        </bean>
-    -->
 </beans>
 
