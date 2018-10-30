@@ -43,26 +43,24 @@ public class UserBusinessServiceImpl implements UserBusinessService{
 
     @Override
     public Customer logIn(String login, String password) {
-       Customer customer = new Customer(login, password);
+        if (users.size()!=0) {
+            if (users.containsKey(login)) {
 
-       if (users== null)
-           users = new HashMap<String, Customer>();
-
-       users.put(login, customer);
-
-        return customer;
+                return users.get(login);
+            }
+        }
+        return null;
     }
 
     @Override
     public Customer register(String login, String password, String surname, String name, String patronymic, String address, BigDecimal cashBalance, BigDecimal discount, UserShop userRole) {
+        if (!users.containsKey(login)) {
+            Customer customer = new Customer(login, password, surname, name, patronymic, address, cashBalance, discount, userRole);
 
-        Customer customer = new Customer(login, password, surname, name, patronymic, address, cashBalance, discount, userRole);
-
-        if (users== null)
-            users = new HashMap<String, Customer>();
-
-        users.put("customer", customer);
-        return customer;
+            users.put(customer.getLogin(), customer);
+            return customer;
+        }
+        return null;
     }
 
     @Override

@@ -27,8 +27,6 @@ public class CustomerDTO {
     {
         this.login = login;
         this.password = password;
-        this.cashBalance = new BigDecimal(0);
-        this.discount = new BigDecimal(0);
     }
 
     public CustomerDTO(String login, String password, String surname, String name, String patronymic, String address, BigDecimal cashBalance, BigDecimal discount, UserShop userRole)

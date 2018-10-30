@@ -52,6 +52,7 @@ public class LogInServlet extends HttpServlet {
 
             try{
                 customer = userService.logIn(param, pwd);
+
             }
             catch (Exception exc)
             {
@@ -60,11 +61,31 @@ public class LogInServlet extends HttpServlet {
 
             if (customer!=null)
             {
-                HttpSession session = request.getSession();
-                session.setAttribute("customer", customerDTO.convertCustomerToCustomerDTO(customer));
 
-                response.sendRedirect("/mainPage");
-                //request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
+                if (pwd.equals(customer.getPassword())) {
+                    HttpSession session = request.getSession();
+                    session.setAttribute("customer", customerDTO.convertCustomerToCustomerDTO(customer));
+                    response.sendRedirect("/mainPage");
+                }
+                else{
+                    request.setAttribute("Error", "Wrong password!");
+                    PrintWriter out = response.getWriter();
+                    out.println("<HTML>");
+                    out.println("<BODY>");
+                    out.println("ERROR: " + request.getAttribute("Error"));
+                    out.println("</BODY></HTML>");
+                    request.getRequestDispatcher("/").forward(request, response);
+                }
+
+            }
+            else {
+                request.setAttribute("Error", "User not registered!");
+                PrintWriter out = response.getWriter();
+                out.println("<HTML>");
+                out.println("<BODY>");
+                out.println("ERROR: " + request.getAttribute("Error"));
+                out.println("</BODY></HTML>");
+                request.getRequestDispatcher("/").forward(request, response);
             }
         }
         else {
