@@ -25,7 +25,7 @@ public class FlowerBusinessServiceImpl implements FlowerBusinessService {
 
     @Override
     public List<Flower> findAllFlowers() {
-        return null;
+        return flowerDAO.findAll();
     }
 
     @Override

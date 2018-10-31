@@ -18,6 +18,13 @@ public class UserDAOImpl implements UserDAO{
 
     @Override
     public List<Customer> findAll() {
+        try{
+            TypedQuery<Customer> query = entityManager.createNamedQuery("Users.findAll", Customer.class);
+            List<Customer> users= query.getResultList();
+            return  users;
+        }
+        catch (NoResultException exc)
+        {}
         return null;
     }
 
@@ -29,7 +36,8 @@ public class UserDAOImpl implements UserDAO{
     @Override
     public Customer findCustomerByLogin(String login) {
         try{
-            TypedQuery<Customer> query = entityManager.createQuery("Select * from Users where Login='" + login + "'", Customer.class);
+            TypedQuery<Customer> query = entityManager.createNamedQuery("Users.findByLogin", Customer.class);
+            query.setParameter("Login", login);
             return query.getSingleResult();
         }
         catch (NoResultException exc)

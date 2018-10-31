@@ -1,8 +1,11 @@
 package com.accenture.flowershop.fe.servlets;
 
+import com.accenture.flowershop.be.business.FlowerBusinessService;
 import com.accenture.flowershop.be.business.UserBusinessService;
+import com.accenture.flowershop.be.entity.flower.Flower;
 import com.accenture.flowershop.be.entity.user.Customer;
 import com.accenture.flowershop.fe.dto.CustomerDTO;
+import com.accenture.flowershop.fe.dto.FlowerDTO;
 import com.accenture.flowershop.fe.enums.customer.UserShop;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
@@ -17,11 +20,13 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
+import java.util.List;
 
 @WebServlet("/index")
 public class LogInServlet extends HttpServlet {
 
     @Autowired
+   // private FlowerBusinessService flowerBusinessService;
     private UserBusinessService userService;
 
 
@@ -42,21 +47,27 @@ public class LogInServlet extends HttpServlet {
         String param = request.getParameter("Login");
         String pwd = request.getParameter("Password");
 
+
+       /* FlowerDTO flowerDTO = new FlowerDTO();
+        List<Flower> flower = flowerBusinessService.findAllFlowers();*/
+
         if(!param.isEmpty() && !pwd.isEmpty()) {
             request.setAttribute("Login", param);
 
-            CustomerDTO customerDTO = new CustomerDTO(param, request.getParameter("Password"));
 
+
+            CustomerDTO customerDTO = new CustomerDTO(param, pwd);
             Customer customer = null;
+
 
             try{
                 customer = userService.logIn(param, pwd);
-
             }
             catch (Exception exc)
             {
                 request.setAttribute("Error", "User not created!");
             }
+
 
             if (customer!=null)
             {

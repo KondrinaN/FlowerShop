@@ -3,9 +3,10 @@
     <Parameter name="AppName" value="cbr-clm"/>
     <!-- url="jdbc:h2:mem:flowershop	       -	in memory DB, data is erased after application stop -->
     <!-- url="jdbc:h2:tcp://localhost/flowershop“  -	file DB, H2 should be running on PC for this mode -->
+    <!-- jdbc:h2:tcp://localhost/~/flowershop -->
     <Resource name="jdbc/flowerShopDS" auth="Container"
               type="javax.sql.DataSource" driverClassName="org.h2.Driver"
-              url="jdbc:h2:tcp://localhost/~/flowershop"
+              url="jdbc:h2:mem:flowershop;DB_CLOSE_DELAY=-1;DATABASE_TO_UPPER=false"
               username="sa" password=""
                 maxActive="10" maxIdle="3"
                 initialSize="1"

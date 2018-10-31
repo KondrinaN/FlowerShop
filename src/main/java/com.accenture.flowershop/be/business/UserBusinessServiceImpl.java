@@ -1,7 +1,9 @@
 package com.accenture.flowershop.be.business;
 
+import com.accenture.flowershop.be.access.FlowerDAO;
 import com.accenture.flowershop.be.access.UserDAO;
 import com.accenture.flowershop.be.access.UserDAOImpl;
+import com.accenture.flowershop.be.entity.flower.Flower;
 import com.accenture.flowershop.be.entity.user.Customer;
 import com.accenture.flowershop.fe.dto.CustomerDTO;
 import com.accenture.flowershop.fe.enums.customer.UserShop;
@@ -21,6 +23,7 @@ public class UserBusinessServiceImpl implements UserBusinessService{
 
 
     private Map<String, Customer> users;
+    private List<Customer> customers;
 
     private static final Logger LOG = 	LoggerFactory.getLogger(UserBusinessServiceImpl.class);
 
@@ -45,6 +48,9 @@ public class UserBusinessServiceImpl implements UserBusinessService{
 
     @Override
     public Customer logIn(String login, String password) {
+        customers = userDAO.findAll();
+
+
         Customer customer = userDAO.findCustomerByLogin(login);
 
         if(customer!=null)

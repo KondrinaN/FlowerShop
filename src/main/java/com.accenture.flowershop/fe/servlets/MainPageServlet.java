@@ -1,7 +1,10 @@
 package com.accenture.flowershop.fe.servlets;
 
 import com.accenture.flowershop.be.access.UserDAO;
+import com.accenture.flowershop.be.business.FlowerBusinessService;
 import com.accenture.flowershop.be.business.UserBusinessService;
+import com.accenture.flowershop.be.entity.flower.Flower;
+import com.accenture.flowershop.fe.dto.FlowerDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
@@ -15,12 +18,13 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
+import java.util.List;
 
 @WebServlet(urlPatterns = "/mainPage")
 public class MainPageServlet extends HttpServlet{
 
     @Autowired
-    private UserBusinessService userService;
+    private FlowerBusinessService flowerBusinessService;
 
     private static final long serialVersionUID = 1L;
 
@@ -49,6 +53,8 @@ public class MainPageServlet extends HttpServlet{
             throws  ServletException, IOException{
 
         String param = request.getParameter("Login");
+
+
 
         if (!param.isEmpty())
             request.getRequestDispatcher("/mainPage.jsp").forward(request, response);

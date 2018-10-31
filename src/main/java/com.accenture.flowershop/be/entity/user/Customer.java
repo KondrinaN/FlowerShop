@@ -8,6 +8,14 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "Users")
+@NamedQueries(
+        {
+                @NamedQuery(name = "Users.findAll",
+                            query = "SELECT c FROM Customer c"),
+                @NamedQuery(name = "Users.findByLogin",
+                            query = "SELECT c FROM Customer c c.Login=:Login")
+        }
+)
 public class Customer extends User {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USERS_SEQ")

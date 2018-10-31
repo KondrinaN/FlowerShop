@@ -3,9 +3,9 @@ CREATE sequence FLOWERS_SEQ;
 CREATE sequence ROWS_ORDERS_SEQ;
 CREATE sequence ORDERS_SEQ;
 --------------------------------------------------------
-Insert into Users ("IdUser", "Login", "Surname", "Name", "Patronymic", "Address", "Cashbalance", "Discount", "Password", "UserRole") values (USERS_SEQ.NEXTVAL, 'User1', 'Surname1', 'Name1','Patronymic1','Address1', 12000, 30, 'k��x_۠ZdF4}��', 'buyer');
-Insert into Users ("IdUser", "Login", "Surname", "Name", "Patronymic", "Address", "Cashbalance", "Discount", "Password", "UserRole") values (USERS_SEQ.NEXTVAL, 'User2', 'Surname2', 'Name2','Patronymic2','Address2', 22000, 0, '����9��M����X*', 'buyer');;
-Insert into Users ("IdUser", "Login", "Surname", "Name", "Patronymic", "Address", "Cashbalance", "Discount", "Password", "UserRole") values (USERS_SEQ.NEXTVAL, 'admin', '', '','','', 0, 0, '�:{�s%�i��', 'admin');
+Insert into Users ("IdUser", "Login", "Surname", "Name", "Patronymic", "Address", "Cashbalance", "Discount", "Password", "UserRole") values (USERS_SEQ.NEXTVAL, 'User1', 'Surname1', 'Name1','Patronymic1','Address1', 12000, 30, 'User1', 1);
+Insert into Users ("IdUser", "Login", "Surname", "Name", "Patronymic", "Address", "Cashbalance", "Discount", "Password", "UserRole") values (USERS_SEQ.NEXTVAL, 'User2', 'Surname2', 'Name2','Patronymic2','Address2', 22000, 0, 'User2', 1);;
+Insert into Users ("IdUser", "Login", "Surname", "Name", "Patronymic", "Address", "Cashbalance", "Discount", "Password", "UserRole") values (USERS_SEQ.NEXTVAL, 'admin', '', '','','', 0, 0, 'admin123', 0);
 
 
 Insert into Flowers ("IdFlower", "NameFlower", "Balance", "Price", "FlowerAvailability") values (FLOWERS_SEQ.NEXTVAL, 'NameFlower1', 15, 120, 'areAvailable');

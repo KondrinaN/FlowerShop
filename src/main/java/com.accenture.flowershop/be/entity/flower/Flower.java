@@ -5,6 +5,12 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "Flowers")
+@NamedQueries(
+        {
+                @NamedQuery(name = "Flowers.findAll",
+                        query = "SELECT f FROM Flower f"),
+        }
+)
 public class Flower implements FlowerInterface{
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "FLOWERS_SEQ")
