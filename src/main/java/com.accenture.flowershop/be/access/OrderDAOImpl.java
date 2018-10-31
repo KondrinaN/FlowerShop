@@ -1,12 +1,17 @@
 package com.accenture.flowershop.be.access;
 
 import com.accenture.flowershop.be.entity.order.Order;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
 import java.util.List;
 
 @Repository("orderDAOImpl")
 public class OrderDAOImpl implements OrderDAO {
+
+
+
     @Override
     public List<Order> findAll() {
         return null;

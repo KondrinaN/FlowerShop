@@ -43,7 +43,7 @@
         <property name="locations">
             <array><value>dbscripts</value></array>
         </property>
-        <property name="baselineOnMigrate" value="true"/>
+        <property name="baselineOnMigrate" value="false"/>
         <property name="outOfOrder" value="true"/>
         <property name="sqlMigrationPrefix" value="v"/>
         <property name="sqlMigrationSeparator" value="_"/>
