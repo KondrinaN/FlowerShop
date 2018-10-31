@@ -54,8 +54,7 @@ public class UserBusinessServiceImpl implements UserBusinessService{
         Customer customer = userDAO.findCustomerByLogin(login);
 
         if(customer!=null)
-           if (checkPassword(password, customer.getPassword()))
-               return customer;
+           return customer;
 
         /*if (users.size()!=0) {
             if (users.containsKey(login)) {
@@ -64,6 +63,7 @@ public class UserBusinessServiceImpl implements UserBusinessService{
             }
         }*/
         return null;
+
     }
 
     @Override

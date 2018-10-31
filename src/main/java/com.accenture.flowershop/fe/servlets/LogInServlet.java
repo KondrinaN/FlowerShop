@@ -46,14 +46,14 @@ public class LogInServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String param = request.getParameter("Login");
         String pwd = request.getParameter("Password");
-
+        Boolean excBool = false;
 
        /* FlowerDTO flowerDTO = new FlowerDTO();
         List<Flower> flower = flowerBusinessService.findAllFlowers();*/
 
-        if(!param.isEmpty() && !pwd.isEmpty()) {
+        if(!param.isEmpty() && !pwd.isEmpty())
+        {
             request.setAttribute("Login", param);
-
 
 
             CustomerDTO customerDTO = new CustomerDTO(param, pwd);
@@ -68,11 +68,11 @@ public class LogInServlet extends HttpServlet {
                 request.setAttribute("Error", "User not created!");
             }
 
-
             if (customer!=null)
             {
-
-                if (pwd.equals(customer.getPassword())) {
+               // if (pwd.equals(customer.getPassword())) {
+                if (userService.checkPassword(pwd, customer.getPassword()))
+                {
                     HttpSession session = request.getSession();
                     session.setAttribute("customer", customerDTO.convertCustomerToCustomerDTO(customer));
                     response.sendRedirect("/mainPage");

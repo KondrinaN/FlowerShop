@@ -12,8 +12,9 @@ import java.math.BigDecimal;
         {
                 @NamedQuery(name = "Users.findAll",
                             query = "SELECT c FROM Customer c"),
-                @NamedQuery(name = "Users.findByLogin",
-                            query = "SELECT c FROM Customer c c.Login=:Login")
+
+                @NamedQuery(name = "Users.findCustomerByLogin",
+                        query = "SELECT c FROM Customer c WHERE c.login = :login"),
         }
 )
 public class Customer extends User {
