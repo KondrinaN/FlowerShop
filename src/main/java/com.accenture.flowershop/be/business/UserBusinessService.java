@@ -13,4 +13,5 @@ public interface UserBusinessService {
     Customer register(String login, String password, String surname, String name, String patronymic, String address, BigDecimal cashBalance, BigDecimal discount, UserShop userRole);
     Customer saveUser(Customer customer);
     int findIdUser(String login);
+    boolean checkPassword(String passwordCurrent, String passwordCustomer);
 }

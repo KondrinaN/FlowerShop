@@ -19,6 +19,7 @@ public class UserBusinessServiceImpl implements UserBusinessService{
     @Autowired
     private UserDAO userDAO;
 
+
     private Map<String, Customer> users;
 
     private static final Logger LOG = 	LoggerFactory.getLogger(UserBusinessServiceImpl.class);
@@ -44,12 +45,18 @@ public class UserBusinessServiceImpl implements UserBusinessService{
 
     @Override
     public Customer logIn(String login, String password) {
-        if (users.size()!=0) {
+        Customer customer = userDAO.findCustomerByLogin(login);
+
+        if(customer!=null)
+           if (checkPassword(password, customer.getPassword()))
+               return customer;
+
+        /*if (users.size()!=0) {
             if (users.containsKey(login)) {
 
                 return users.get(login);
             }
-        }
+        }*/
         return null;
     }
 
@@ -72,5 +79,12 @@ public class UserBusinessServiceImpl implements UserBusinessService{
     @Override
     public int findIdUser(String login) {
         return 0;
+    }
+
+    @Override
+    public boolean checkPassword(String passwordCurrent, String passwordCustomer) {
+        if(passwordCustomer.equals(passwordCurrent))
+            return true;
+        return false;
     }
 }
