@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface UserDAO {
     List<Customer> findAll();
-    Customer findCustomerById();
+    Customer findCustomerById(Long idUser);
     Customer findCustomerByLogin(String login);
-    int save();
+    Long save(Customer customer);
 }

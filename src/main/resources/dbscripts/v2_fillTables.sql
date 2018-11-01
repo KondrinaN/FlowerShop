@@ -1,27 +1,24 @@
-CREATE sequence USERS_SEQ;
-CREATE sequence FLOWERS_SEQ;
-CREATE sequence ROWS_ORDERS_SEQ;
-CREATE sequence ORDERS_SEQ;
+
 --------------------------------------------------------
-Insert into Users ("IdUser", "Login", "Surname", "Name", "Patronymic", "Address", "Cashbalance", "Discount", "Password", "UserRole") values (USERS_SEQ.NEXTVAL, 'User1', 'Surname1', 'Name1','Patronymic1','Address1', 12000, 30, 'User1', 1);
-Insert into Users ("IdUser", "Login", "Surname", "Name", "Patronymic", "Address", "Cashbalance", "Discount", "Password", "UserRole") values (USERS_SEQ.NEXTVAL, 'User2', 'Surname2', 'Name2','Patronymic2','Address2', 22000, 0, 'User2', 1);;
-Insert into Users ("IdUser", "Login", "Surname", "Name", "Patronymic", "Address", "Cashbalance", "Discount", "Password", "UserRole") values (USERS_SEQ.NEXTVAL, 'admin', '', '','','', 0, 0, 'admin123', 0);
+Insert into Users ("Login", "Surname", "Name", "Patronymic", "Address", "Cashbalance", "Discount", "Password", "UserRole") values ('User1', 'Surname1', 'Name1','Patronymic1','Address1', 12000, 30, 'User1', 1);
+Insert into Users ("Login", "Surname", "Name", "Patronymic", "Address", "Cashbalance", "Discount", "Password", "UserRole") values ('User2', 'Surname2', 'Name2','Patronymic2','Address2', 22000, 0, 'User2', 1);;
+Insert into Users ("Login", "Surname", "Name", "Patronymic", "Address", "Cashbalance", "Discount", "Password", "UserRole") values ('admin', '', '','','', 0, 0, 'admin123', 0);
 
 
-Insert into Flowers ("IdFlower", "NameFlower", "Balance", "Price", "FlowerAvailability") values (FLOWERS_SEQ.NEXTVAL, 'NameFlower1', 15, 120, 'areAvailable');
-Insert into Flowers ("IdFlower", "NameFlower", "Balance", "Price", "FlowerAvailability") values (FLOWERS_SEQ.NEXTVAL, 'NameFlower2', 35, 70, 'notAvailable');
-Insert into Flowers ("IdFlower", "NameFlower", "Balance", "Price", "FlowerAvailability") values (FLOWERS_SEQ.NEXTVAL, 'NameFlower3', 0, 90, 'areAvailable');
-Insert into Flowers ("IdFlower", "NameFlower", "Balance", "Price", "FlowerAvailability") values (FLOWERS_SEQ.NEXTVAL, 'NameFlower4', 2, 150, 'notAvailable');
-Insert into Flowers ("IdFlower", "NameFlower", "Balance", "Price", "FlowerAvailability") values (FLOWERS_SEQ.NEXTVAL, 'NameFlower5', 10, 100, 'areAvailable');
+Insert into Flowers ("NameFlower", "Balance", "Price", "FlowerAvailability") values ('NameFlower1', 15, 120, 'areAvailable');
+Insert into Flowers ("NameFlower", "Balance", "Price", "FlowerAvailability") values ('NameFlower2', 35, 70, 'notAvailable');
+Insert into Flowers ("NameFlower", "Balance", "Price", "FlowerAvailability") values ('NameFlower3', 0, 90, 'areAvailable');
+Insert into Flowers ("NameFlower", "Balance", "Price", "FlowerAvailability") values ('NameFlower4', 2, 150, 'notAvailable');
+Insert into Flowers ("NameFlower", "Balance", "Price", "FlowerAvailability") values ('NameFlower5', 10, 100, 'areAvailable');
 
-Insert into Orders ("IdOrder", "Users_Id", "Status", "Amount", "DateCreate", "DateClose") values (ORDERS_SEQ.NEXTVAL, 1, 'закрыт', 5, to_date('2018-09-22 11:00:00', 'YYYY-MM-DD hh:mm:ss'), to_date('2018-09-25 10:00:00', 'YYYY-MM-DD hh:mm:ss'));
-Insert into Orders ("IdOrder", "Users_Id", "Status", "Amount", "DateCreate", "DateClose") values (ORDERS_SEQ.NEXTVAL, 2, 'оплачен', 10, to_date('2018-09-27 12:00:00', 'YYYY-MM-DD hh:mm:ss'), to_date('2018-10-01 08:00:00', 'YYYY-MM-DD hh:mm:ss'));
-Insert into Orders ("IdOrder", "Users_Id", "Status", "Amount", "DateCreate", "DateClose") values (ORDERS_SEQ.NEXTVAL, 2, 'оплачен', 3, to_date('2018-10-01 10:00:00', 'YYYY-MM-DD hh:mm:ss'), to_date('2018-10-12 09:00:00', 'YYYY-MM-DD hh:mm:ss'));
-Insert into Orders ("IdOrder", "Users_Id", "Status", "Amount", "DateCreate", "DateClose") values (ORDERS_SEQ.NEXTVAL, 1, 'создан', 12, to_date('2018-10-03 11:00:00', 'YYYY-MM-DD hh:mm:ss'), to_date('2018-10-05 11:00:00', 'YYYY-MM-DD hh:mm:ss'));
+Insert into Orders ("Users_Id", "Status", "Amount", "DateCreate", "DateClose") values (1, 0, 5, to_date('2018-09-22 11:00:00', 'YYYY-MM-DD hh:mm:ss'), to_date('2018-09-25 10:00:00', 'YYYY-MM-DD hh:mm:ss'));
+Insert into Orders ("Users_Id", "Status", "Amount", "DateCreate", "DateClose") values (2, 1, 10, to_date('2018-09-27 12:00:00', 'YYYY-MM-DD hh:mm:ss'), to_date('2018-10-01 08:00:00', 'YYYY-MM-DD hh:mm:ss'));
+Insert into Orders ("Users_Id", "Status", "Amount", "DateCreate", "DateClose") values (2, 1, 3, to_date('2018-10-01 10:00:00', 'YYYY-MM-DD hh:mm:ss'), to_date('2018-10-12 09:00:00', 'YYYY-MM-DD hh:mm:ss'));
+Insert into Orders ("Users_Id", "Status", "Amount", "DateCreate", "DateClose") values (1, 2, 12, to_date('2018-10-03 11:00:00', 'YYYY-MM-DD hh:mm:ss'), to_date('2018-10-05 11:00:00', 'YYYY-MM-DD hh:mm:ss'));
 
-Insert into RowsOrders ("IdRowOrder", "Order_Id", "NameProduct", "Count", "Price") values (ROWS_ORDERS_SEQ.NEXTVAL, 2, 'NameProduct1', 3, 35);
-Insert into RowsOrders ("IdRowOrder", "Order_Id", "NameProduct", "Count", "Price") values (ROWS_ORDERS_SEQ.NEXTVAL, 3, 'NameProduct2', 4, 120);
-Insert into RowsOrders ("IdRowOrder", "Order_Id", "NameProduct", "Count", "Price") values (ROWS_ORDERS_SEQ.NEXTVAL, 1, 'NameProduct3', 1, 150);
-Insert into RowsOrders ("IdRowOrder", "Order_Id", "NameProduct", "Count", "Price") values (ROWS_ORDERS_SEQ.NEXTVAL, 4, 'NameProduct4', 20, 100);
+Insert into RowsOrders ("Order_Id", "NameProduct", "Count", "Price") values (2, 'NameProduct1', 3, 35);
+Insert into RowsOrders ("Order_Id", "NameProduct", "Count", "Price") values (3, 'NameProduct2', 4, 120);
+Insert into RowsOrders ("Order_Id", "NameProduct", "Count", "Price") values (1, 'NameProduct3', 1, 150);
+Insert into RowsOrders ("Order_Id", "NameProduct", "Count", "Price") values (4, 'NameProduct4', 20, 100);
 
 COMMIT;

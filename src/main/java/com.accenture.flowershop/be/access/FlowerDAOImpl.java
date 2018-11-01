@@ -44,4 +44,26 @@ public class FlowerDAOImpl implements FlowerDAO {
         return null;
     }
 
+    @Override
+    public Long save(Flower flower) {
+        try {
+         /*   EntityTransaction transaction = entityManager.getTransaction();
+            transaction.begin();
+
+
+            if (customer.getIdUser() == null)*/
+            entityManager.persist(flower);
+           /* else
+                entityManager.merge(customer);
+
+            entityManager.flush();
+            transaction.commit();*/
+
+            return flower.getId();
+        }
+        catch(NoResultException exc) {
+            return new Long(0);
+        }
+    }
+
 }

@@ -38,4 +38,9 @@ public class FlowerBusinessServiceImpl implements FlowerBusinessService {
 
     }
 
+    @Override
+    public Long save(Flower flower) {
+        return flowerDAO.save(flower);
+    }
+
 }

@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.*;
@@ -48,9 +49,7 @@ public class UserBusinessServiceImpl implements UserBusinessService{
 
     @Override
     public Customer logIn(String login, String password) {
-        customers = userDAO.findAll();
-
-
+        //customers = userDAO.findAll();
         Customer customer = userDAO.findCustomerByLogin(login);
 
         if(customer!=null)
@@ -67,13 +66,27 @@ public class UserBusinessServiceImpl implements UserBusinessService{
     }
 
     @Override
+    @Transactional
     public Customer register(String login, String password, String surname, String name, String patronymic, String address, BigDecimal cashBalance, BigDecimal discount, UserShop userRole) {
-        if (!users.containsKey(login)) {
+        customers = userDAO.findAll();
+        Customer customer = userDAO.findCustomerByLogin(login);
+
+        if(customer==null)
+        {
+           customer= new Customer(login, password, surname, name, patronymic, address, cashBalance, discount, userRole);
+
+           if (userDAO.save(customer)!=0)
+               customers.add(customer);
+
+           return customer;
+        }
+
+      /*  if (!users.containsKey(login)) {
             Customer customer = new Customer(login, password, surname, name, patronymic, address, cashBalance, discount, userRole);
 
             users.put(customer.getLogin(), customer);
             return customer;
-        }
+        }*/
         return null;
     }
 

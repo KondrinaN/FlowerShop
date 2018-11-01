@@ -66,6 +66,12 @@ public class LogInServlet extends HttpServlet {
             catch (Exception exc)
             {
                 request.setAttribute("Error", "User not created!");
+                PrintWriter out = response.getWriter();
+                out.println("<HTML>");
+                out.println("<BODY>");
+                out.println("ERROR: " + request.getAttribute("Error"));
+                out.println("</BODY></HTML>");
+                request.getRequestDispatcher("/").forward(request, response);
             }
 
             if (customer!=null)

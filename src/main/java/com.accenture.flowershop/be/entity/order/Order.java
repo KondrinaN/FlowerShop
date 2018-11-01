@@ -10,8 +10,7 @@ import java.util.Date;
 @Table(name = "Orders")
 public class Order implements OrderInterface{
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ORDERS_SEQ")
-    @SequenceGenerator(name="ORDERS_SEQ", sequenceName = "ORDERS_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idOrder;
 
 
@@ -33,8 +32,8 @@ public class Order implements OrderInterface{
 
     public Order(){}
 
-    public Order(Long idOrder, Customer users_Id, StatusOrder status, int amount, Date dateCreate, Date dateClose) {
-        this.idOrder = idOrder;
+    public Order(Customer users_Id, StatusOrder status, int amount, Date dateCreate, Date dateClose) {
+
         this.users_Id = users_Id;
         this.status = status;
         this.amount = amount;

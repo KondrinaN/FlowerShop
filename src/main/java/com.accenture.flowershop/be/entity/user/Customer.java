@@ -15,12 +15,14 @@ import java.math.BigDecimal;
 
                 @NamedQuery(name = "Users.findCustomerByLogin",
                         query = "SELECT c FROM Customer c WHERE c.login = :login"),
+
+                @NamedQuery(name = "Users.findCustomerById",
+                        query = "SELECT c FROM Customer c WHERE c.idUser = :idUser"),
         }
 )
 public class Customer extends User {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USERS_SEQ")
-    @SequenceGenerator(name="USERS_SEQ", sequenceName = "USERS_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idUser;
 
     @Column(name = "Surname")

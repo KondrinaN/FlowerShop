@@ -3,7 +3,7 @@
 --------------------------------------------------------
 
   CREATE TABLE Users
-   (	"IdUser" NUMBER(10,0) PRIMARY KEY,
+   (	"IdUser" NUMBER(10,0) PRIMARY KEY AUTO_INCREMENT NOT NULL,
         "Login" VARCHAR2(45 CHAR) NOT NULL,
         "Surname" VARCHAR2(45 CHAR) NOT NULL,
         "Name" VARCHAR2(45 CHAR) NOT NULL,
@@ -19,7 +19,7 @@
 --------------------------------------------------------
 
   CREATE TABLE Flowers
-   (	"IdFlower" NUMBER(10,0) PRIMARY KEY,
+   (	"IdFlower" NUMBER(10,0) PRIMARY KEY AUTO_INCREMENT NOT NULL,
         "NameFlower" VARCHAR2(45 CHAR) NOT NULL,
         "Balance" NUMBER(10,0) NOT NULL,
         "Price" NUMBER(10,2) NOT NULL,
@@ -31,7 +31,7 @@
 
   CREATE TABLE Orders
    (
-        "IdOrder" NUMBER(10,0) PRIMARY KEY,
+        "IdOrder" NUMBER(10,0) PRIMARY KEY AUTO_INCREMENT NOT NULL,
         "Users_Id" NUMBER(10,0) NOT NULL,
         "Status" VARCHAR2(45 CHAR) NOT NULL,
         "Amount" NUMBER(10,2) NOT NULL,
@@ -45,7 +45,7 @@
 --------------------------------------------------------
 
   CREATE TABLE RowsOrders
-   (	"IdRowOrder" NUMBER(10,0) PRIMARY KEY,
+   (	"IdRowOrder" NUMBER(10,0) PRIMARY KEY AUTO_INCREMENT NOT NULL,
         "Order_Id" NUMBER(10,0) NOT NULL,
         "NameProduct" VARCHAR2(45 CHAR) NOT NULL,
         "Count" NUMBER(10) NOT NULL,

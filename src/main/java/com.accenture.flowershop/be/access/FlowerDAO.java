@@ -9,4 +9,5 @@ public interface FlowerDAO {
     Flower findFlowerById();
     Flower findFlowerByName();
     Flower findFlowerByRangePrice(double minPrice, double maxPrice);
+    Long save(Flower flower);
 }

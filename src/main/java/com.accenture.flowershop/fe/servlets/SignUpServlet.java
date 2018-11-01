@@ -1,9 +1,12 @@
 package com.accenture.flowershop.fe.servlets;
 
+import com.accenture.flowershop.be.business.FlowerBusinessService;
 import com.accenture.flowershop.be.business.UserBusinessService;
 import com.accenture.flowershop.be.business.UserBusinessServiceImpl;
+import com.accenture.flowershop.be.entity.flower.Flower;
 import com.accenture.flowershop.be.entity.user.Customer;
 import com.accenture.flowershop.fe.dto.CustomerDTO;
+import com.accenture.flowershop.fe.dto.FlowerDTO;
 import com.accenture.flowershop.fe.enums.customer.UserShop;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
@@ -19,17 +22,19 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
+import java.util.List;
 
 @WebServlet(urlPatterns = "/signUp")
 public class SignUpServlet extends HttpServlet{
 
     @Autowired
     private UserBusinessService userService;
+    //private FlowerBusinessService flowerBusinessService;
 
     private static final long serialVersionUID = 1L;
 
     public void init(ServletConfig servletConfig) throws ServletException {
-       SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, servletConfig.getServletContext());
+       SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext(this);//processInjectionBasedOnServletContext(this, servletConfig.getServletContext());
     }
 
     @Override
@@ -53,8 +58,12 @@ public class SignUpServlet extends HttpServlet{
         String param = request.getParameter("Login");
         String pwd = request.getParameter("Password");
 
+     /*   FlowerDTO flowerDTO = new FlowerDTO();
+        Long id = flowerBusinessService.save(new Flower("wdtnj", new BigDecimal(50), new BigDecimal(32)));*/
+
         if(!param.isEmpty() && !pwd.isEmpty()) {
             request.setAttribute("Login", param);
+
 
             CustomerDTO customerDTO = new CustomerDTO(param, request.getParameter("Password"), request.getParameter("Surname"),
                     request.getParameter("Name"), request.getParameter("Patronymic"), request.getParameter("Address"),
@@ -67,7 +76,13 @@ public class SignUpServlet extends HttpServlet{
                         request.getParameter("Name"), request.getParameter("Patronymic"), request.getParameter("Address"),
                         new BigDecimal(2000), new BigDecimal(0), UserShop.buyer);
             } catch (Exception exc) {
-                request.setAttribute("Error", "User not created!");
+                request.setAttribute("Error", "User not created! \n" + exc);
+                PrintWriter out = response.getWriter();
+                out.println("<HTML>");
+                out.println("<BODY>");
+                out.println("ERROR: " + request.getAttribute("Error"));
+                out.println("</BODY></HTML>");
+                request.getRequestDispatcher("/").forward(request, response);
             }
 
             if (customer != null) {
@@ -76,6 +91,15 @@ public class SignUpServlet extends HttpServlet{
 
                 response.sendRedirect("/mainPage");
                 //request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
+            }
+            else {
+                request.setAttribute("Error", "User not registered!");
+                PrintWriter out = response.getWriter();
+                out.println("<HTML>");
+                out.println("<BODY>");
+                out.println("ERROR: " + request.getAttribute("Error"));
+                out.println("</BODY></HTML>");
+                request.getRequestDispatcher("/").forward(request, response);
             }
         }
         else {

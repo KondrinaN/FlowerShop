@@ -4,10 +4,7 @@ import com.accenture.flowershop.be.entity.user.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
-import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
+import javax.persistence.*;
 import java.util.List;
 
 @Repository("userDAOImpl")
@@ -29,8 +26,15 @@ public class UserDAOImpl implements UserDAO{
     }
 
     @Override
-    public Customer findCustomerById() {
-        return null;
+    public Customer findCustomerById(Long idUser) {
+        try{
+            TypedQuery<Customer> query = entityManager.createNamedQuery("Users.findCustomerById", Customer.class).setParameter("idUser", idUser);
+            return query.getSingleResult();
+        }
+        catch (NoResultException exc)
+        {
+            return null;
+        }
     }
 
     @Override
@@ -46,8 +50,28 @@ public class UserDAOImpl implements UserDAO{
 
 
     @Override
-    public int save() {
-        return 0;
+    public Long save(Customer customer) {
+        try {
+         /*   EntityTransaction transaction = entityManager.getTransaction();
+            transaction.begin();
+
+
+            if (customer.getIdUser() == null)*/
+            if (customer.getIdUser() == null)
+                entityManager.persist(customer);
+            else
+                return null;
+           /* else
+                entityManager.merge(customer);
+
+            entityManager.flush();
+            transaction.commit();*/
+
+            return customer.getIdUser();
+        }
+        catch(NoResultException exc) {
+            return new Long(0);
+        }
     }
 
 }

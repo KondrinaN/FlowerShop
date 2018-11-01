@@ -8,8 +8,7 @@ import java.util.List;
 @Table(name = "RowsOrders")
 public class RowOrder implements RowOrderInterface{
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ROWS_ORDERS_SEQ")
-    @SequenceGenerator(name="ROWS_ORDERS_SEQ", sequenceName = "ROWS_ORDERS_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idRowOrder;
 
     @ManyToOne
@@ -27,7 +26,7 @@ public class RowOrder implements RowOrderInterface{
 
     public RowOrder(){}
 
-    public RowOrder(Long idRowOrder, String nameProduct, int count, int price) {
+    public RowOrder(String nameProduct, int count, int price) {
         this.idRowOrder = idRowOrder;
         this.nameProduct = nameProduct;
         this.count = count;

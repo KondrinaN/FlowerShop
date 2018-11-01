@@ -13,8 +13,7 @@ import java.math.BigDecimal;
 )
 public class Flower implements FlowerInterface{
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "FLOWERS_SEQ")
-    @SequenceGenerator(name="FLOWERS_SEQ", sequenceName = "FLOWERS_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idFlower;
 
     @Column(name = "NameFlower")
@@ -28,9 +27,8 @@ public class Flower implements FlowerInterface{
 
     public Flower(){}
 
-    public Flower(Long idFlower, String nameFlower, BigDecimal balance, BigDecimal price)
+    public Flower(String nameFlower, BigDecimal balance, BigDecimal price)
     {
-        this.idFlower = idFlower;
         this.nameFlower = nameFlower;
         this.balance = balance;
         this.price = price;
