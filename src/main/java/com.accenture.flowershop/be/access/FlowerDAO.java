@@ -7,7 +7,7 @@ import java.util.List;
 public interface FlowerDAO {
     List<Flower> findAll();
     Flower findFlowerById();
-    Flower findFlowerByName();
-    Flower findFlowerByRangePrice(double minPrice, double maxPrice);
+    List<Flower> findFlowerByName(String nameFlower);
+    List<Flower> findFlowerByRangePrice(double minPrice, double maxPrice);
     Long save(Flower flower) throws Exception;
 }

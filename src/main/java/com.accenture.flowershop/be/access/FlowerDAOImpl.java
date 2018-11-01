@@ -36,13 +36,29 @@ public class FlowerDAOImpl implements FlowerDAO {
     }
 
     @Override
-    public Flower findFlowerByName() {
-        return null;
+    public List<Flower> findFlowerByName(String nameFlower) {
+        try{
+            TypedQuery<Flower> query = entityManager.createNamedQuery("Users.findFlowerByName", Flower.class).setParameter("nameFlower", nameFlower);
+            return query.getResultList();
+        }
+        catch (NoResultException exc)
+        {
+            return null;
+        }
     }
 
     @Override
-    public Flower findFlowerByRangePrice(double minPrice, double maxPrice) {
-        return null;
+    public List<Flower> findFlowerByRangePrice(double minPrice, double maxPrice) {
+        try{
+            TypedQuery<Flower> query = entityManager.createNamedQuery("Users.findFlowerByRangePrice", Flower.class);
+            query.setParameter("minPrice", minPrice);
+            query.setParameter("maxPrice", maxPrice);
+            return query.getResultList();
+        }
+        catch (NoResultException exc)
+        {
+            return null;
+        }
     }
 
     @Override
