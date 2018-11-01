@@ -76,7 +76,7 @@ public class SignUpServlet extends HttpServlet{
                         request.getParameter("Name"), request.getParameter("Patronymic"), request.getParameter("Address"),
                         new BigDecimal(2000), new BigDecimal(0), UserShop.buyer);
             } catch (Exception exc) {
-                request.setAttribute("Error", "User not created! \n" + exc);
+                request.setAttribute("Error", "User not registered! \n" + exc);
                 PrintWriter out = response.getWriter();
                 out.println("<HTML>");
                 out.println("<BODY>");
@@ -93,7 +93,7 @@ public class SignUpServlet extends HttpServlet{
                 //request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
             }
             else {
-                request.setAttribute("Error", "User not registered!");
+                request.setAttribute("Error", "User with this login is already registered! ");
                 PrintWriter out = response.getWriter();
                 out.println("<HTML>");
                 out.println("<BODY>");
