@@ -1,5 +1,7 @@
 package com.accenture.flowershop.be.entity.flower;
 
+import com.accenture.flowershop.fe.enums.flower.FlowerAvailability;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -25,14 +27,36 @@ public class Flower implements FlowerInterface{
     @Column(name = "Price")
     private BigDecimal price;
 
+    @Column(name = "FlowerAvailability")
+    private FlowerAvailability flowerAvailability;
+
     public Flower(){}
 
-    public Flower(String nameFlower, BigDecimal balance, BigDecimal price)
+    public Flower(String nameFlower, BigDecimal balance, BigDecimal price, FlowerAvailability flowerAvailability)
     {
         this.nameFlower = nameFlower;
         this.balance = balance;
         this.price = price;
+        this.flowerAvailability = flowerAvailability;
     }
+
+
+    public Long getIdFlower() {
+        return idFlower;
+    }
+
+    public void setIdFlower(Long idFlower) {
+        this.idFlower = idFlower;
+    }
+
+    public FlowerAvailability getFlowerAvailability() {
+        return flowerAvailability;
+    }
+
+    public void setFlowerAvailability(FlowerAvailability flowerAvailability) {
+        this.flowerAvailability = flowerAvailability;
+    }
+
 
     @Override
     public void setId(Long id) {

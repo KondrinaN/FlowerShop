@@ -38,6 +38,18 @@ public class MainPageServlet extends HttpServlet{
         response.setContentType("text/html"); //отображение как html
         PrintWriter out = response.getWriter();
 
+        List<Flower> flowers = flowerBusinessService.findAllFlowers();
+
+        for (Flower f:flowers)
+        {
+            request.setAttribute("nameFlower", f.getNameFlower());
+            request.setAttribute("balance", f.getBalance());
+            request.setAttribute("price", f.getPrice());
+            request.setAttribute("flowerAvailability", f.getFlowerAvailability());
+        }
+
+        request.setAttribute("flowers", flowers);
+
         request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
     }
 
@@ -52,18 +64,15 @@ public class MainPageServlet extends HttpServlet{
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws  ServletException, IOException{
 
-        String param = request.getParameter("Login");
+       /* String param = request.getParameter("Login");
 
-
-
-        if (!param.isEmpty())
+        if (!param.isEmpty()) {
             request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
+        }
         else
         {
             request.setAttribute("Error", "Login can't be empty!");
             request.getRequestDispatcher("/").forward(request, response);
-        }
-
-        //super.doPost(request, response);
+        }*/
     }
 }

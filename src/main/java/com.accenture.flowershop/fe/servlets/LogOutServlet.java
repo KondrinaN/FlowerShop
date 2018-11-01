@@ -42,7 +42,7 @@ public class LogOutServlet extends HttpServlet {
 
         if (session.getAttribute("customer") != null) {
             session.invalidate();
-
+            //здесь должна быть очистка корзины
             //userBusinessService.DeleteUserInMap(customerDTO.getLogin());
             response.sendRedirect("/");
         }

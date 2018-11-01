@@ -54,18 +54,14 @@ public class UserDAOImpl implements UserDAO{
 
     @Override
     public Long save(Customer customer) throws Exception{
-        try{
+
            if (customer.getIdUser() == null) {
                entityManager.persist(customer);
                return customer.getIdUser();
            }
            else
                throw new Exception("User was not created!");
-        }
-        catch (NoResultException exc)
-        {
-            return new Long(0);
-        }
+
     }
 
 }

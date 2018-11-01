@@ -1,11 +1,7 @@
 package com.accenture.flowershop.be.business;
 
-import com.accenture.flowershop.be.access.FlowerDAO;
 import com.accenture.flowershop.be.access.UserDAO;
-import com.accenture.flowershop.be.access.UserDAOImpl;
-import com.accenture.flowershop.be.entity.flower.Flower;
 import com.accenture.flowershop.be.entity.user.Customer;
-import com.accenture.flowershop.fe.dto.CustomerDTO;
 import com.accenture.flowershop.fe.enums.customer.UserShop;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.NoResultException;
 import java.math.BigDecimal;
 import java.util.*;
 
