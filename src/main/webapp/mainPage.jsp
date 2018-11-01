@@ -43,8 +43,11 @@
                 <td>${flowers.balance}</td>
                 <td>${flowers.price}</td>
                 <td>${flowers.flowerAvailability}</td>
-                <c:if test="${flowers.flowerAvailability eq 'areAvailable'}">
-                    <td class="button"><button>In garbage</button></td>
+
+                <c:if test="${flowers.balance ne 0}">
+                    <c:if test="${flowers.flowerAvailability eq 'areAvailable'}">
+                        <td class="button"><button>In basket</button></td>
+                    </c:if>
                 </c:if>
             </tr>
         </c:forEach>
