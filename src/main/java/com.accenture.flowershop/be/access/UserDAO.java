@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface UserDAO {
     List<Customer> findAll();
-    Customer findCustomerById(Long idUser);
-    Customer findCustomerByLogin(String login);
-    Long save(Customer customer);
+    Customer findCustomerById(Long idUser) throws Exception ;
+    Customer findCustomerByLogin(String login) throws Exception ;
+    Long save(Customer customer) throws Exception;
 }

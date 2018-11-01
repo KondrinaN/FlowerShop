@@ -10,6 +10,7 @@ import com.accenture.flowershop.fe.enums.customer.UserShop;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
+import javax.persistence.NoResultException;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -46,71 +47,25 @@ public class LogInServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String param = request.getParameter("Login");
         String pwd = request.getParameter("Password");
-        Boolean excBool = false;
-
-       /* FlowerDTO flowerDTO = new FlowerDTO();
-        List<Flower> flower = flowerBusinessService.findAllFlowers();*/
 
         if(!param.isEmpty() && !pwd.isEmpty())
         {
             request.setAttribute("Login", param);
 
-
-            CustomerDTO customerDTO = new CustomerDTO(param, pwd);
-            Customer customer = null;
-
-
             try{
-                customer = userService.logIn(param, pwd);
+                Customer customer = userService.logIn(param, pwd);
+                HttpSession session = request.getSession();
+                session.setAttribute("customer", CustomerDTO.convertCustomerToCustomerDTO(customer));
+                response.sendRedirect("/mainPage");
             }
             catch (Exception exc)
             {
-                request.setAttribute("Error", "User not created!");
-                PrintWriter out = response.getWriter();
-                out.println("<HTML>");
-                out.println("<BODY>");
-                out.println("ERROR: " + request.getAttribute("Error"));
-                out.println("</BODY></HTML>");
-                request.getRequestDispatcher("/").forward(request, response);
-            }
-
-            if (customer!=null)
-            {
-               // if (pwd.equals(customer.getPassword())) {
-                if (userService.checkPassword(pwd, customer.getPassword()))
-                {
-                    HttpSession session = request.getSession();
-                    session.setAttribute("customer", customerDTO.convertCustomerToCustomerDTO(customer));
-                    response.sendRedirect("/mainPage");
-                }
-                else{
-                    request.setAttribute("Error", "Wrong password!");
-                    PrintWriter out = response.getWriter();
-                    out.println("<HTML>");
-                    out.println("<BODY>");
-                    out.println("ERROR: " + request.getAttribute("Error"));
-                    out.println("</BODY></HTML>");
-                    request.getRequestDispatcher("/").forward(request, response);
-                }
-
-            }
-            else {
-                request.setAttribute("Error", "User not registered!");
-                PrintWriter out = response.getWriter();
-                out.println("<HTML>");
-                out.println("<BODY>");
-                out.println("ERROR: " + request.getAttribute("Error"));
-                out.println("</BODY></HTML>");
+                request.setAttribute("Error", exc.toString());
                 request.getRequestDispatcher("/").forward(request, response);
             }
         }
         else {
             request.setAttribute("Error", "Login or password can't be empty!");
-            PrintWriter out = response.getWriter();
-            out.println("<HTML>");
-            out.println("<BODY>");
-            out.println("ERROR: " + request.getAttribute("Error"));
-            out.println("</BODY></HTML>");
             request.getRequestDispatcher("/").forward(request, response);
         }
     }

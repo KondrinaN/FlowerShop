@@ -42,7 +42,7 @@ public class CustomerDTO {
         this.userRole = userRole;
     }
 
-    public CustomerDTO convertCustomerToCustomerDTO(Customer customer)
+    public static CustomerDTO convertCustomerToCustomerDTO(Customer customer)
     {
         if (customer!= null)
         {

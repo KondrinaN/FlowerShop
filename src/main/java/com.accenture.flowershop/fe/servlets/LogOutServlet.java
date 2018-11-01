@@ -42,7 +42,8 @@ public class LogOutServlet extends HttpServlet {
 
         if (session.getAttribute("customer") != null) {
             session.invalidate();
-            userBusinessService.DeleteUserInMap(customerDTO.getLogin());
+
+            //userBusinessService.DeleteUserInMap(customerDTO.getLogin());
             response.sendRedirect("/");
         }
     }

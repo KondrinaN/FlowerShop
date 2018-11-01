@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.NoResultException;
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -48,12 +49,18 @@ public class UserBusinessServiceImpl implements UserBusinessService{
     }
 
     @Override
-    public Customer logIn(String login, String password) {
+    public Customer logIn(String login, String password) throws Exception {
         //customers = userDAO.findAll();
         Customer customer = userDAO.findCustomerByLogin(login);
 
-        if(customer!=null)
-           return customer;
+        if(customer!=null) {
+            if (checkPassword(password, customer.getPassword()))
+                return customer;
+            else
+                throw new Exception("Wrong password!");
+        }
+        else
+            throw new Exception("User not registered!");
 
         /*if (users.size()!=0) {
             if (users.containsKey(login)) {
@@ -61,13 +68,12 @@ public class UserBusinessServiceImpl implements UserBusinessService{
                 return users.get(login);
             }
         }*/
-        return null;
-
     }
 
     @Override
     @Transactional
-    public Customer register(String login, String password, String surname, String name, String patronymic, String address, BigDecimal cashBalance, BigDecimal discount, UserShop userRole) {
+    public Customer register(String login, String password, String surname, String name, String patronymic, String address, BigDecimal cashBalance, BigDecimal discount, UserShop userRole)
+            throws Exception{
         customers = userDAO.findAll();
         Customer customer = userDAO.findCustomerByLogin(login);
 
@@ -78,8 +84,13 @@ public class UserBusinessServiceImpl implements UserBusinessService{
            if (userDAO.save(customer)!=0)
                customers.add(customer);
 
-           return customer;
+           if (customer!=null)
+               return customer;
+           else
+               throw new Exception("User not registered!");
         }
+        else
+            throw new Exception("User with this login is already registered!");
 
       /*  if (!users.containsKey(login)) {
             Customer customer = new Customer(login, password, surname, name, patronymic, address, cashBalance, discount, userRole);
@@ -87,17 +98,6 @@ public class UserBusinessServiceImpl implements UserBusinessService{
             users.put(customer.getLogin(), customer);
             return customer;
         }*/
-        return null;
-    }
-
-    @Override
-    public Customer saveUser(Customer customer) {
-        return null;
-    }
-
-    @Override
-    public int findIdUser(String login) {
-        return 0;
     }
 
     @Override

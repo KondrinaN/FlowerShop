@@ -31,6 +31,7 @@
     </div>
 
 <p></p>
+
         <% if (request.getAttribute("Error") != null) { %>
                     <%= (String)request.getAttribute("Error") %>
                 <% }

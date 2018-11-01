@@ -58,57 +58,26 @@ public class SignUpServlet extends HttpServlet{
         String param = request.getParameter("Login");
         String pwd = request.getParameter("Password");
 
-     /*   FlowerDTO flowerDTO = new FlowerDTO();
-        Long id = flowerBusinessService.save(new Flower("wdtnj", new BigDecimal(50), new BigDecimal(32)));*/
 
         if(!param.isEmpty() && !pwd.isEmpty()) {
             request.setAttribute("Login", param);
 
-
-            CustomerDTO customerDTO = new CustomerDTO(param, request.getParameter("Password"), request.getParameter("Surname"),
-                    request.getParameter("Name"), request.getParameter("Patronymic"), request.getParameter("Address"),
-                    new BigDecimal(2000),  new BigDecimal(0), UserShop.buyer);
-
-            Customer customer = null;
-
             try {
-                customer = userService.register(param, request.getParameter("Password"), request.getParameter("Surname"),
+                Customer customer = userService.register(param, request.getParameter("Password"), request.getParameter("Surname"),
                         request.getParameter("Name"), request.getParameter("Patronymic"), request.getParameter("Address"),
                         new BigDecimal(2000), new BigDecimal(0), UserShop.buyer);
-            } catch (Exception exc) {
-                request.setAttribute("Error", "User not registered! \n" + exc);
-                PrintWriter out = response.getWriter();
-                out.println("<HTML>");
-                out.println("<BODY>");
-                out.println("ERROR: " + request.getAttribute("Error"));
-                out.println("</BODY></HTML>");
-                request.getRequestDispatcher("/").forward(request, response);
-            }
 
-            if (customer != null) {
                 HttpSession session = request.getSession();
-                session.setAttribute("customer", customerDTO.convertCustomerToCustomerDTO(customer));
-
+                session.setAttribute("customer", CustomerDTO.convertCustomerToCustomerDTO(customer));
                 response.sendRedirect("/mainPage");
-                //request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
-            }
-            else {
-                request.setAttribute("Error", "User with this login is already registered! ");
-                PrintWriter out = response.getWriter();
-                out.println("<HTML>");
-                out.println("<BODY>");
-                out.println("ERROR: " + request.getAttribute("Error"));
-                out.println("</BODY></HTML>");
+
+            } catch (Exception exc) {
+                request.setAttribute("Error", exc.toString());
                 request.getRequestDispatcher("/").forward(request, response);
             }
         }
         else {
             request.setAttribute("Error", "First fill in the fields!");
-            PrintWriter out = response.getWriter();
-            out.println("<HTML>");
-            out.println("<BODY>");
-            out.println("ERROR: " + request.getAttribute("Error"));
-            out.println("</BODY></HTML>");
             request.getRequestDispatcher("/signUp.jsp").forward(request, response);
         }
     }

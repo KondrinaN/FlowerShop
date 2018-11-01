@@ -9,9 +9,7 @@ import java.math.BigDecimal;
 public interface UserBusinessService {
 
     void DeleteUserInMap(String loginUser);
-    Customer logIn(String user, String password);
-    Customer register(String login, String password, String surname, String name, String patronymic, String address, BigDecimal cashBalance, BigDecimal discount, UserShop userRole);
-    Customer saveUser(Customer customer);
-    int findIdUser(String login);
+    Customer logIn(String user, String password) throws Exception;
+    Customer register(String login, String password, String surname, String name, String patronymic, String address, BigDecimal cashBalance, BigDecimal discount, UserShop userRole) throws Exception;
     boolean checkPassword(String passwordCurrent, String passwordCustomer);
 }
