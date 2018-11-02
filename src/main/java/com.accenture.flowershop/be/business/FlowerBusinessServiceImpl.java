@@ -38,5 +38,15 @@ public class FlowerBusinessServiceImpl implements FlowerBusinessService {
 
     }
 
+    @Override
+    public List<Flower> findFlowerByName(String nameFlower) {
+        return flowerDAO.findFlowerByName(nameFlower);
+    }
+
+    @Override
+    public List<Flower> findFlowerByRangePrice(double minPrice, double maxPrice) {
+        return flowerDAO.findFlowerByRangePrice(minPrice, maxPrice);
+    }
+
 
 }

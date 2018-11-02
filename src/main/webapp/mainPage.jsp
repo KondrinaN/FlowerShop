@@ -11,13 +11,8 @@
                  body{
                     background: lavender;
                  }
-                 table, th, td{
+                 table, tr {
                      border: 1px solid black;
-                 }
-                 form {
-                     border: 1px solid black;
-                     height: 52px;
-                     width: 300px;
                  }
                 </style>
     </head>
@@ -30,14 +25,35 @@
          <h4>You are logged in as: ${sessionScope.customer.login} Balance: ${sessionScope.customer.cashBalance} Discount: ${sessionScope.customer.discount}%</h4>
     </c:if>
 
-    <form id="SearchByName" action="/mainPage" method="POST">
-         Search flower by name:
-            <input type='text' name='NameFlower' placeholder="Name flower"/>
-            <input type='submit' name='SearchN' value="Search by name" align="center" />
+
+    <form id="SearchByName" action="/search" method="POST">
+
+         <table>
+             <tr align="center">
+                <td>Search flower by name:</td>
+                <td><input type='text' name='NameFlower' placeholder="Name flower" align="right" valign="top"/></td>
+                <td><input type='submit' name='Search' value="Search by name" align="right" /></td>
+             </tr>
+         </table>
          <p></p>
     </form>
 
+    <form id="SearchByRangePrice" action="/search" method="POST">
+
+             <table>
+                 <tr align="center">
+                    <td>Search flower by range price (>=min price and <=max price): </td>
+                    <td><input type='text' name='minPrice' placeholder="min price" align="right" valign="top" size="5"/></td>
+                    <td><input type='text' name='maxPrice' placeholder="max price" align="right" valign="top" size="5"/></td>
+                    <td><input type='submit' name='Search' value="Search by range price" align="right" /></td>
+                 </tr>
+             </table>
+             <p></p>
+    </form>
+
+
     <br>
+    <form id="Flowers" action="/basket" method="POST">
     <table border="5">
     <thead>
         <tr>
@@ -46,7 +62,7 @@
              <th>Price</th>
              <th>Available</th>
              <th>To take in quantity</th>
-             <th class="button">Actions</th>
+             <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -61,13 +77,14 @@
                 <c:if test="${flowers.balance ne 0}">
                     <c:if test="${flowers.flowerAvailability eq 'areAvailable'}">
                         <td><input type='text' name="Count" placeholder="Count"/></td>
-                        <td class="button"><button>In basket</button></td>
+                        <td><input type='submit' name='Basket' value="In basket" align="right" /></td>
                     </c:if>
                 </c:if>
             </tr>
         </c:forEach>
         </tbody>
     </table>
+   </form>
 
     <br>
     <p><a href="/logOut" action="/logOut" method="GET">LogOut</a></p>

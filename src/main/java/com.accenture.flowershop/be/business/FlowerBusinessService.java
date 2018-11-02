@@ -9,4 +9,6 @@ public interface FlowerBusinessService {
     List<Flower> findAllFlowers();
     Flower findFlowerById(int idFlower);
     void deleteFlower(int idFlower);
+    List<Flower> findFlowerByName(String nameFlower);
+    List<Flower> findFlowerByRangePrice(double minPrice, double maxPrice);
 }
