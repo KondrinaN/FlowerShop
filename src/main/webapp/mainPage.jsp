@@ -20,13 +20,17 @@
 
     <h2>Home Flower Shop</h2>
 
+     <c:if test="${Error ne null}">
+        ${Error}
+     </c:if>
+     <c:if test="${Error eq null}">
 
     <c:if test="${not empty sessionScope.customer}">
          <h4>You are logged in as: ${sessionScope.customer.login} Balance: ${sessionScope.customer.cashBalance} Discount: ${sessionScope.customer.discount}%</h4>
     </c:if>
 
 
-    <form id="SearchByName" action="/search" method="POST">
+    <form id="SearchByName" action="/search" method="GET">
 
          <table>
              <tr align="center">
@@ -38,8 +42,7 @@
          <p></p>
     </form>
 
-    <form id="SearchByRangePrice" action="/search" method="POST">
-
+    <form id="SearchByRangePrice" action="/search" method="GET">
              <table>
                  <tr align="center">
                     <td>Search flower by range price (>=min price and <=max price): </td>
@@ -54,6 +57,7 @@
 
     <br>
     <form id="Flowers" action="/basket" method="POST">
+
     <table border="5">
     <thead>
         <tr>
@@ -85,6 +89,7 @@
         </tbody>
     </table>
    </form>
+</c:if>
 
     <br>
     <p><a href="/logOut" action="/logOut" method="GET">LogOut</a></p>

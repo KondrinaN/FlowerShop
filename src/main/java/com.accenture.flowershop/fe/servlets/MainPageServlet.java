@@ -40,15 +40,19 @@ public class MainPageServlet extends HttpServlet{
 
         List<Flower> flowers = flowerBusinessService.findAllFlowers();
 
-        for (Flower f:flowers)
-        {
-            request.setAttribute("nameFlower", f.getNameFlower());
-            request.setAttribute("balance", f.getBalance());
-            request.setAttribute("price", f.getPrice());
-            request.setAttribute("flowerAvailability", f.getFlowerAvailability());
-        }
+        if(flowers.size()!=0) {
+            for (Flower f : flowers) {
+                request.setAttribute("nameFlower", f.getNameFlower());
+                request.setAttribute("balance", f.getBalance());
+                request.setAttribute("price", f.getPrice());
+                request.setAttribute("flowerAvailability", f.getFlowerAvailability());
+            }
 
-        request.setAttribute("flowers", flowers);
+            request.setAttribute("flowers", flowers);
+        }
+        else
+            request.setAttribute("Error", "Flowers not found!");
+
 
         request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
     }

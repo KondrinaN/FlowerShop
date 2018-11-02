@@ -42,15 +42,19 @@ public class SearchServlet extends HttpServlet {
         else if ("Search by name".equals(action))
             flowers = flowerBusinessService.findFlowerByName(request.getParameter("NameFlower"));
 
-        for (Flower f:flowers)
-        {
-            request.setAttribute("nameFlower", f.getNameFlower());
-            request.setAttribute("balance", f.getBalance());
-            request.setAttribute("price", f.getPrice());
-            request.setAttribute("flowerAvailability", f.getFlowerAvailability());
-        }
+        if(flowers.size()!=0) {
+            for (Flower f:flowers)
+            {
+                request.setAttribute("nameFlower", f.getNameFlower());
+                request.setAttribute("balance", f.getBalance());
+                request.setAttribute("price", f.getPrice());
+                request.setAttribute("flowerAvailability", f.getFlowerAvailability());
+            }
 
-        request.setAttribute("flowers", flowers);
+            request.setAttribute("flowers", flowers);
+        }
+        else
+            request.setAttribute("Error", "Flowers not found!");
 
         request.getRequestDispatcher("/search.jsp").forward(request, response);
     }
