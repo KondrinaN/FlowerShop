@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class SearchServlet extends HttpServlet {
         String action = request.getParameter("Search");
 
         if("Search by range price".equals(action))
-            flowers = flowerBusinessService.findFlowerByRangePrice(new Double(request.getParameter("minPrice")), new Double(request.getParameter("maxPrice")));
+            flowers = flowerBusinessService.findFlowerByRangePrice(new BigDecimal(request.getParameter("minPrice")), new BigDecimal(request.getParameter("maxPrice")));
         else if ("Search by name".equals(action))
             flowers = flowerBusinessService.findFlowerByName(request.getParameter("NameFlower"));
 

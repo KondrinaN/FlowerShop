@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service("flowerBusinessService")
@@ -44,7 +45,8 @@ public class FlowerBusinessServiceImpl implements FlowerBusinessService {
     }
 
     @Override
-    public List<Flower> findFlowerByRangePrice(double minPrice, double maxPrice) {
+    public List<Flower> findFlowerByRangePrice(BigDecimal minPrice, BigDecimal maxPrice) {
+
         return flowerDAO.findFlowerByRangePrice(minPrice, maxPrice);
     }
 

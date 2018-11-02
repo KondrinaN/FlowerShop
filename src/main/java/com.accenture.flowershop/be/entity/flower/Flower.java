@@ -14,7 +14,7 @@ import java.math.BigDecimal;
                 @NamedQuery(name = "Flowers.findFlowerByName",
                         query = "SELECT f FROM Flower f WHERE f.nameFlower = :nameFlower"),
                 @NamedQuery(name = "Flowers.findFlowerByRangePrice",
-                        query = "SELECT f FROM Flower f WHERE f.price>=minPrice and f.price<=maxPrice"),
+                        query = "SELECT f FROM Flower f WHERE f.price>= :minPrice and f.price<= :maxPrice"),
         }
 )
 public class Flower implements FlowerInterface{

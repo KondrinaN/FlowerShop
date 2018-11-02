@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import java.math.BigDecimal;
 import java.util.List;
 
 @Repository("flowerDAOImpl")
@@ -48,9 +49,10 @@ public class FlowerDAOImpl implements FlowerDAO {
     }
 
     @Override
-    public List<Flower> findFlowerByRangePrice(double minPrice, double maxPrice) {
+    public List<Flower> findFlowerByRangePrice(BigDecimal minPrice, BigDecimal maxPrice) {
         try{
             TypedQuery<Flower> query = entityManager.createNamedQuery("Flowers.findFlowerByRangePrice", Flower.class);
+
             query.setParameter("minPrice", minPrice);
             query.setParameter("maxPrice", maxPrice);
             return query.getResultList();
