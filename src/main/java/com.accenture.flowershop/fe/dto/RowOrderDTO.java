@@ -1,20 +1,45 @@
 package com.accenture.flowershop.fe.dto;
 
+import com.accenture.flowershop.be.entity.order.RowOrder;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
 public class RowOrderDTO {
     private int idRowOrder;
     private int orderId;
     private String nameProduct;
-    private int count;
-    private int price;
+    private BigDecimal count;
+    private BigDecimal price;
 
     public RowOrderDTO(){}
 
-    public RowOrderDTO(int idRowOrder, int orderId, String nameProduct, int count, int price) {
+    public RowOrderDTO(String nameProduct, BigDecimal count, BigDecimal price) {
         this.idRowOrder = idRowOrder;
         this.orderId = orderId;
         this.nameProduct = nameProduct;
         this.count = count;
         this.price = price;
+    }
+
+    public static RowOrderDTO convertRowOrderToRowOrderDTO(RowOrder rowOrder)
+    {
+        if (rowOrder!= null)
+            return new RowOrderDTO(rowOrder.getNameProduct(), rowOrder.getCount(), rowOrder.getPrice());
+
+        return null;
+    }
+
+    public static List<RowOrderDTO> convertListRowOrderToListRowOrderDTO(List<RowOrder> rowOrders)
+    {
+        List<RowOrderDTO> rowsOrderDTO = new ArrayList<RowOrderDTO>();
+        for (RowOrder row : rowOrders) {
+            RowOrderDTO rowOrderDTO = convertRowOrderToRowOrderDTO(row);
+            if(rowOrderDTO!=null)
+                rowsOrderDTO.add(rowOrderDTO);
+        }
+        return rowsOrderDTO;
     }
 
     public int getIdRowOrder() {
@@ -41,19 +66,19 @@ public class RowOrderDTO {
         this.nameProduct = nameProduct;
     }
 
-    public int getCount() {
+    public BigDecimal getCount() {
         return count;
     }
 
-    public void setCount(int count) {
+    public void setCount(BigDecimal count) {
         this.count = count;
     }
 
-    public int getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 }

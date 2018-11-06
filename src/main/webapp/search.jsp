@@ -25,7 +25,7 @@
      </c:if>
      <c:if test="${Error eq null}">
                <br>
-                <form id="Flowers" action="/basket" method="POST">
+                <form id="Flowers" action="/mainPage" method="POST">
                 <table border="5">
                 <thead>
                     <tr>
@@ -48,8 +48,8 @@
 
                             <c:if test="${flowers.balance ne 0}">
                                 <c:if test="${flowers.flowerAvailability eq 'areAvailable'}">
-                                    <td><input type='text' name="Count" placeholder="Count"/></td>
-                                    <td><input type='submit' name='Basket' value="In basket" align="right" /></td>
+                                    <td><input type='text' name="Count${flowers.idFlower}" placeholder="Count" value="1"/></td>
+                                    <td><input type='submit' name='Basket${flowers.idFlower}' value="In basket" align="right" /></td>
                                 </c:if>
                             </c:if>
                         </tr>
@@ -61,6 +61,7 @@
 
     <br>
     <p><a href="/logOut" action="/logOut" method="GET">LogOut</a></p>
+
 
 
 </body>

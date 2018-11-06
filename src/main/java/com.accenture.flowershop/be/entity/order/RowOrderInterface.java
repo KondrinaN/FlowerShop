@@ -1,5 +1,6 @@
 package com.accenture.flowershop.be.entity.order;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface RowOrderInterface {
@@ -13,9 +14,9 @@ public interface RowOrderInterface {
     public void setNameProduct(String nameProduct);
     public String getNameProduct();
 
-    public void setCount(int count);
-    public int getCount();
+    public void setCount(BigDecimal count);
+    public BigDecimal getCount();
 
-    public void setPrice(int price);
-    public int getPrice();
+    public void setPrice(BigDecimal price);
+    public BigDecimal getPrice();
 }

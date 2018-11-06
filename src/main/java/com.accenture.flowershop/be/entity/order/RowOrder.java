@@ -1,6 +1,9 @@
 package com.accenture.flowershop.be.entity.order;
 
+import com.accenture.flowershop.fe.dto.RowOrderDTO;
+
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,21 +22,28 @@ public class RowOrder implements RowOrderInterface{
     private String nameProduct;
 
     @Column(name = "Count")
-    private int count;
+    private BigDecimal count;
 
     @Column(name = "Price")
-    private int price;
+    private BigDecimal price;
 
     public RowOrder(){}
 
-    public RowOrder(String nameProduct, int count, int price) {
-        this.idRowOrder = idRowOrder;
+    public RowOrder(String nameProduct, BigDecimal count, BigDecimal price) {
+
         this.nameProduct = nameProduct;
         this.count = count;
         this.price = price;
     }
 
 
+    public RowOrder convertRowOrderDTOToRowOrder(RowOrderDTO rowOrderDTO)
+    {
+        if (rowOrderDTO!= null)
+            return new RowOrder(rowOrderDTO.getNameProduct(), rowOrderDTO.getCount(), rowOrderDTO.getPrice());
+
+        return null;
+    }
 
     @Override
     public void setIdRowOrder(Long id) {
@@ -64,22 +74,22 @@ public class RowOrder implements RowOrderInterface{
     }
 
     @Override
-    public void setCount(int count) {
+    public void setCount(BigDecimal count) {
         this.count = count;
     }
 
     @Override
-    public int getCount() {
+    public BigDecimal getCount() {
         return count;
     }
 
     @Override
-    public void setPrice(int price) {
+    public void setPrice(BigDecimal price) {
         this.price=price;
     }
 
     @Override
-    public int getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 }

@@ -14,4 +14,7 @@ public interface FlowerBusinessService {
     List<Flower> findFlowerByName(String nameFlower);
     List<Flower> findFlowerByRangePrice(BigDecimal minPrice, BigDecimal maxPrice);
     void OutFoundFlower(List<Flower> flowers, HttpServletRequest request);
+    public int getLengthListFlowers();
+    public Flower getFlowerById(int id);
+    public List<Flower> getFlowers();
 }

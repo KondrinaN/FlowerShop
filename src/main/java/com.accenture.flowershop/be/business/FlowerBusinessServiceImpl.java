@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service("flowerBusinessService")
@@ -20,7 +21,32 @@ public class FlowerBusinessServiceImpl implements FlowerBusinessService {
     @Autowired
     private FlowerDAO flowerDAO;
 
+    private List<Flower> flowers;
+
+
+    public List<Flower> getFlowers() {
+        return flowers;
+    }
+
+    public void setFlowers(List<Flower> flowers) {
+        this.flowers = flowers;
+    }
+
+    @Override
+    public int getLengthListFlowers()
+    {
+        return flowers.size();
+    }
+
+    @Override
+    public Flower getFlowerById(int id) {
+        return flowers.get(id);
+    }
+
+
+
     public FlowerBusinessServiceImpl(){
+        flowers= new ArrayList<Flower>();
         //System.out.println("flowerBusinessService");
        // LOG.debug("Flower");
     }
@@ -56,6 +82,7 @@ public class FlowerBusinessServiceImpl implements FlowerBusinessService {
     {
         if (flowers.size() != 0) {
             for (Flower f : flowers) {
+                request.setAttribute("idFlower", f.getId().toString());
                 request.setAttribute("nameFlower", f.getNameFlower());
                 request.setAttribute("balance", f.getBalance());
                 request.setAttribute("price", f.getPrice());
@@ -63,6 +90,7 @@ public class FlowerBusinessServiceImpl implements FlowerBusinessService {
             }
 
             request.setAttribute("flowers", flowers);
+            this.setFlowers(flowers);
         } else
             request.setAttribute("Error", "Flowers not found!");
     }
