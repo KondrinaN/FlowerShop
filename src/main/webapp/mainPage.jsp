@@ -14,6 +14,14 @@
                  table, tr {
                      border: 1px solid black;
                  }
+                 td{
+                    text-align: center;
+                 }
+                 h5 {
+                   font-size: 14pt;
+                   text-align: left;
+                   color: darkblue;
+                 }
                 </style>
     </head>
 <body>
@@ -27,6 +35,8 @@
 
     <c:if test="${not empty sessionScope.customer}">
          <h4>You are logged in as: ${sessionScope.customer.login} Balance: ${sessionScope.customer.cashBalance} Discount: ${sessionScope.customer.discount}%</h4>
+         <br>
+         <p><a href="/logOut" action="/logOut" method="GET">LogOut</a></p>
     </c:if>
 
 
@@ -55,9 +65,8 @@
     </form>
 
 
-    <br>
+    <br><h5>Flowers</h5>
     <form id="Flowers" action="/mainPage" method="POST" >
-
     <table border="5">
     <thead>
         <tr>
@@ -89,10 +98,44 @@
         </tbody>
     </table>
    </form>
+
+   <br><h5>Basket</h5>
+    <c:if test="${message ne null}">
+            ${message}
+    </c:if>
+    <c:if test="${message eq null}">
+       <form id="Basket" action="/orders" method="POST" >
+       <table border="5">
+       <thead>
+           <tr>
+                <th>NameFlower</th>
+                <th>Count</th>
+                <th>Price</th>
+           </tr>
+       </thead>
+       <tbody>
+           <c:forEach items="${rowOrders}" var="rowOrders">
+               <tr>
+                   <td>${rowOrders.nameProduct}</td>
+                   <td>${rowOrders.count}</td>
+                   <td>${rowOrders.price}</td>
+               </tr>
+           </c:forEach>
+
+
+           <c:if test="${countProducts ne 0}">
+                <br>
+                <tr><td>Total:</td><td>${priceFull}</td></tr>
+                <tr><td> <input type='submit' name='SaveOrder' value="Save order" align="center" /></td></tr>
+           </c:if>
+       </tbody>
+       </table>
+      </form>
+    </c:if>
+
 </c:if>
 
-    <br>
-    <p><a href="/logOut" action="/logOut" method="GET">LogOut</a></p>
+
 
 
 </body>

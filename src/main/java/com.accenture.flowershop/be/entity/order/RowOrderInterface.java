@@ -19,4 +19,5 @@ public interface RowOrderInterface {
 
     public void setPrice(BigDecimal price);
     public BigDecimal getPrice();
+    public String getPriceToString();
 }

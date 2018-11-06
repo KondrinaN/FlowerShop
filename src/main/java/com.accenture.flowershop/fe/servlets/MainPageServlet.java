@@ -47,6 +47,8 @@ public class MainPageServlet extends HttpServlet{
 
         flowerBusinessService.OutFoundFlower(flowers, request);
 
+        flowerBusinessService.OutBasket(request);
+
        // request.setAttribute();
         request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
 
@@ -102,7 +104,8 @@ public class MainPageServlet extends HttpServlet{
         else
             rowOrders = (List<RowOrderDTO>)session.getAttribute("basket");
 
-        RowOrder rowOrder = new RowOrder(flower.getNameFlower(), count, flower.getPrice());
+
+        RowOrder rowOrder = new RowOrder(flower.getNameFlower(), count, flower.getPrice().multiply(count));
         rowOrders.add(RowOrderDTO.convertRowOrderToRowOrderDTO(rowOrder));
         session.setAttribute("basket", rowOrders);
     }

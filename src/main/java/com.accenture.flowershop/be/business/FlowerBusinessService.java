@@ -17,4 +17,5 @@ public interface FlowerBusinessService {
     public int getLengthListFlowers();
     public Flower getFlowerById(int id);
     public List<Flower> getFlowers();
+    public void OutBasket(HttpServletRequest request);
 }

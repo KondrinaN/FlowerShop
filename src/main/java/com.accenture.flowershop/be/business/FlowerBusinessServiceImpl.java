@@ -3,12 +3,15 @@ package com.accenture.flowershop.be.business;
 import com.accenture.flowershop.be.access.FlowerDAO;
 import com.accenture.flowershop.be.access.FlowerDAOImpl;
 import com.accenture.flowershop.be.entity.flower.Flower;
+import com.accenture.flowershop.be.entity.order.RowOrder;
+import com.accenture.flowershop.fe.dto.RowOrderDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -93,5 +96,32 @@ public class FlowerBusinessServiceImpl implements FlowerBusinessService {
             this.setFlowers(flowers);
         } else
             request.setAttribute("Error", "Flowers not found!");
+    }
+
+    @Override
+    public void OutBasket(HttpServletRequest request)
+    {
+        BigDecimal priceFullWitDiscount = new BigDecimal(0);
+        HttpSession session = request.getSession();
+
+        List<RowOrder> rowOrders=new ArrayList<RowOrder>();
+
+        if (session.getAttribute("basket") != null)
+           rowOrders = RowOrder.convertListRowOrderToListRowOrderDTO((List<RowOrderDTO>)session.getAttribute("basket"));
+
+        if (rowOrders.size() != 0) {
+            for (RowOrder r : rowOrders) {
+                request.setAttribute("nameProduct", r.getNameProduct());
+                request.setAttribute("count", r.getCount().toString());
+                request.setAttribute("price", r.getPrice().toString());
+                request.setAttribute("countProducts", rowOrders.size());
+
+                priceFullWitDiscount=priceFullWitDiscount.add(r.getPrice());
+                request.setAttribute("priceFull", priceFullWitDiscount);
+            }
+            request.setAttribute("rowOrders", rowOrders);
+        }
+        else
+            request.setAttribute("message", "Basket is empty!");
     }
 }

@@ -37,12 +37,29 @@ public class RowOrder implements RowOrderInterface{
     }
 
 
-    public RowOrder convertRowOrderDTOToRowOrder(RowOrderDTO rowOrderDTO)
+    public static RowOrder convertRowOrderDTOToRowOrder(RowOrderDTO rowOrderDTO)
     {
         if (rowOrderDTO!= null)
             return new RowOrder(rowOrderDTO.getNameProduct(), rowOrderDTO.getCount(), rowOrderDTO.getPrice());
 
         return null;
+    }
+
+    public static List<RowOrder> convertListRowOrderToListRowOrderDTO(List<RowOrderDTO> rowOrders)
+    {
+        List<RowOrder> rowsOrder = new ArrayList<RowOrder>();
+        for (RowOrderDTO row : rowOrders) {
+            RowOrder rowOrder = convertRowOrderDTOToRowOrder(row);
+            if(rowOrder!=null)
+                rowsOrder.add(rowOrder);
+        }
+        return rowsOrder;
+    }
+
+    @Override
+    public String getPriceToString()
+    {
+        return price.toString();
     }
 
     @Override
