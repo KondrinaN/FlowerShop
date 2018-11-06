@@ -33,29 +33,39 @@ public class SearchServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html"); //отображение как html
         PrintWriter out = response.getWriter();
+        Boolean flag = false;
 
         List<Flower> flowers = new ArrayList<Flower>();
 
         String action = request.getParameter("Search");
 
-        if("Search by range price".equals(action))
-            flowers = flowerBusinessService.findFlowerByRangePrice(new BigDecimal(request.getParameter("minPrice")), new BigDecimal(request.getParameter("maxPrice")));
-        else if ("Search by name".equals(action))
-            flowers = flowerBusinessService.findFlowerByName(request.getParameter("NameFlower"));
-
-        if(flowers.size()!=0) {
-            for (Flower f:flowers)
-            {
-                request.setAttribute("nameFlower", f.getNameFlower());
-                request.setAttribute("balance", f.getBalance());
-                request.setAttribute("price", f.getPrice());
-                request.setAttribute("flowerAvailability", f.getFlowerAvailability());
+        if("Search by range price".equals(action)) {
+            String min = request.getParameter("minPrice");
+            String max = request.getParameter("maxPrice");
+            if ((min.isEmpty() && max.isEmpty()) || (min.isEmpty() && !max.isEmpty()) || (!min.isEmpty() && max.isEmpty()))
+                request.setAttribute("Error", "Not all fields (minPrice and MaxPrice) for search are filled!");
+            else {
+                BigDecimal minB= new BigDecimal(min);
+                BigDecimal maxB = new BigDecimal(max);
+                if(minB.compareTo(BigDecimal.ZERO)==1 && maxB.compareTo(BigDecimal.ZERO)==1 && maxB.compareTo(minB)==1) {
+                    flowers = flowerBusinessService.findFlowerByRangePrice(new BigDecimal(request.getParameter("minPrice")), new BigDecimal(request.getParameter("maxPrice")));
+                    flag = true;
+                }
+                else
+                    request.setAttribute("Error", "Invalid price format. The maximum price must be greater than the minimum. And both should not be less than or equal to 0!");
             }
-
-            request.setAttribute("flowers", flowers);
         }
-        else
-            request.setAttribute("Error", "Flowers not found!");
+        else if ("Search by name".equals(action)) {
+            if(!request.getParameter("NameFlower").isEmpty()) {
+                flowers = flowerBusinessService.findFlowerByName(request.getParameter("NameFlower"));
+                flag = true;
+            }
+            else
+                request.setAttribute("Error", "The name of the flower for search should not be empty!");
+        }
+
+        if (flag)
+           flowerBusinessService.OutFoundFlower(flowers, request);
 
         request.getRequestDispatcher("/search.jsp").forward(request, response);
     }
@@ -83,4 +93,6 @@ public class SearchServlet extends HttpServlet {
             request.getRequestDispatcher("/").forward(request, response);
         }*/
     }
+
+
 }

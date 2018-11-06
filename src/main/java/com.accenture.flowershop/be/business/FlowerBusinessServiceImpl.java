@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -50,5 +51,19 @@ public class FlowerBusinessServiceImpl implements FlowerBusinessService {
         return flowerDAO.findFlowerByRangePrice(minPrice, maxPrice);
     }
 
+    @Override
+    public void OutFoundFlower(List<Flower> flowers, HttpServletRequest request)
+    {
+        if (flowers.size() != 0) {
+            for (Flower f : flowers) {
+                request.setAttribute("nameFlower", f.getNameFlower());
+                request.setAttribute("balance", f.getBalance());
+                request.setAttribute("price", f.getPrice());
+                request.setAttribute("flowerAvailability", f.getFlowerAvailability());
+            }
 
+            request.setAttribute("flowers", flowers);
+        } else
+            request.setAttribute("Error", "Flowers not found!");
+    }
 }
