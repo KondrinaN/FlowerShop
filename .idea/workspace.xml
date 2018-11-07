@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a362d6b7-453a-43ea-8c3a-0b88971a1cbd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/access/UserDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/access/UserDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/business/UserBusinessServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/business/UserBusinessServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/user/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/user/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -45,12 +42,12 @@
         <counts>
           <entry key="FlowerShopCatalogServlet" value="2" />
           <entry key="css" value="805" />
-          <entry key="gitignore" value="7" />
+          <entry key="gitignore" value="16" />
           <entry key="java" value="17892" />
           <entry key="jsp" value="7139" />
           <entry key="properties" value="46" />
           <entry key="sql" value="1726" />
-          <entry key="txt" value="1033" />
+          <entry key="txt" value="1034" />
           <entry key="xml" value="4268" />
         </counts>
       </usages-collector>
@@ -61,7 +58,7 @@
           <entry key="DBN-SQL" value="1726" />
           <entry key="JAVA" value="17892" />
           <entry key="JSP" value="7139" />
-          <entry key="PLAIN_TEXT" value="1040" />
+          <entry key="PLAIN_TEXT" value="1050" />
           <entry key="Properties" value="46" />
           <entry key="XML" value="4268" />
         </counts>
@@ -71,7 +68,7 @@
           <entry key="FlowerShopCatalogServlet" value="3" />
           <entry key="class" value="169" />
           <entry key="css" value="20" />
-          <entry key="gitignore" value="1" />
+          <entry key="gitignore" value="2" />
           <entry key="iml" value="1" />
           <entry key="java" value="774" />
           <entry key="jsp" value="71" />
@@ -88,7 +85,7 @@
           <entry key="IDEA_MODULE" value="1" />
           <entry key="JAVA" value="774" />
           <entry key="JSP" value="71" />
-          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="PLAIN_TEXT" value="2" />
           <entry key="Properties" value="9" />
           <entry key="XML" value="97" />
         </counts>
@@ -157,11 +154,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/servlets/SignUpServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="82" selection-start-line="82" selection-end-line="82" />
+            <state relative-caret-position="127">
+              <caret line="66" column="34" lean-forward="true" selection-start-line="66" selection-start-column="34" selection-end-line="66" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
@@ -198,7 +204,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/config/logback.java" />
         <option value="$PROJECT_DIR$/src/main/resources/config/Logback.java" />
         <option value="$PROJECT_DIR$/src/main/resources/dbscripts/v1_create_tables.sql" />
         <option value="$PROJECT_DIR$/src/main/resources/dbscripts/v2_fill_tables.sql" />
@@ -249,6 +254,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/user/Customer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/business/UserBusinessServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/access/UserDAOImpl.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -1050,7 +1056,14 @@
       <option name="project" value="LOCAL" />
       <updated>1541581745291</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="edit exception2">
+      <created>1541582475260</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1541582475260</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -1066,7 +1079,7 @@
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49863762" weight="0.2931174" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49863762" visible="true" weight="0.2931174" />
       <window_info id="Structure" order="1" sideWeight="0.5013624" side_tool="true" weight="0.21700405" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1079,13 +1092,13 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48663968" weight="0.30960855" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4163701" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4923077" visible="true" weight="0.4163701" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32740214" />
       <window_info anchor="bottom" id="DB Execution Console" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32740214" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5133603" side_tool="true" weight="0.30960855" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50769234" side_tool="true" weight="0.4163701" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49149796" weight="0.4644128" />
       <window_info anchor="bottom" id="Console" order="11" />
       <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.49878544" weight="0.29181495" />
@@ -1166,8 +1179,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add logOutServlet, logInServlet" />
-    <MESSAGE value="add out message error" />
     <MESSAGE value="changed type of some fields on Long and Bigdecimal" />
     <MESSAGE value="add check exist logIn in users" />
     <MESSAGE value="add dependencies" />
@@ -1191,7 +1202,9 @@
     <MESSAGE value="add out busket" />
     <MESSAGE value="add evaluate price order with discount" />
     <MESSAGE value="edit exception" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit exception" />
+    <MESSAGE value="edit exception2" />
+    <MESSAGE value="edit exc" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit exc" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1213,12 +1226,6 @@
           <line>41</line>
           <properties />
           <option name="timeStamp" value="163" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/servlets/SignUpServlet.java</url>
-          <line>69</line>
-          <properties />
-          <option name="timeStamp" value="166" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/servlets/LogInServlet.java</url>
@@ -1295,13 +1302,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/servlets/SearchServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-187">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/access/RowOrderDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1643,8 +1643,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/servlets/SignUpServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        <state relative-caret-position="127">
+          <caret line="66" column="34" lean-forward="true" selection-start-line="66" selection-start-column="34" selection-end-line="66" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
