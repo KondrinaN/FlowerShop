@@ -8,8 +8,15 @@ import java.util.Date;
 
 @Entity
 @Table(name = "Orders")
-@NamedQuery(name = "Orders.findAll",
-        query = "SELECT o FROM Order o WHERE o.users_Id = :users_Id")
+@NamedQueries(
+        {
+                @NamedQuery(name = "Orders.findAllByUser_Id",
+                        query = "SELECT o FROM Order o WHERE o.users_Id = :users_Id"),
+
+                @NamedQuery(name = "Orders.findAll",
+                        query = "SELECT o FROM Order o")
+        }
+)
 public class Order implements OrderInterface{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,7 +24,7 @@ public class Order implements OrderInterface{
 
 
     @ManyToOne
-    @JoinColumn(name = "IdUser")
+    @JoinColumn(name = "Users_Id")
     private Customer users_Id;
 
     @Column(name = "Status")

@@ -41,10 +41,13 @@ public class OrderBusinessServiceImpl implements OrderBusinessService {
     public List<Order> findAllOrdersCustomer(HttpServletRequest request) {
         HttpSession session = request.getSession();
         CustomerDTO customerDTO = (CustomerDTO)session.getAttribute("customer");
-        Long users_id = customerDTO.getIdUser();
-        List<Order> orders = orderDAO.findAll(Customer.convertCustomerDTOToCustomer(customerDTO));
+       if(customerDTO!=null) {
+           Long users_id = customerDTO.getIdUser();
+           List<Order> orders = orderDAO.findAllByUser_Id(Customer.convertCustomerDTOToCustomer(customerDTO));
+           return orders;
+       }
 
-        return orders;
+        return null;
     }
 
     @Override
@@ -69,7 +72,6 @@ public class OrderBusinessServiceImpl implements OrderBusinessService {
 
     @Override
     public void OutOrders(HttpServletRequest request) {
-        HttpSession session = request.getSession();
 
         List<Order> orders=findAllOrdersCustomer(request);
 

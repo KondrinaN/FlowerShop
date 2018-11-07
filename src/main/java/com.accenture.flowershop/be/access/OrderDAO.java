@@ -5,7 +5,8 @@ import com.accenture.flowershop.be.entity.user.Customer;
 import java.util.List;
 
 public interface OrderDAO {
-    List<Order> findAll(Customer customer);
+    List<Order> findAllByUser_Id(Customer customer);
+    List<Order> findAll();
     Order findOrderById();
     Order findOrderByUser();
     int save(int idOrder);

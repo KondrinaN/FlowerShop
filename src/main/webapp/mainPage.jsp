@@ -161,7 +161,7 @@
                     <td>${orders.dateClose}</td>
 
 
-                    <c:if test="${orders.status eq 'создан'}">
+                    <c:if test="${orders.status eq 'created'}">
                         <td><input type='submit' name='Order${orders.idOrder}' value="Pay" align="right" /></td>
                     </c:if>
                 </tr>

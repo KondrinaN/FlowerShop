@@ -53,7 +53,7 @@ public class MainPageServlet extends HttpServlet{
 
         flowerBusinessService.OutBasket(request);
 
-        orderBusinessService.findAllOrdersCustomer(request);
+        orderBusinessService.OutOrders(request);
 
        // request.setAttribute();
         request.getRequestDispatcher("/mainPage.jsp").forward(request, response);

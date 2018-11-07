@@ -19,10 +19,23 @@ public class OrderDAOImpl implements OrderDAO {
     private EntityManager entityManager;
 
     @Override
-    public List<Order> findAll(Customer customer) {
+    public List<Order> findAllByUser_Id(Customer customer) {
         try{
-            TypedQuery<Order> query = entityManager.createNamedQuery("Orders.findAll", Order.class).setParameter("users_Id", customer);
+            TypedQuery<Order> query = entityManager.createNamedQuery("Orders.findAllByUser_Id", Order.class).setParameter("users_Id", customer);
             return query.getResultList();
+        }
+        catch (NoResultException exc)
+        {
+            return null;
+        }
+    }
+
+    @Override
+    public List<Order> findAll() {
+        try{
+            TypedQuery<Order> query = entityManager.createNamedQuery("Orders.findAll", Order.class);
+            List<Order> orders = query.getResultList();
+            return orders;
         }
         catch (NoResultException exc)
         {
