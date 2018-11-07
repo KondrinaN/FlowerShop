@@ -5,11 +5,17 @@ import com.accenture.flowershop.be.access.OrderDAOImpl;
 import com.accenture.flowershop.be.entity.order.Order;
 import com.accenture.flowershop.be.entity.order.RowOrder;
 import com.accenture.flowershop.be.entity.user.Customer;
+import com.accenture.flowershop.fe.dto.CustomerDTO;
+import com.accenture.flowershop.fe.dto.RowOrderDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service("orderBusinessService")
@@ -32,8 +38,15 @@ public class OrderBusinessServiceImpl implements OrderBusinessService {
     }
 
     @Override
-    public List<Customer> findAllOrdersCustomer(int idCustomer) {
-        return null;
+    public List<Order> findAllOrdersCustomer(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        CustomerDTO customerDTO = (CustomerDTO)session.getAttribute("customer");
+        Long users_id = customerDTO.getIdUser();
+        List<Order> orders = orderDAO.findAll(users_id);
+
+
+
+        return orders;
     }
 
     @Override
@@ -55,4 +68,27 @@ public class OrderBusinessServiceImpl implements OrderBusinessService {
     public void delete(int idOrder) {
 
     }
+
+    @Override
+    public void OutOrders(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+
+        List<Order> orders=findAllOrdersCustomer(request);
+
+        if (orders.size()==0)
+            request.setAttribute("message2", "Orders is empty!");
+        else {
+            for(Order o: orders)
+            {
+                request.setAttribute("idOrder", o.getIdOrder().toString());
+                request.setAttribute("status", o.getStatus().toString());
+                request.setAttribute("amount", o.getAmount());
+                request.setAttribute("dateCreate", o.getDateCreate());
+                request.setAttribute("dateClose", o.getDateClose());
+            }
+            request.setAttribute("orders", orders);
+        }
+    }
+
+
 }

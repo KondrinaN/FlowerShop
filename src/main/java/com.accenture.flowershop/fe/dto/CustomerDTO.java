@@ -29,8 +29,9 @@ public class CustomerDTO {
         this.password = password;
     }
 
-    public CustomerDTO(String login, String password, String surname, String name, String patronymic, String address, BigDecimal cashBalance, BigDecimal discount, UserShop userRole)
+    public CustomerDTO(Long idUser, String login, String password, String surname, String name, String patronymic, String address, BigDecimal cashBalance, BigDecimal discount, UserShop userRole)
     {
+        this.idUser = idUser;
         this.login = login;
         this.password = password;
         this.surname = surname;
@@ -46,7 +47,7 @@ public class CustomerDTO {
     {
         if (customer!= null)
         {
-            return new CustomerDTO(customer.getLogin(), customer.getPassword(), customer.getSurname(),
+            return new CustomerDTO(customer.getIdUser(), customer.getLogin(), customer.getPassword(), customer.getSurname(),
                     customer.getName(), customer.getPatronymic(), customer.getAddress(),
                     customer.getCashBalance(), customer.getDiscount(), customer.getUserRole());
         }

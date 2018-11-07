@@ -3,6 +3,7 @@ package com.accenture.flowershop.be.business;
 import com.accenture.flowershop.be.access.FlowerDAO;
 import com.accenture.flowershop.be.access.FlowerDAOImpl;
 import com.accenture.flowershop.be.entity.flower.Flower;
+import com.accenture.flowershop.be.entity.order.Order;
 import com.accenture.flowershop.be.entity.order.RowOrder;
 import com.accenture.flowershop.fe.dto.CustomerDTO;
 import com.accenture.flowershop.fe.dto.RowOrderDTO;
@@ -129,10 +130,11 @@ public class FlowerBusinessServiceImpl implements FlowerBusinessService {
                 priceFullWithDiscount= priceFullWithDiscount.subtract(discount.multiply(priceFullWithDiscount).divide(new BigDecimal(100)));
 
             request.setAttribute("priceFull", priceFullWithDiscount);
-
             request.setAttribute("rowOrders", rowOrders);
         }
         else
             request.setAttribute("message", "Basket is empty!");
     }
+
+
 }

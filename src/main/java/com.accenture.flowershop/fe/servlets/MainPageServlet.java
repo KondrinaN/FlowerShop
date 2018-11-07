@@ -3,6 +3,7 @@ package com.accenture.flowershop.fe.servlets;
 import com.accenture.flowershop.be.access.UserDAO;
 import com.accenture.flowershop.be.business.FlowerBusinessService;
 import com.accenture.flowershop.be.business.FlowerBusinessServiceImpl;
+import com.accenture.flowershop.be.business.OrderBusinessService;
 import com.accenture.flowershop.be.business.UserBusinessService;
 import com.accenture.flowershop.be.entity.flower.Flower;
 import com.accenture.flowershop.be.entity.order.RowOrder;
@@ -31,6 +32,9 @@ public class MainPageServlet extends HttpServlet{
     @Autowired
     private FlowerBusinessService flowerBusinessService;
 
+    @Autowired
+    private OrderBusinessService orderBusinessService;
+
     private static final long serialVersionUID = 1L;
 
     public void init(ServletConfig servletConfig) throws ServletException {
@@ -48,6 +52,8 @@ public class MainPageServlet extends HttpServlet{
         flowerBusinessService.OutFoundFlower(flowers, request);
 
         flowerBusinessService.OutBasket(request);
+
+        //orderBusinessService.findAllOrdersCustomer(request);
 
        // request.setAttribute();
         request.getRequestDispatcher("/mainPage.jsp").forward(request, response);

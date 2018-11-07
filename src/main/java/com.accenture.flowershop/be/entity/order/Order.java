@@ -8,6 +8,8 @@ import java.util.Date;
 
 @Entity
 @Table(name = "Orders")
+@NamedQuery(name = "Orders.findAll",
+        query = "SELECT o FROM Order o WHERE o.users_Id = :users_Id")
 public class Order implements OrderInterface{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
