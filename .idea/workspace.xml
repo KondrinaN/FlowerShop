@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a362d6b7-453a-43ea-8c3a-0b88971a1cbd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/servlets/OrdersServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/order.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/business/FlowerBusinessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/business/FlowerBusinessService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/business/FlowerBusinessServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/business/FlowerBusinessServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/order/RowOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/order/RowOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/order/RowOrderInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/order/RowOrderInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/servlets/BasketServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/servlets/MainPageServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/servlets/MainPageServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/basket.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/mainPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/mainPage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/search.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/styleMainPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styleMainPage.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -28,7 +17,7 @@
     <session id="1383831137">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="73" />
+          <entry key="project.closed" value="75" />
           <entry key="project.open.time.1" value="20" />
           <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.11" value="1" />
@@ -37,8 +26,8 @@
           <entry key="project.open.time.14" value="4" />
           <entry key="project.open.time.15" value="6" />
           <entry key="project.open.time.16" value="3" />
-          <entry key="project.open.time.17" value="5" />
-          <entry key="project.open.time.18" value="2" />
+          <entry key="project.open.time.17" value="6" />
+          <entry key="project.open.time.18" value="3" />
           <entry key="project.open.time.19" value="2" />
           <entry key="project.open.time.2" value="4" />
           <entry key="project.open.time.20" value="5" />
@@ -47,7 +36,7 @@
           <entry key="project.open.time.3" value="2" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="74" />
+          <entry key="project.opened" value="76" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -55,11 +44,11 @@
           <entry key="FlowerShopCatalogServlet" value="2" />
           <entry key="css" value="805" />
           <entry key="gitignore" value="7" />
-          <entry key="java" value="17114" />
+          <entry key="java" value="17303" />
           <entry key="jsp" value="6892" />
           <entry key="properties" value="46" />
           <entry key="sql" value="1726" />
-          <entry key="txt" value="971" />
+          <entry key="txt" value="981" />
           <entry key="xml" value="4268" />
         </counts>
       </usages-collector>
@@ -68,9 +57,9 @@
           <entry key="CLASS" value="2" />
           <entry key="CSS" value="805" />
           <entry key="DBN-SQL" value="1726" />
-          <entry key="JAVA" value="17114" />
+          <entry key="JAVA" value="17303" />
           <entry key="JSP" value="6892" />
-          <entry key="PLAIN_TEXT" value="978" />
+          <entry key="PLAIN_TEXT" value="988" />
           <entry key="Properties" value="46" />
           <entry key="XML" value="4268" />
         </counts>
@@ -82,7 +71,7 @@
           <entry key="css" value="20" />
           <entry key="gitignore" value="1" />
           <entry key="iml" value="1" />
-          <entry key="java" value="729" />
+          <entry key="java" value="731" />
           <entry key="jsp" value="70" />
           <entry key="properties" value="9" />
           <entry key="sql" value="75" />
@@ -95,7 +84,7 @@
           <entry key="CSS" value="20" />
           <entry key="DBN-SQL" value="75" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="729" />
+          <entry key="JAVA" value="731" />
           <entry key="JSP" value="70" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Properties" value="9" />
@@ -112,8 +101,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/servlets/MainPageServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="73" column="13" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="13" />
+            <state relative-caret-position="640">
+              <caret line="106" selection-start-line="106" selection-end-line="106" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -122,9 +111,18 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/servlets/LogInServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="99">
+              <caret line="59" column="13" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/flower/Flower.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
+            <state relative-caret-position="480">
               <caret line="99" column="22" selection-start-line="99" selection-start-column="22" selection-end-line="99" selection-end-column="22" />
               <folding>
                 <element signature="e#2475#2476#0" expanded="true" />
@@ -134,35 +132,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/mainPage.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="127" column="20" selection-start-line="127" selection-start-column="16" selection-end-line="127" selection-end-column="20" />
+            <state relative-caret-position="197">
+              <caret line="128" column="26" selection-start-line="128" selection-start-column="26" selection-end-line="128" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/servlets/OrdersServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="50" selection-start-line="50" selection-end-line="50" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/business/FlowerBusinessServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="178">
-              <caret line="119" column="47" selection-start-line="119" selection-start-column="38" selection-end-line="119" selection-end-column="47" />
-              <folding>
-                <element signature="e#2954#2964#0" expanded="true" />
-              </folding>
+              <caret line="128" column="139" selection-start-line="128" selection-start-column="139" selection-end-line="128" selection-end-column="139" />
             </state>
           </provider>
         </entry>
@@ -170,7 +153,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/access/RowOrderDAOImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
+            <state relative-caret-position="102">
               <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
             </state>
           </provider>
@@ -179,13 +162,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/order/RowOrder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
+            <state relative-caret-position="850">
               <caret line="55" selection-start-line="55" selection-end-line="55" />
-              <folding>
-                <element signature="e#1273#1283#0" expanded="true" />
-                <element signature="e#1554#1555#0" expanded="true" />
-                <element signature="e#1582#1583#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -262,8 +240,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/order/RowOrderInterface.java" />
         <option value="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/order/RowOrder.java" />
         <option value="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/servlets/MainPageServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/business/FlowerBusinessServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/mainPage.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/business/FlowerBusinessServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -312,9 +290,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="949" />
-    <option name="width" value="980" />
-    <option name="height" value="1031" />
+    <option name="x" value="948" />
+    <option name="width" value="981" />
+    <option name="height" value="1032" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -336,7 +314,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -565,11 +542,12 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="web&#9;FILE&#9;file://C:/Java Projects/EE project/FlowerShopProject/src/main/webapp/WEB-INF/web.xml" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541524084943" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541524133991" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../SE project/participant/src/sef/module13/activity/SEF Activity.sql" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
@@ -1044,7 +1022,14 @@
       <option name="project" value="LOCAL" />
       <updated>1541515873148</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="add out busket">
+      <created>1541524108584</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1541524108584</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -1060,7 +1045,7 @@
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49863762" weight="0.23724696" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49863762" visible="true" weight="0.23724696" />
       <window_info id="Structure" order="1" sideWeight="0.5013624" side_tool="true" weight="0.21700405" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1072,8 +1057,8 @@
       <window_info id="Job Explorer" order="9" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4874494" visible="true" weight="0.30960855" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4163701" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4874494" weight="0.30960855" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4163701" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32740214" />
@@ -1160,7 +1145,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="edit MainPageServlet" />
     <MESSAGE value="edit mainPage.jsp" />
     <MESSAGE value="edit mainPage.jsp. ADD out info user" />
     <MESSAGE value="add logOutServlet, logInServlet" />
@@ -1185,7 +1169,8 @@
     <MESSAGE value="edit fing by range" />
     <MESSAGE value="edit search flowers" />
     <MESSAGE value="add in session flowers from basket" />
-    <option name="LAST_COMMIT_MESSAGE" value="add in session flowers from basket" />
+    <MESSAGE value="add out busket" />
+    <option name="LAST_COMMIT_MESSAGE" value="add out busket" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1198,15 +1183,9 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/business/FlowerBusinessServiceImpl.java</url>
-          <line>79</line>
+          <line>80</line>
           <properties />
           <option name="timeStamp" value="102" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/business/FlowerBusinessServiceImpl.java</url>
-          <line>121</line>
-          <properties />
-          <option name="timeStamp" value="157" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -1224,47 +1203,47 @@
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
       <expression>
+        <expression-string>priceFullWithDiscount.subtract(discount.multiply(priceFullWithDiscount).divide(new BigDecimal(100)))</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>discount.multiply(priceFullWithDiscount).divide(new BigDecimal(100))</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>discount.multiply(priceFullWithDiscount).divide(new BigDecimal(100)).divide(priceFullWithDiscount)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>discount.multiply(priceFullWithDiscount)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>session.getAttribute(&quot;customer&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>session.getAttribute(&quot;customer.discount&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>request.getAttribute(&quot;customer&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
         <expression-string>request.getAttribute(&quot;rowOrders&quot;)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
         <expression-string>request.setAttribute(&quot;rowOrders&quot;, rowOrders)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>(count.compareTo(balance)==1)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>(count.compareTo(balance)==1)                         &amp;&amp; (count.compareTo(balance)==0)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>count.compareTo(BigDecimal.ZERO)==1</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>count.compareTo(BigDecimal.ZERO)==1 &amp;&amp; (count.compareTo(balance)==1)                         &amp;&amp; (count.compareTo(balance)==0)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>request.getParameter(&quot;Count3&quot;)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>request.getParameter(&quot;Count4&quot;)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>request.getParameter(&quot;Count${flowers.idFlower}&quot;)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -1275,9 +1254,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="191">
           <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1306,9 +1282,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1316,9 +1289,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="45" column="43" lean-forward="true" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1410,11 +1380,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-187">
           <caret line="65" selection-start-line="65" selection-end-line="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1455#1463#0" expanded="true" />
-            <marker date="1541490085397" expanded="true" signature="1569:2622" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1458,27 +1423,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="78" column="25" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/servlets/LogInServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="57" column="65" lean-forward="true" selection-start-line="57" selection-start-column="65" selection-end-line="57" selection-end-column="65" />
-          <folding>
-            <marker date="1541076346343" expanded="true" signature="2067:2644" ph="{...}" />
-            <marker date="1541076346343" expanded="true" signature="2658:2823" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/user/Customer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="73" column="9" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1507,9 +1451,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3">
           <caret line="70" column="11" selection-start-line="70" selection-start-column="11" selection-end-line="70" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1520,23 +1461,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/basket.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/servlets/BasketServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-422">
-          <caret line="34" column="58" selection-start-line="34" selection-start-column="58" selection-end-line="34" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/basket.jsp" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/servlets/BasketServlet.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/business/RowOrderBusinessServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1555,11 +1481,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="41" column="28" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1332#1333#0" expanded="true" />
-            <element signature="e#1365#1366#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1567,9 +1488,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1582,18 +1500,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/order.jsp">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/order/RowOrder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
-          <folding>
-            <element signature="e#1273#1283#0" expanded="true" />
-            <element signature="e#1554#1555#0" expanded="true" />
-            <element signature="e#1582#1583#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -1609,16 +1515,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/access/RowOrderDAOImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/logback.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="119">
+          <caret line="7" column="15" lean-forward="true" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/order/RowOrder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/flower/Flower.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
+        <state relative-caret-position="480">
           <caret line="99" column="22" selection-start-line="99" selection-start-column="22" selection-end-line="99" selection-end-column="22" />
           <folding>
             <element signature="e#2475#2476#0" expanded="true" />
@@ -1627,16 +1540,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config/logback.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/access/RowOrderDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="15" lean-forward="true" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+        <state relative-caret-position="102">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/entity/user/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-136">
+          <caret line="73" column="9" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/servlets/LogInServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="59" column="13" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/servlets/OrdersServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
+        <state relative-caret-position="735">
           <caret line="50" selection-start-line="50" selection-end-line="50" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1644,10 +1571,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/mainPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="128" column="26" selection-start-line="128" selection-start-column="26" selection-end-line="128" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/fe/servlets/MainPageServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="73" column="13" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="13" />
+        <state relative-caret-position="640">
+          <caret line="106" selection-start-line="106" selection-end-line="106" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1657,17 +1591,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com.accenture.flowershop/be/business/FlowerBusinessServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="178">
-          <caret line="119" column="47" selection-start-line="119" selection-start-column="38" selection-end-line="119" selection-end-column="47" />
-          <folding>
-            <element signature="e#2954#2964#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/mainPage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="127" column="20" selection-start-line="127" selection-start-column="16" selection-end-line="127" selection-end-column="20" />
+          <caret line="128" column="139" selection-start-line="128" selection-start-column="139" selection-end-line="128" selection-end-column="139" />
         </state>
       </provider>
     </entry>

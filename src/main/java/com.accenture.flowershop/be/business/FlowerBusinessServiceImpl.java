@@ -4,6 +4,7 @@ import com.accenture.flowershop.be.access.FlowerDAO;
 import com.accenture.flowershop.be.access.FlowerDAOImpl;
 import com.accenture.flowershop.be.entity.flower.Flower;
 import com.accenture.flowershop.be.entity.order.RowOrder;
+import com.accenture.flowershop.fe.dto.CustomerDTO;
 import com.accenture.flowershop.fe.dto.RowOrderDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -101,7 +102,7 @@ public class FlowerBusinessServiceImpl implements FlowerBusinessService {
     @Override
     public void OutBasket(HttpServletRequest request)
     {
-        BigDecimal priceFullWitDiscount = new BigDecimal(0);
+        BigDecimal priceFullWithDiscount = new BigDecimal(0);
         HttpSession session = request.getSession();
 
         List<RowOrder> rowOrders=new ArrayList<RowOrder>();
@@ -116,9 +117,19 @@ public class FlowerBusinessServiceImpl implements FlowerBusinessService {
                 request.setAttribute("price", r.getPrice().toString());
                 request.setAttribute("countProducts", rowOrders.size());
 
-                priceFullWitDiscount=priceFullWitDiscount.add(r.getPrice());
-                request.setAttribute("priceFull", priceFullWitDiscount);
+                priceFullWithDiscount=priceFullWithDiscount.add(r.getPrice());
+
             }
+
+            CustomerDTO customerDTO = (CustomerDTO)session.getAttribute("customer");
+
+            BigDecimal discount = customerDTO.getDiscount();
+
+            if(discount.compareTo(BigDecimal.ZERO)!=0)
+                priceFullWithDiscount= priceFullWithDiscount.subtract(discount.multiply(priceFullWithDiscount).divide(new BigDecimal(100)));
+
+            request.setAttribute("priceFull", priceFullWithDiscount);
+
             request.setAttribute("rowOrders", rowOrders);
         }
         else
