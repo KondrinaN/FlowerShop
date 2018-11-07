@@ -2,6 +2,7 @@ package com.accenture.flowershop.be.access;
 
 import com.accenture.flowershop.be.entity.flower.Flower;
 import com.accenture.flowershop.be.entity.order.Order;
+import com.accenture.flowershop.be.entity.user.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -18,9 +19,9 @@ public class OrderDAOImpl implements OrderDAO {
     private EntityManager entityManager;
 
     @Override
-    public List<Order> findAll(Long idCustomer) {
+    public List<Order> findAll(Customer customer) {
         try{
-            TypedQuery<Order> query = entityManager.createNamedQuery("Orders.findAll", Order.class).setParameter("users_Id", idCustomer);
+            TypedQuery<Order> query = entityManager.createNamedQuery("Orders.findAll", Order.class).setParameter("users_Id", customer);
             return query.getResultList();
         }
         catch (NoResultException exc)

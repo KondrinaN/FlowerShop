@@ -134,7 +134,42 @@
     </c:if>
 
 
+  <br><h5>Orders</h5>
+   <c:if test="${message2 ne null}">
+              ${message2}
+      </c:if>
+   <c:if test="${message2 eq null}">
+        <form id="Orders" action="/mainPage" method="GET" >
+        <table border="5">
+        <thead>
+            <tr>
+                 <th>Id Order</th>
+                 <th>Status</th>
+                 <th>Amount</th>
+                 <th>Date Create</th>
+                 <th>Date Close</th>
+                 <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <c:forEach items="${orders}" var="orders">
+                <tr>
+                    <td>${orders.idOrder}</td>
+                    <td>${orders.status}</td>
+                    <td>${orders.amount}</td>
+                    <td>${orders.dateCreate}</td>
+                    <td>${orders.dateClose}</td>
 
+
+                    <c:if test="${orders.status eq 'создан'}">
+                        <td><input type='submit' name='Order${orders.idOrder}' value="Pay" align="right" /></td>
+                    </c:if>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+       </form>
+</c:if>
 
 </c:if>
 </body>

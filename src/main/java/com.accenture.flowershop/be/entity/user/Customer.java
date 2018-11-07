@@ -52,9 +52,10 @@ public class Customer extends User {
         super(login, password);
     }
 
-    public Customer(String login, String password, String surname, String name, String patronymic, String address, BigDecimal cashBalance, BigDecimal discount, UserShop userRole)
+    public Customer(Long idUser, String login, String password, String surname, String name, String patronymic, String address, BigDecimal cashBalance, BigDecimal discount, UserShop userRole)
     {
         super(login, password);
+        this.idUser = idUser;
         this.surname = surname;
         this.name = name;
         this.patronymic = patronymic;
@@ -64,11 +65,11 @@ public class Customer extends User {
         this.userRole = userRole;
     }
 
-    public Customer convertCustomerDTOToCustomer(CustomerDTO customerDTO)
+    public static Customer convertCustomerDTOToCustomer(CustomerDTO customerDTO)
     {
         if (customerDTO!= null)
         {
-            return new Customer(customerDTO.getLogin(), customerDTO.getPassword(), customerDTO.getSurname(),
+            return new Customer(customerDTO.getIdUser(), customerDTO.getLogin(), customerDTO.getPassword(), customerDTO.getSurname(),
                     customerDTO.getName(), customerDTO.getPatronymic(), customerDTO.getAddress(),
                     customerDTO.getCashBalance(), customerDTO.getDiscount(), customerDTO.getUserRole());
         }

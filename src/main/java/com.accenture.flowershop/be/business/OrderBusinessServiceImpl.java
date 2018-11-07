@@ -42,9 +42,7 @@ public class OrderBusinessServiceImpl implements OrderBusinessService {
         HttpSession session = request.getSession();
         CustomerDTO customerDTO = (CustomerDTO)session.getAttribute("customer");
         Long users_id = customerDTO.getIdUser();
-        List<Order> orders = orderDAO.findAll(users_id);
-
-
+        List<Order> orders = orderDAO.findAll(Customer.convertCustomerDTOToCustomer(customerDTO));
 
         return orders;
     }

@@ -1,10 +1,12 @@
 package com.accenture.flowershop.fe.dto;
 
+import com.accenture.flowershop.be.entity.user.Customer;
+
 import java.util.Date;
 
 public class OrderDTO {
-    private int idOrder;
-    private int users_Id;
+    private Long idOrder;
+    private Customer users_Id;
     private String status;
     private int amount;
     private Date dateCreate;
@@ -12,7 +14,7 @@ public class OrderDTO {
 
     public OrderDTO(){}
 
-    public OrderDTO(int idOrder, int users_Id, String status, int amount, Date dateCreate, Date dateClose) {
+    public OrderDTO(Long idOrder, Customer users_Id, String status, int amount, Date dateCreate, Date dateClose) {
         this.idOrder = idOrder;
         this.users_Id = users_Id;
         this.status = status;
@@ -21,19 +23,19 @@ public class OrderDTO {
         this.dateClose = dateClose;
     }
 
-    public int getIdOrder() {
+    public Long getIdOrder() {
         return idOrder;
     }
 
-    public void setIdOrder(int idOrder) {
+    public void setIdOrder(Long idOrder) {
         this.idOrder = idOrder;
     }
 
-    public int getUsers_Id() {
+    public Customer getUsers_Id() {
         return users_Id;
     }
 
-    public void setUsers_Id(int users_Id) {
+    public void setUsers_Id(Customer users_Id) {
         this.users_Id = users_Id;
     }
 

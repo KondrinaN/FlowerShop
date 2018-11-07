@@ -74,7 +74,7 @@ public class UserBusinessServiceImpl implements UserBusinessService{
 
         if(customer==null)
         {
-           customer= new Customer(login, password, surname, name, patronymic, address, cashBalance, discount, userRole);
+           customer= new Customer(null, login, password, surname, name, patronymic, address, cashBalance, discount, userRole);
 
            customer.setIdUser(userDAO.save(customer));
            if (customer.getIdUser()!=0)
