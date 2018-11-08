@@ -42,13 +42,18 @@ public class RowOrderDAOImpl implements RowOrderDAO {
     }
 
     @Override
-    public void save(Order idOrder, List<RowOrder> rowOrders) {
+    public boolean save(Order idOrder, List<RowOrder> rowOrders) {
         int count = 0;
         for(RowOrder r: rowOrders) {
             r.setOrderId(idOrder);
             entityManager.persist(r);
             count++;
         }
+
+        if(count==rowOrders.size())
+            return true;
+        else
+            return false;
     }
 
     @Override

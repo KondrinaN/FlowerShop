@@ -33,8 +33,8 @@ public class RowOrderBusinessServiceImpl implements  RowOrderBusinessService{
 
     @Override
     @Transactional
-    public void saveRowOrder(Order idOrder, List<RowOrder> rowOrders) {
-        rowOrderDAO.save(idOrder, rowOrders);
+    public boolean saveRowOrder(Order idOrder, List<RowOrder> rowOrders) {
+        return rowOrderDAO.save(idOrder, rowOrders);
     }
 
     @Override

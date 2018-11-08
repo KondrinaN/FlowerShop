@@ -105,12 +105,17 @@ public class MainPageServlet extends HttpServlet{
     private void buttonHandlerSaveOrder(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException
     {
         if (request.getParameter("SaveOrder")!=null) {
-            saveOrder(request);
-            response.sendRedirect("/mainPage");
+            if(saveOrder(request))
+                response.sendRedirect("/mainPage");
+            else
+            {
+                request.setAttribute("Error", "Order not saved!");
+                request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
+            }
         }
     }
 
-    private void saveOrder(HttpServletRequest request)
+    private boolean saveOrder(HttpServletRequest request)
     {
         HttpSession session = request.getSession();
         List<RowOrder> rowOrders=new ArrayList<RowOrder>();
@@ -118,9 +123,12 @@ public class MainPageServlet extends HttpServlet{
         if (session.getAttribute("basket") != null)
             rowOrders = RowOrder.convertListRowOrderToListRowOrderDTO((List<RowOrderDTO>)session.getAttribute("basket"));
 
-        rowOrderBusinessService.saveRowOrder(orderBusinessService.saveOrderCustomer(request), rowOrders);
-
-        session.setAttribute("basket", null);
+        if (rowOrderBusinessService.saveRowOrder(orderBusinessService.saveOrderCustomer(request), rowOrders)) {
+            session.setAttribute("basket", null);
+            return true;
+        }
+        else
+            return false;
     }
 
     private  void buttonHandlerToTheBasket(HttpServletRequest request, HttpServletResponse response)

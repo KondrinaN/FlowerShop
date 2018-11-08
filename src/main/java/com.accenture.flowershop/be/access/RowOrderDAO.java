@@ -8,7 +8,7 @@ import java.util.List;
 public interface RowOrderDAO {
     List<RowOrder> findAll(Long idOrder, Order order);
     RowOrder findRowOrderById();
-    void save(Order idOrder, List<RowOrder> orders);
+    boolean save(Order idOrder, List<RowOrder> orders);
     int update(int idOrder);
     int delete(int idOrder);
 }
