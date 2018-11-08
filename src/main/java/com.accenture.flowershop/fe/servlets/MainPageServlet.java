@@ -54,8 +54,6 @@ public class MainPageServlet extends HttpServlet{
 
         flowerBusinessService.OutBasket(request);
 
-
-
         rowOrderBusinessService.OutRowOrders(request, orderBusinessService.OutOrders(request));
 
        // request.setAttribute();
@@ -75,21 +73,21 @@ public class MainPageServlet extends HttpServlet{
             throws  ServletException, IOException{
 
         buttonHandlerToTheBasket(request, response);
-        buttonHandlerToThePay(request, response);
+      //  buttonHandlerToThePay(request, response);
     }
 
     private  void buttonHandlerToThePay(HttpServletRequest request, HttpServletResponse response)
             throws  ServletException, IOException
     {
 
-        int countOrders = orderBusinessService.getLengthListOrders();
+       /* int countOrders = orderBusinessService.getLengthListOrders();
 
         for (int i=0; i<countOrders; i++) {
             String buttonNumber = request.getParameter("Order" + orderBusinessService.getIdByNumberPosition(i));
             if (buttonNumber!= null)
             {
                 //оплатить, если хватает остатка
-              /* if ()
+              *//* if ()
                     AddRowOrderDTOInListAttribute(i, count, request);
                     response.sendRedirect("/mainPage");
                 }
@@ -97,32 +95,44 @@ public class MainPageServlet extends HttpServlet{
                     request.setAttribute("Error", "Incorrect number of flowers entered to add to the basket!");
                     request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
                 }
-                break;*/
+                break;*//*
             }
-        }
+        }*/
     }
 
     private  void buttonHandlerToTheBasket(HttpServletRequest request, HttpServletResponse response)
             throws  ServletException, IOException
     {
-
+        List<Flower> flowers = flowerBusinessService.getFlowers();
         int countFlowers = flowerBusinessService.getLengthListFlowers();
 
         for (int i=0; i<countFlowers; i++) {
-            String buttonNumber = request.getParameter("Basket" +String.valueOf(i+1));
+
+            Long id = flowers.get(i).getId();
+            String buttonNumber = request.getParameter("Basket" + id);
             if (buttonNumber!= null)
             {
                 BigDecimal count = new BigDecimal(0);
-                if (request.getParameter("Count" + String.valueOf(i+1))!=null)
-                    count = new BigDecimal(request.getParameter("Count" + String.valueOf(i+1)));
-                BigDecimal balance = flowerBusinessService.getFlowerById(i).getBalance();
+                if (request.getParameter("Count" + id)!=null)
+                    count = new BigDecimal(request.getParameter("Count" + id));
+                BigDecimal balance = flowerBusinessService.getFlowerById(id).getBalance();
 
                 if (count.compareTo(BigDecimal.ZERO)==1
                         && ((count.compareTo(balance)==-1)
                         || (count.compareTo(balance)==0)))
                 {
-                    AddRowOrderDTOInListAttribute(i, count, request);
-                    response.sendRedirect("/mainPage");
+
+                    try {
+
+                        AddRowOrderDTOInListAttribute(id, count, request);
+                        flowerBusinessService.update(id, count); //обновить количество цветов
+                        response.sendRedirect("/mainPage");
+                    } catch (Exception exc) {
+                        request.setAttribute("Error", exc.toString());
+                        request.getRequestDispatcher("/").forward(request, response);
+                    }
+
+                    //orderBusinessService.saveOrderCustomer(request);
                 }
                 else {
                     request.setAttribute("Error", "Incorrect number of flowers entered to add to the basket!");
@@ -133,7 +143,7 @@ public class MainPageServlet extends HttpServlet{
         }
     }
 
-    private void AddRowOrderDTOInListAttribute(int id, BigDecimal count, HttpServletRequest request)
+    private void AddRowOrderDTOInListAttribute(Long id, BigDecimal count, HttpServletRequest request)
     {
         Flower flower = flowerBusinessService.getFlowerById(id);
         HttpSession session = request.getSession();

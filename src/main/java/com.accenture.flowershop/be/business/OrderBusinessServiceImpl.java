@@ -69,8 +69,14 @@ public class OrderBusinessServiceImpl implements OrderBusinessService {
 
 
     @Override
-    public void saveOrderCustomer(int idCustomer) {
-
+    public void saveOrderCustomer(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        CustomerDTO customerDTO = (CustomerDTO)session.getAttribute("customer");
+        if(customerDTO!=null) {
+            Long users_id = customerDTO.getIdUser();
+            BigDecimal amount = (BigDecimal)request.getAttribute("priceFull");
+            orderDAO.save(users_id, amount);
+        }
     }
 
     @Override
@@ -111,21 +117,22 @@ public class OrderBusinessServiceImpl implements OrderBusinessService {
 
         List<Order> orders=findAllOrdersCustomer(request);
 
-        if (orders.size()==0)
-            request.setAttribute("message2", "Orders is empty!");
-        else {
-            for(Order o: orders)
-            {
-                request.setAttribute("idOrder", o.getIdOrder().toString());
+        if (orders!=null) {
+            if (orders.size() == 0)
+                request.setAttribute("message2", "Orders is empty!");
+            else {
+                for (Order o : orders) {
+                    request.setAttribute("idOrder", o.getIdOrder().toString());
 
-                request.setAttribute("status", o.getStatus().toString());
-                request.setAttribute("amount", o.getAmount());
-                request.setAttribute("dateCreate", o.getDateCreate());
-                request.setAttribute("dateClose", o.getDateClose());
+                    request.setAttribute("status", o.getStatus().toString());
+                    request.setAttribute("amount", o.getAmount());
+                    request.setAttribute("dateCreate", o.getDateCreate());
+                    request.setAttribute("dateClose", o.getDateClose());
+                }
+
+                request.setAttribute("countOrders", orders.size());
+                request.setAttribute("orders", orders);
             }
-
-            request.setAttribute("countOrders", orders.size());
-            request.setAttribute("orders", orders);
         }
         return orders;
     }

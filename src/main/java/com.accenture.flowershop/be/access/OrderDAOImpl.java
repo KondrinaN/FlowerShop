@@ -3,6 +3,7 @@ package com.accenture.flowershop.be.access;
 import com.accenture.flowershop.be.entity.flower.Flower;
 import com.accenture.flowershop.be.entity.order.Order;
 import com.accenture.flowershop.be.entity.user.Customer;
+import com.accenture.flowershop.fe.enums.order.StatusOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -10,6 +11,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 @Repository("orderDAOImpl")
@@ -54,7 +57,17 @@ public class OrderDAOImpl implements OrderDAO {
     }
 
     @Override
-    public int save(int idOrder) {
+    public int save(Long users_id, BigDecimal amount) {
+
+     /*   HttpSession session = request.getSession();
+        CustomerDTO customerDTO = (CustomerDTO)session.getAttribute("customer");
+        if(customerDTO!=null) {
+            Long users_id = customerDTO.getIdUser();
+            BigDecimal amount = (BigDecimal)request.getAttribute("priceFull");
+
+        Order order= new Order(users_id, StatusOrder.created, amount, new Date(), null)
+        entityManager.persist(customer);
+        return customer.getIdUser();*/
         return 0;
     }
 

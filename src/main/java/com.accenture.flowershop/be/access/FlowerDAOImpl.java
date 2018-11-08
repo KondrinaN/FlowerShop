@@ -1,5 +1,6 @@
 package com.accenture.flowershop.be.access;
 
+import com.accenture.flowershop.be.business.FlowerBusinessService;
 import com.accenture.flowershop.be.entity.flower.Flower;
 import com.accenture.flowershop.be.entity.user.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,15 +65,16 @@ public class FlowerDAOImpl implements FlowerDAO {
     }
 
     @Override
-    public Long save(Flower flower) throws Exception {
+    public Long save(Flower flower, BigDecimal count) throws Exception {
 
-            if (flower.getId()==null) {
-                entityManager.persist(flower);
+            if (flower!=null && flower.getId()!=null) {
+                flower.setBalance(flower.getBalance().subtract(count));
+                entityManager.merge(flower);
 
                 return flower.getId();
             }
             else
-                throw new Exception("User was not created!");
+                throw new Exception("Flower was not updated!");
     }
 
 }

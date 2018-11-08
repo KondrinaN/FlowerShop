@@ -4,6 +4,7 @@ import com.accenture.flowershop.be.entity.user.Customer;
 import com.accenture.flowershop.fe.enums.order.StatusOrder;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
@@ -31,7 +32,7 @@ public class Order implements OrderInterface{
     private StatusOrder status;
 
     @Column(name = "Amount")
-    private int amount;
+    private BigDecimal amount;
 
     @Column(name = "DateCreate")
     private Date dateCreate;
@@ -41,7 +42,7 @@ public class Order implements OrderInterface{
 
     public Order(){}
 
-    public Order(Customer users_Id, StatusOrder status, int amount, Date dateCreate, Date dateClose) {
+    public Order(Customer users_Id, StatusOrder status, BigDecimal amount, Date dateCreate, Date dateClose) {
 
         this.users_Id = users_Id;
         this.status = status;
@@ -81,12 +82,12 @@ public class Order implements OrderInterface{
     }
 
     @Override
-    public void setAmount(int amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
     @Override
-    public int getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 

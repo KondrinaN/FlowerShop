@@ -15,7 +15,8 @@ public interface FlowerBusinessService {
     List<Flower> findFlowerByRangePrice(BigDecimal minPrice, BigDecimal maxPrice);
     void OutFoundFlower(List<Flower> flowers, HttpServletRequest request);
     public int getLengthListFlowers();
-    public Flower getFlowerById(int id);
+    public Flower getFlowerById(Long id);
     public List<Flower> getFlowers();
     public void OutBasket(HttpServletRequest request);
+    void update(Long id, BigDecimal count) throws Exception;
 }

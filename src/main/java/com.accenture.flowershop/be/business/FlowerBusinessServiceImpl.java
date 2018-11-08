@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -44,8 +45,13 @@ public class FlowerBusinessServiceImpl implements FlowerBusinessService {
     }
 
     @Override
-    public Flower getFlowerById(int id) {
-        return flowers.get(id);
+    public Flower getFlowerById(Long id) {
+        for(Flower f:flowers)
+        {
+            if (f.getId().equals(id))
+                return f;
+        }
+        return null;
     }
 
 
@@ -134,6 +140,15 @@ public class FlowerBusinessServiceImpl implements FlowerBusinessService {
         }
         else
             request.setAttribute("message", "Basket is empty!");
+    }
+
+    @Override
+    @Transactional
+    public void update(Long id, BigDecimal count) throws Exception{
+        Flower flower = getFlowerById(id);
+        flowerDAO.save(flower, count);
+      /*  BigDecimal prevBalance = flowers.get(id).getBalance();
+        flowersget(id).setBalance(prevBalance.subtract(count));*/
     }
 
 

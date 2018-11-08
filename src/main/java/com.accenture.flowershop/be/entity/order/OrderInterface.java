@@ -3,6 +3,7 @@ package com.accenture.flowershop.be.entity.order;
 import com.accenture.flowershop.be.entity.user.Customer;
 import com.accenture.flowershop.fe.enums.order.StatusOrder;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public interface OrderInterface {
@@ -15,8 +16,8 @@ public interface OrderInterface {
     public void setStatus(StatusOrder status);
     public StatusOrder getStatus();
 
-    public void setAmount(int amount);
-    public int getAmount();
+    public void setAmount(BigDecimal amount);
+    public BigDecimal getAmount();
 
     public void setDateCreate(Date dateCreate);
     public Date getDateCreate();

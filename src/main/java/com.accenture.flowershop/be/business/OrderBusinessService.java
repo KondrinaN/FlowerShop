@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface OrderBusinessService {
 
-    void saveOrderCustomer(int idCustomer);
+    void saveOrderCustomer(HttpServletRequest request);
     List<Order> findAllOrdersCustomer(HttpServletRequest request);
     Order findOrder(int idOrder);
     List<RowOrder> findRowOrder(int idOrder);

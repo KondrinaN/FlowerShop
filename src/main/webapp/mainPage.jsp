@@ -186,18 +186,17 @@
                 <tbody>
 
                            <c:forEach items="${rowOrders2}" var="rowOrders2">
-
                                 <c:if test="${orders.idOrder eq rowOrders2.orderId.idOrder}">
-                                                                  <tr>
-                                                                                      <td></td>
+                                      <tr>
+                                           <td></td>
 
-                                                                                      <td>${rowOrders2.orderId.idOrder}</td>
-                                                                                      <td>${rowOrders2.nameProduct}</td>
-                                                                                      <td>${rowOrders2.count}</td>
-                                                                                      <td>${rowOrders2.price}</td>
-                                                                  </tr>
-                                                                  </c:if>
-                                </c:forEach>
+                                           <td>${rowOrders2.orderId.idOrder}</td>
+                                           <td>${rowOrders2.nameProduct}</td>
+                                           <td>${rowOrders2.count}</td>
+                                           <td>${rowOrders2.price}</td>
+                                      </tr>
+                                </c:if>
+                           </c:forEach>
                 </tbody>
                 </c:if>
             </c:forEach>

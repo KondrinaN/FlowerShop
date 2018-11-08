@@ -10,5 +10,5 @@ public interface FlowerDAO {
     Flower findFlowerById();
     List<Flower> findFlowerByName(String nameFlower);
     List<Flower> findFlowerByRangePrice(BigDecimal minPrice, BigDecimal maxPrice);
-    Long save(Flower flower) throws Exception;
+    Long save(Flower flower, BigDecimal count) throws Exception;
 }
