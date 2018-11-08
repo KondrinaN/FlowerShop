@@ -9,13 +9,15 @@ import java.util.List;
 
 @Entity
 @Table(name = "RowsOrders")
+@NamedQuery(name = "RowsOrders.findAll",
+        query = "SELECT r FROM RowOrder r WHERE r.orderId = :orderId")
 public class RowOrder implements RowOrderInterface{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idRowOrder;
 
     @ManyToOne
-    @JoinColumn(name = "idOrder")
+    @JoinColumn(name = "Order_Id")
     private Order orderId;
 
     @Column(name = "NameProduct")

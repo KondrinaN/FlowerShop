@@ -1,10 +1,7 @@
 package com.accenture.flowershop.fe.servlets;
 
 import com.accenture.flowershop.be.access.UserDAO;
-import com.accenture.flowershop.be.business.FlowerBusinessService;
-import com.accenture.flowershop.be.business.FlowerBusinessServiceImpl;
-import com.accenture.flowershop.be.business.OrderBusinessService;
-import com.accenture.flowershop.be.business.UserBusinessService;
+import com.accenture.flowershop.be.business.*;
 import com.accenture.flowershop.be.entity.flower.Flower;
 import com.accenture.flowershop.be.entity.order.RowOrder;
 import com.accenture.flowershop.fe.dto.FlowerDTO;
@@ -35,6 +32,10 @@ public class MainPageServlet extends HttpServlet{
     @Autowired
     private OrderBusinessService orderBusinessService;
 
+
+    @Autowired
+    private RowOrderBusinessService rowOrderBusinessService;
+
     private static final long serialVersionUID = 1L;
 
     public void init(ServletConfig servletConfig) throws ServletException {
@@ -53,7 +54,9 @@ public class MainPageServlet extends HttpServlet{
 
         flowerBusinessService.OutBasket(request);
 
-        orderBusinessService.OutOrders(request);
+
+
+        rowOrderBusinessService.OutRowOrders(request, orderBusinessService.OutOrders(request));
 
        // request.setAttribute();
         request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
@@ -71,10 +74,41 @@ public class MainPageServlet extends HttpServlet{
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws  ServletException, IOException{
 
-      int countFlowers = flowerBusinessService.getLengthListFlowers();
+        buttonHandlerToTheBasket(request, response);
+        buttonHandlerToThePay(request, response);
+    }
 
+    private  void buttonHandlerToThePay(HttpServletRequest request, HttpServletResponse response)
+            throws  ServletException, IOException
+    {
 
-      for (int i=0; i<countFlowers; i++) {
+        int countOrders = orderBusinessService.getLengthListOrders();
+
+        for (int i=0; i<countOrders; i++) {
+            String buttonNumber = request.getParameter("Order" + orderBusinessService.getIdByNumberPosition(i));
+            if (buttonNumber!= null)
+            {
+                //оплатить, если хватает остатка
+              /* if ()
+                    AddRowOrderDTOInListAttribute(i, count, request);
+                    response.sendRedirect("/mainPage");
+                }
+                else {
+                    request.setAttribute("Error", "Incorrect number of flowers entered to add to the basket!");
+                    request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
+                }
+                break;*/
+            }
+        }
+    }
+
+    private  void buttonHandlerToTheBasket(HttpServletRequest request, HttpServletResponse response)
+            throws  ServletException, IOException
+    {
+
+        int countFlowers = flowerBusinessService.getLengthListFlowers();
+
+        for (int i=0; i<countFlowers; i++) {
             String buttonNumber = request.getParameter("Basket" +String.valueOf(i+1));
             if (buttonNumber!= null)
             {

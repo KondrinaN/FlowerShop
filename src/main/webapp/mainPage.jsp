@@ -139,7 +139,7 @@
               ${message2}
       </c:if>
    <c:if test="${message2 eq null}">
-        <form id="Orders" action="/mainPage" method="GET" >
+        <form id="Orders" action="/mainPage" method="POST" >
         <table border="5">
         <thead>
             <tr>
@@ -154,6 +154,8 @@
         <tbody>
             <c:forEach items="${orders}" var="orders">
                 <tr>
+
+
                     <td>${orders.idOrder}</td>
                     <td>${orders.status}</td>
                     <td>${orders.amount}</td>
@@ -164,9 +166,46 @@
                     <c:if test="${orders.status eq 'created'}">
                         <td><input type='submit' name='Order${orders.idOrder}' value="Pay" align="right" /></td>
                     </c:if>
+
                 </tr>
+
+
+                <c:if test="${message3 ne null}">
+                              ${message3}
+                </c:if>
+                <c:if test="${message3 eq null}">
+                <thead>
+                <tr>
+                                 <th></th>
+                                 <th>Id Order</th>
+                                 <th>Name Product</th>
+                                 <th>Count</th>
+                                 <th>Price</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                           <c:forEach items="${rowOrders2}" var="rowOrders2">
+
+                                <c:if test="${orders.idOrder eq rowOrders2.orderId.idOrder}">
+                                                                  <tr>
+                                                                                      <td></td>
+
+                                                                                      <td>${rowOrders2.orderId.idOrder}</td>
+                                                                                      <td>${rowOrders2.nameProduct}</td>
+                                                                                      <td>${rowOrders2.count}</td>
+                                                                                      <td>${rowOrders2.price}</td>
+                                                                  </tr>
+                                                                  </c:if>
+                                </c:forEach>
+                </tbody>
+                </c:if>
             </c:forEach>
-            </tbody>
+
+
+        </tbody>
+
+
         </table>
        </form>
 </c:if>

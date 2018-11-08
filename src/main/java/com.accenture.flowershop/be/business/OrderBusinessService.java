@@ -15,5 +15,10 @@ public interface OrderBusinessService {
     List<RowOrder> findRowOrder(int idOrder);
     void update(int idOrder);
     void delete(int idOrder);
-    public void OutOrders(HttpServletRequest request);
+    public List<Order> OutOrders(HttpServletRequest request);
+    public Order getOrderById(int id);
+    public List<Order> getOrders();
+    public void setOrders(List<Order> orders);
+    int getLengthListOrders();
+    public Long getIdByNumberPosition(int numberPosition);
 }
