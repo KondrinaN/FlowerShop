@@ -172,9 +172,9 @@
                 </tr>
 
 
-
                 <c:if test="${message3 eq null}">
                 <thead>
+                <tr></tr>
                 <tr>
                                  <th></th>
                                  <th>Id Order</th>

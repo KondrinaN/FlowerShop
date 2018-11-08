@@ -1,12 +1,14 @@
 package com.accenture.flowershop.fe.servlets;
 
-import com.accenture.flowershop.be.access.UserDAO;
-import com.accenture.flowershop.be.business.*;
+
+import com.accenture.flowershop.be.business.FlowerBusinessService;
+import com.accenture.flowershop.be.business.OrderBusinessService;
+import com.accenture.flowershop.be.business.RowOrderBusinessService;
 import com.accenture.flowershop.be.entity.flower.Flower;
 import com.accenture.flowershop.be.entity.order.RowOrder;
-import com.accenture.flowershop.fe.dto.FlowerDTO;
 import com.accenture.flowershop.fe.dto.RowOrderDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 import javax.servlet.ServletConfig;
@@ -32,7 +34,6 @@ public class MainPageServlet extends HttpServlet{
     @Autowired
     private OrderBusinessService orderBusinessService;
 
-
     @Autowired
     private RowOrderBusinessService rowOrderBusinessService;
 
@@ -56,8 +57,6 @@ public class MainPageServlet extends HttpServlet{
 
         rowOrderBusinessService.OutRowOrders(request, orderBusinessService.OutOrders(request));
 
-
-       // request.setAttribute();
         request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
 
     }
