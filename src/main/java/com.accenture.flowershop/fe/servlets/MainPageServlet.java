@@ -56,6 +56,7 @@ public class MainPageServlet extends HttpServlet{
 
         rowOrderBusinessService.OutRowOrders(request, orderBusinessService.OutOrders(request));
 
+
        // request.setAttribute();
         request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
 
@@ -74,6 +75,7 @@ public class MainPageServlet extends HttpServlet{
 
         buttonHandlerToTheBasket(request, response);
       //  buttonHandlerToThePay(request, response);
+        buttonHandlerSaveOrder(request, response);
     }
 
     private  void buttonHandlerToThePay(HttpServletRequest request, HttpServletResponse response)
@@ -98,6 +100,27 @@ public class MainPageServlet extends HttpServlet{
                 break;*//*
             }
         }*/
+    }
+
+    private void buttonHandlerSaveOrder(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException
+    {
+        if (request.getParameter("SaveOrder")!=null) {
+            saveOrder(request);
+            response.sendRedirect("/mainPage");
+        }
+    }
+
+    private void saveOrder(HttpServletRequest request)
+    {
+        HttpSession session = request.getSession();
+        List<RowOrder> rowOrders=new ArrayList<RowOrder>();
+
+        if (session.getAttribute("basket") != null)
+            rowOrders = RowOrder.convertListRowOrderToListRowOrderDTO((List<RowOrderDTO>)session.getAttribute("basket"));
+
+        rowOrderBusinessService.saveRowOrder(orderBusinessService.saveOrderCustomer(request), rowOrders);
+
+        session.setAttribute("basket", null);
     }
 
     private  void buttonHandlerToTheBasket(HttpServletRequest request, HttpServletResponse response)

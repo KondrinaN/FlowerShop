@@ -7,15 +7,18 @@ import com.accenture.flowershop.be.entity.order.RowOrder;
 import com.accenture.flowershop.be.entity.user.Customer;
 import com.accenture.flowershop.fe.dto.CustomerDTO;
 import com.accenture.flowershop.fe.dto.RowOrderDTO;
+import com.accenture.flowershop.fe.enums.order.StatusOrder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service("orderBusinessService")
@@ -69,14 +72,15 @@ public class OrderBusinessServiceImpl implements OrderBusinessService {
 
 
     @Override
-    public void saveOrderCustomer(HttpServletRequest request) {
+    @Transactional
+    public Order saveOrderCustomer(HttpServletRequest request) {
         HttpSession session = request.getSession();
         CustomerDTO customerDTO = (CustomerDTO)session.getAttribute("customer");
-        if(customerDTO!=null) {
-            Long users_id = customerDTO.getIdUser();
-            BigDecimal amount = (BigDecimal)request.getAttribute("priceFull");
-            orderDAO.save(users_id, amount);
+        if (customerDTO!=null) {
+            BigDecimal amount = (BigDecimal)session.getAttribute("priceFull");
+            return orderDAO.save(Customer.convertCustomerDTOToCustomer(customerDTO), amount);
         }
+        return null;
     }
 
     @Override

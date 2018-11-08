@@ -104,7 +104,7 @@
             ${message}
     </c:if>
     <c:if test="${message eq null}">
-       <form id="Basket" action="/orders" method="POST" >
+       <form id="Basket" action="/mainPage" method="POST" >
        <table border="5">
        <thead>
            <tr>
@@ -138,6 +138,8 @@
    <c:if test="${message2 ne null}">
               ${message2}
       </c:if>
+
+
    <c:if test="${message2 eq null}">
         <form id="Orders" action="/mainPage" method="POST" >
         <table border="5">
@@ -170,9 +172,7 @@
                 </tr>
 
 
-                <c:if test="${message3 ne null}">
-                              ${message3}
-                </c:if>
+
                 <c:if test="${message3 eq null}">
                 <thead>
                 <tr>

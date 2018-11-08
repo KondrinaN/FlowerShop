@@ -57,18 +57,10 @@ public class OrderDAOImpl implements OrderDAO {
     }
 
     @Override
-    public int save(Long users_id, BigDecimal amount) {
-
-     /*   HttpSession session = request.getSession();
-        CustomerDTO customerDTO = (CustomerDTO)session.getAttribute("customer");
-        if(customerDTO!=null) {
-            Long users_id = customerDTO.getIdUser();
-            BigDecimal amount = (BigDecimal)request.getAttribute("priceFull");
-
-        Order order= new Order(users_id, StatusOrder.created, amount, new Date(), null)
-        entityManager.persist(customer);
-        return customer.getIdUser();*/
-        return 0;
+    public Order save(Customer users_id, BigDecimal amount) {
+        Order order= new Order(users_id, StatusOrder.created, amount, new Date(), null);
+        entityManager.persist(order);
+        return order;
     }
 
     @Override

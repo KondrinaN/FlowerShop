@@ -10,7 +10,7 @@ public interface OrderDAO {
     List<Order> findAll();
     Order findOrderById();
     Order findOrderByUser();
-    int save(Long users_id, BigDecimal amount);
+    Order save(Customer users_id, BigDecimal amount);
     int update(int idOrder);
     int delete(int idOrder);
 }

@@ -135,6 +135,7 @@ public class FlowerBusinessServiceImpl implements FlowerBusinessService {
             if(discount.compareTo(BigDecimal.ZERO)!=0)
                 priceFullWithDiscount= priceFullWithDiscount.subtract(discount.multiply(priceFullWithDiscount).divide(new BigDecimal(100)));
 
+            session.setAttribute("priceFull", priceFullWithDiscount);
             request.setAttribute("priceFull", priceFullWithDiscount);
             request.setAttribute("rowOrders", rowOrders);
         }
@@ -147,8 +148,6 @@ public class FlowerBusinessServiceImpl implements FlowerBusinessService {
     public void update(Long id, BigDecimal count) throws Exception{
         Flower flower = getFlowerById(id);
         flowerDAO.save(flower, count);
-      /*  BigDecimal prevBalance = flowers.get(id).getBalance();
-        flowersget(id).setBalance(prevBalance.subtract(count));*/
     }
 
 
