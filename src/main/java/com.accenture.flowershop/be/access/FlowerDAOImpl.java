@@ -3,6 +3,7 @@ package com.accenture.flowershop.be.access;
 import com.accenture.flowershop.be.business.FlowerBusinessService;
 import com.accenture.flowershop.be.entity.flower.Flower;
 import com.accenture.flowershop.be.entity.user.Customer;
+import com.accenture.flowershop.fe.enums.flower.FlowerAvailability;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -69,6 +70,10 @@ public class FlowerDAOImpl implements FlowerDAO {
 
             if (flower!=null && flower.getId()!=null) {
                 flower.setBalance(flower.getBalance().subtract(count));
+
+                if(flower.getBalance()==BigDecimal.ZERO)
+                    flower.setFlowerAvailability(FlowerAvailability.notAvailable);
+
                 entityManager.merge(flower);
 
                 return flower.getId();

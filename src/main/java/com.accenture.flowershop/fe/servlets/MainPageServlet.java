@@ -76,8 +76,6 @@ public class MainPageServlet extends HttpServlet{
 
         buttonHandlerToTheBasket(request, response);
         buttonHandlerSaveOrder(request, response);
-
-        //  buttonHandlerToThePay(request, response);
     }
 
 
@@ -165,47 +163,25 @@ public class MainPageServlet extends HttpServlet{
         else
             rowOrders = (List<RowOrderDTO>)session.getAttribute("basket");
 
-
         RowOrder rowOrder = new RowOrder(flower.getNameFlower(), count, flower.getPrice().multiply(count));
-        rowOrders.add(RowOrderDTO.convertRowOrderToRowOrderDTO(rowOrder));
-        session.setAttribute("basket", rowOrders);
-    }
 
-    private  void buttonHandlerToThePay(HttpServletRequest request, HttpServletResponse response)
-            throws  ServletException, IOException
-    {
-
-     /*  int countOrders = orderBusinessService.getLengthListOrders();
-
-       HttpSession session = request.getSession();
-       Customer customer = Customer.convertCustomerDTOToCustomer((CustomerDTO) session.getAttribute("customer"));
-
-       BigDecimal amount = (BigDecimal)session.getAttribute("priceFull");
-
-
-        if (customer != null) {
-            BigDecimal cash=customer.getCashBalance();
-
-            for (int i=0; i<countOrders; i++) {
-                String buttonNumber = request.getParameter("Order" + orderBusinessService.getIdByNumberPosition(i));
-                if (buttonNumber!= null) {
-
-                        if (cash.compareTo(BigDecimal.ZERO)==1 && cash.compareTo(amount)==1 || cash.compareTo(amount)==0) {
-                            //оплатить, если хватает остатка
-
-                            response.sendRedirect("/mainPage");
-                        } else {
-                            request.setAttribute("Error", "Cash balance is not enough to pay!");
-                            request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
-                        }
-
-                        break;
-                    }
-            }
+        if(rowOrders.size()==0) {
+            rowOrders.add(RowOrderDTO.convertRowOrderToRowOrderDTO(rowOrder));
+            session.setAttribute("basket", rowOrders);
         }
         else {
-            request.setAttribute("Error", "Unable to pay!");
-            request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
-        }*/
+
+            for (RowOrderDTO o : rowOrders) {
+                if (!o.getNameProduct().equals(rowOrder.getNameProduct())) {
+                    rowOrders.add(RowOrderDTO.convertRowOrderToRowOrderDTO(rowOrder));
+                    session.setAttribute("basket", rowOrders);
+                } else {
+                    // rowOrders.set(RowOrderDTO.convertRowOrderToRowOrderDTO(rowOrder));
+                    session.setAttribute("basket", rowOrders);
+                }
+            }
+        }
     }
+
+
 }

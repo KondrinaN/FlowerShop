@@ -52,7 +52,6 @@ public class PayServlet extends HttpServlet{
         PrintWriter out = response.getWriter();
 
         request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
-
     }
 
     /**
