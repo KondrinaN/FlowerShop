@@ -56,7 +56,11 @@ public class LogInServlet extends HttpServlet {
                 Customer customer = userService.logIn(param, pwd);
                 HttpSession session = request.getSession();
                 session.setAttribute("customer", CustomerDTO.convertCustomerToCustomerDTO(customer));
-                response.sendRedirect("/mainPage");
+
+                if(!param.equals("admin"))
+                    response.sendRedirect("/mainPage");
+                else
+                    response.sendRedirect("/admin");
             }
             catch (Exception exc)
             {

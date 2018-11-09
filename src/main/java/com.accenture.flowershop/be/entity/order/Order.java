@@ -15,7 +15,7 @@ import java.util.Date;
                         query = "SELECT o FROM Order o WHERE o.users_Id = :users_Id"),
 
                 @NamedQuery(name = "Orders.findAll",
-                        query = "SELECT o FROM Order o")
+                        query = "SELECT o FROM Order o ORDER BY dateCreate, status")
         }
 )
 public class Order implements OrderInterface{

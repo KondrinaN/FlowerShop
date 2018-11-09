@@ -16,11 +16,13 @@ public interface OrderBusinessService {
     List<RowOrder> findRowOrder(int idOrder);
     void updateStatusOrder(Order order) throws Exception;
     void delete(int idOrder);
-    public List<Order> OutOrders(HttpServletRequest request);
-    public Order getOrderById(int id);
-    public List<Order> getOrders();
-    public void setOrders(List<Order> orders);
+    List<Order> OutOrders(HttpServletRequest request);
+    List<Order> OutOrdersAllAdmin(HttpServletRequest request);
+    Order getOrderById(int id);
+    List<Order> getOrders();
+    void setOrders(List<Order> orders);
     int getLengthListOrders();
-    public BigDecimal getCashBalance(int numberPosition);
-    public Long getIdByNumberPosition(int numberPosition);
+    BigDecimal getCashBalance(int numberPosition);
+    Long getIdByNumberPosition(int numberPosition);
+    List<Order> findAllOrdersAdmin(HttpServletRequest request);
 }

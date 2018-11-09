@@ -109,6 +109,13 @@ public class OrderBusinessServiceImpl implements OrderBusinessService {
     }
 
     @Override
+    public List<Order> findAllOrdersAdmin(HttpServletRequest request) {
+
+            orders = orderDAO.findAll();
+            return orders;
+    }
+
+    @Override
     public Order findOrder(int idOrder) {
         return null;
     }
@@ -150,5 +157,27 @@ public class OrderBusinessServiceImpl implements OrderBusinessService {
         return orders;
     }
 
+    public List<Order> OutOrdersAllAdmin(HttpServletRequest request) {
 
+        List<Order> orders=findAllOrdersAdmin(request);
+
+        if (orders!=null) {
+            if (orders.size() == 0)
+                request.setAttribute("message2", "Orders is empty!");
+            else {
+                for (Order o : orders) {
+                    request.setAttribute("idOrder", o.getIdOrder().toString());
+
+                    request.setAttribute("status", o.getStatus().toString());
+                    request.setAttribute("amount", o.getAmount());
+                    request.setAttribute("dateCreate", o.getDateCreate());
+                    request.setAttribute("dateClose", o.getDateClose());
+                }
+
+                request.setAttribute("countOrders", orders.size());
+                request.setAttribute("orders", orders);
+            }
+        }
+        return orders;
+    }
 }

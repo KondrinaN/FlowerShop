@@ -10,5 +10,5 @@ public interface RowOrderBusinessService {
     boolean saveRowOrder(Order idOrder, List<RowOrder> rowOrders);
     List<RowOrder> findAllRowOrder(Long idOrder, Order order);
     void deleteRowOrder(int idOrder);
-    public void OutRowOrders(HttpServletRequest request, List<Order> orders);
+    void OutRowOrders(HttpServletRequest request, List<Order> orders);
 }
