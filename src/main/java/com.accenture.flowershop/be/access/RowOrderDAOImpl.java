@@ -45,6 +45,7 @@ public class RowOrderDAOImpl implements RowOrderDAO {
     public boolean save(Order idOrder, List<RowOrder> rowOrders) {
         int count = 0;
         for(RowOrder r: rowOrders) {
+
             r.setOrderId(idOrder);
             entityManager.persist(r);
             count++;

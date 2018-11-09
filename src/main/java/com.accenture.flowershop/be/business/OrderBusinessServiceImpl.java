@@ -45,6 +45,12 @@ public class OrderBusinessServiceImpl implements OrderBusinessService {
         return orders.size();
     }
 
+    @Override
+    public BigDecimal getCashBalance(int numberPosition) {
+        return orders.get(numberPosition).getAmount();
+    }
+
+    @Override
     public Long getIdByNumberPosition(int numberPosition)
     {
         if (numberPosition<orders.size())
@@ -84,9 +90,15 @@ public class OrderBusinessServiceImpl implements OrderBusinessService {
     }
 
     @Override
+    @Transactional
+    public void updateStatusOrder(Order order) throws Exception {
+        orderDAO.update(order);
+    }
+
+    @Override
     public List<Order> findAllOrdersCustomer(HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        CustomerDTO customerDTO = (CustomerDTO)session.getAttribute("customer");
+       HttpSession session = request.getSession();
+       CustomerDTO customerDTO = (CustomerDTO)session.getAttribute("customer");
        if(customerDTO!=null) {
            Long users_id = customerDTO.getIdUser();
            orders = orderDAO.findAllByUser_Id(Customer.convertCustomerDTOToCustomer(customerDTO));
@@ -106,10 +118,7 @@ public class OrderBusinessServiceImpl implements OrderBusinessService {
         return null;
     }
 
-    @Override
-    public void update(int idOrder) {
 
-    }
 
     @Override
     public void delete(int idOrder) {

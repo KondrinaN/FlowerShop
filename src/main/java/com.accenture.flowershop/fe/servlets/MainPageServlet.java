@@ -6,6 +6,8 @@ import com.accenture.flowershop.be.business.OrderBusinessService;
 import com.accenture.flowershop.be.business.RowOrderBusinessService;
 import com.accenture.flowershop.be.entity.flower.Flower;
 import com.accenture.flowershop.be.entity.order.RowOrder;
+import com.accenture.flowershop.be.entity.user.Customer;
+import com.accenture.flowershop.fe.dto.CustomerDTO;
 import com.accenture.flowershop.fe.dto.RowOrderDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -73,33 +75,12 @@ public class MainPageServlet extends HttpServlet{
             throws  ServletException, IOException{
 
         buttonHandlerToTheBasket(request, response);
-      //  buttonHandlerToThePay(request, response);
         buttonHandlerSaveOrder(request, response);
+
+        //  buttonHandlerToThePay(request, response);
     }
 
-    private  void buttonHandlerToThePay(HttpServletRequest request, HttpServletResponse response)
-            throws  ServletException, IOException
-    {
 
-       /* int countOrders = orderBusinessService.getLengthListOrders();
-
-        for (int i=0; i<countOrders; i++) {
-            String buttonNumber = request.getParameter("Order" + orderBusinessService.getIdByNumberPosition(i));
-            if (buttonNumber!= null)
-            {
-                //оплатить, если хватает остатка
-              *//* if ()
-                    AddRowOrderDTOInListAttribute(i, count, request);
-                    response.sendRedirect("/mainPage");
-                }
-                else {
-                    request.setAttribute("Error", "Incorrect number of flowers entered to add to the basket!");
-                    request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
-                }
-                break;*//*
-            }
-        }*/
-    }
 
     private void buttonHandlerSaveOrder(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException
     {
@@ -188,5 +169,43 @@ public class MainPageServlet extends HttpServlet{
         RowOrder rowOrder = new RowOrder(flower.getNameFlower(), count, flower.getPrice().multiply(count));
         rowOrders.add(RowOrderDTO.convertRowOrderToRowOrderDTO(rowOrder));
         session.setAttribute("basket", rowOrders);
+    }
+
+    private  void buttonHandlerToThePay(HttpServletRequest request, HttpServletResponse response)
+            throws  ServletException, IOException
+    {
+
+     /*  int countOrders = orderBusinessService.getLengthListOrders();
+
+       HttpSession session = request.getSession();
+       Customer customer = Customer.convertCustomerDTOToCustomer((CustomerDTO) session.getAttribute("customer"));
+
+       BigDecimal amount = (BigDecimal)session.getAttribute("priceFull");
+
+
+        if (customer != null) {
+            BigDecimal cash=customer.getCashBalance();
+
+            for (int i=0; i<countOrders; i++) {
+                String buttonNumber = request.getParameter("Order" + orderBusinessService.getIdByNumberPosition(i));
+                if (buttonNumber!= null) {
+
+                        if (cash.compareTo(BigDecimal.ZERO)==1 && cash.compareTo(amount)==1 || cash.compareTo(amount)==0) {
+                            //оплатить, если хватает остатка
+
+                            response.sendRedirect("/mainPage");
+                        } else {
+                            request.setAttribute("Error", "Cash balance is not enough to pay!");
+                            request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
+                        }
+
+                        break;
+                    }
+            }
+        }
+        else {
+            request.setAttribute("Error", "Unable to pay!");
+            request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
+        }*/
     }
 }

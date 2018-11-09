@@ -141,7 +141,7 @@
 
 
    <c:if test="${message2 eq null}">
-        <form id="Orders" action="/mainPage" method="POST" >
+        <form id="Orders" action="/pay" method="POST" >
         <table border="5">
         <thead>
             <tr>

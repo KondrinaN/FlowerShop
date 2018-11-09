@@ -1,5 +1,6 @@
 package com.accenture.flowershop.be.access;
 import com.accenture.flowershop.be.entity.order.Order;
+import com.accenture.flowershop.be.entity.order.RowOrder;
 import com.accenture.flowershop.be.entity.user.Customer;
 
 import java.math.BigDecimal;
@@ -11,6 +12,6 @@ public interface OrderDAO {
     Order findOrderById();
     Order findOrderByUser();
     Order save(Customer users_id, BigDecimal amount);
-    int update(int idOrder);
+    void update(Order order) throws Exception;
     int delete(int idOrder);
 }

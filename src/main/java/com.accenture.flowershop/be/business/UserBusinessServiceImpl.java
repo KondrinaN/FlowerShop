@@ -67,6 +67,13 @@ public class UserBusinessServiceImpl implements UserBusinessService{
 
     @Override
     @Transactional
+    public Customer updateCashBalance(Customer customer, BigDecimal cash) throws Exception
+    {
+        return userDAO.updateCashBalance(customer, cash);
+    }
+
+    @Override
+    @Transactional
     public Customer register(String login, String password, String surname, String name, String patronymic, String address, BigDecimal cashBalance, BigDecimal discount, UserShop userRole)
             throws Exception{
         customers = userDAO.findAll();

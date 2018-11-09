@@ -53,7 +53,6 @@ public class UserDAOImpl implements UserDAO{
 
 
     @Override
-
     public Long save(Customer customer) throws Exception{
 
         entityManager.persist(customer);
@@ -61,4 +60,12 @@ public class UserDAOImpl implements UserDAO{
 
     }
 
+    @Override
+    public Customer updateCashBalance(Customer customer, BigDecimal cash) throws Exception
+    {
+        //обновление остатка у пользователя
+        customer.setCashBalance(cash);
+        entityManager.merge(customer);
+        return customer;
+    }
 }

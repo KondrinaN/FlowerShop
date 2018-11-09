@@ -2,6 +2,7 @@ package com.accenture.flowershop.be.access;
 
 import com.accenture.flowershop.be.entity.flower.Flower;
 import com.accenture.flowershop.be.entity.order.Order;
+import com.accenture.flowershop.be.entity.order.RowOrder;
 import com.accenture.flowershop.be.entity.user.Customer;
 import com.accenture.flowershop.fe.enums.order.StatusOrder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,8 +65,13 @@ public class OrderDAOImpl implements OrderDAO {
     }
 
     @Override
-    public int update(int idOrder) {
-        return 0;
+    public void update(Order order) throws Exception{
+        if (order!=null && order.getIdOrder()!=null) {
+            order.setStatus(StatusOrder.paid);
+            entityManager.merge(order);
+        }
+        else
+            throw new Exception("Order was not updated!");
     }
 
     @Override
