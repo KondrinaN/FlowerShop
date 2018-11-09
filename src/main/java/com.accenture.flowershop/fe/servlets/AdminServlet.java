@@ -4,6 +4,9 @@ import com.accenture.flowershop.be.business.OrderBusinessService;
 import com.accenture.flowershop.be.business.RowOrderBusinessService;
 import com.accenture.flowershop.be.business.UserBusinessService;
 import com.accenture.flowershop.be.entity.flower.Flower;
+import com.accenture.flowershop.be.entity.user.Customer;
+import com.accenture.flowershop.fe.dto.CustomerDTO;
+import com.accenture.flowershop.fe.enums.order.StatusOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
@@ -13,8 +16,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 import java.util.List;
 
 @WebServlet("/admin")
@@ -56,6 +61,28 @@ public class AdminServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws  ServletException, IOException{
-
+        buttonHandlerCloseOrder(request, response);
     }
+
+    private  void buttonHandlerCloseOrder(HttpServletRequest request, HttpServletResponse response)
+            throws  ServletException, IOException
+    {
+        int countOrders = orderBusinessService.getLengthListOrders();
+
+            for (int i=0; i<countOrders; i++) {
+                String buttonNumber = request.getParameter("Order" + orderBusinessService.getIdByNumberPosition(i));
+                if (buttonNumber!= null) {
+                        try {
+                            orderBusinessService.updateStatusOrder(orderBusinessService.getOrderById(i), StatusOrder.closed);
+
+                            response.sendRedirect("/admin");
+                            break;
+                        } catch (Exception exc) {
+                            request.setAttribute("Error", exc.toString());
+                            request.getRequestDispatcher("/").forward(request, response);
+                        }
+                }
+            }
+        }
+
 }

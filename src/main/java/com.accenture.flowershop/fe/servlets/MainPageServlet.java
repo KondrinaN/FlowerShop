@@ -135,18 +135,16 @@ public class MainPageServlet extends HttpServlet{
                         AddRowOrderDTOInListAttribute(id, count, request);
                         flowerBusinessService.update(id, count); //обновить количество цветов
                         response.sendRedirect("/mainPage");
+                        break;
                     } catch (Exception exc) {
                         request.setAttribute("Error", exc.toString());
                         request.getRequestDispatcher("/").forward(request, response);
                     }
-
-                    //orderBusinessService.saveOrderCustomer(request);
                 }
                 else {
                     request.setAttribute("Error", "Incorrect number of flowers entered to add to the basket!");
                     request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
                 }
-                break;
             }
         }
     }

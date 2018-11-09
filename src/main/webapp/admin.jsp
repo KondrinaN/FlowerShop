@@ -27,7 +27,7 @@
 <body>
 
     <h2>Home Flower Shop</h2>
-
+    <p><a href="/logOut" action="/logOut" method="GET">LogOut</a></p>
 
   <br><h5>Orders</h5>
    <c:if test="${message2 ne null}">
@@ -51,8 +51,6 @@
         <tbody>
             <c:forEach items="${orders}" var="orders">
                 <tr>
-
-
                     <td>${orders.idOrder}</td>
                     <td>${orders.status}</td>
                     <td>${orders.amount}</td>

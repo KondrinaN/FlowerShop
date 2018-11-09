@@ -65,9 +65,13 @@ public class OrderDAOImpl implements OrderDAO {
     }
 
     @Override
-    public void update(Order order) throws Exception{
+    public void update(Order order, StatusOrder statusOrder) throws Exception{
         if (order!=null && order.getIdOrder()!=null) {
-            order.setStatus(StatusOrder.paid);
+            order.setStatus(statusOrder);
+
+            if(statusOrder==StatusOrder.closed)
+                order.setDateClose(new Date());
+
             entityManager.merge(order);
         }
         else

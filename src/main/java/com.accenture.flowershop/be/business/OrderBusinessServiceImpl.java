@@ -91,8 +91,8 @@ public class OrderBusinessServiceImpl implements OrderBusinessService {
 
     @Override
     @Transactional
-    public void updateStatusOrder(Order order) throws Exception {
-        orderDAO.update(order);
+    public void updateStatusOrder(Order order, StatusOrder statusOrder) throws Exception {
+        orderDAO.update(order, statusOrder);
     }
 
     @Override

@@ -11,6 +11,7 @@ import com.accenture.flowershop.be.entity.order.RowOrder;
 import com.accenture.flowershop.be.entity.user.Customer;
 import com.accenture.flowershop.fe.dto.CustomerDTO;
 import com.accenture.flowershop.fe.dto.RowOrderDTO;
+import com.accenture.flowershop.fe.enums.order.StatusOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
@@ -88,22 +89,22 @@ public class PayServlet extends HttpServlet{
                     if (cash.compareTo(BigDecimal.ZERO)==1 && (cash.compareTo(amount)==1 || cash.compareTo(amount)==0)) {
                         //оплатить, если хватает остатка
                         try {
-                            orderBusinessService.updateStatusOrder(orderBusinessService.getOrderById(i));
+                            orderBusinessService.updateStatusOrder(orderBusinessService.getOrderById(i), StatusOrder.paid);
                             BigDecimal newBalance = cash.subtract(amount);
 
                             session.setAttribute("customer", CustomerDTO.convertCustomerToCustomerDTO(userBusinessService.updateCashBalance(customer, newBalance)));
+
+                            //поменять статус у заказа
+                            response.sendRedirect("/mainPage");
+                            break;
                         } catch (Exception exc) {
                             request.setAttribute("Error", exc.toString());
                             request.getRequestDispatcher("/").forward(request, response);
                         }
-                        //поменять статус у заказа
-                        response.sendRedirect("/mainPage");
                     } else {
                         request.setAttribute("Error", "Cash balance is not enough to pay!");
                         request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
                     }
-
-                    break;
                 }
             }
         }
