@@ -60,7 +60,6 @@ public class MainPageServlet extends HttpServlet{
         rowOrderBusinessService.OutRowOrders(request, orderBusinessService.OutOrders(request));
 
         request.getRequestDispatcher("/mainPage.jsp").forward(request, response);
-
     }
 
     /**
@@ -163,6 +162,7 @@ public class MainPageServlet extends HttpServlet{
         else
             rowOrders = (List<RowOrderDTO>)session.getAttribute("basket");
 
+
         RowOrder rowOrder = new RowOrder(flower.getNameFlower(), count, flower.getPrice().multiply(count));
 
         if(rowOrders.size()==0) {
@@ -170,16 +170,23 @@ public class MainPageServlet extends HttpServlet{
             session.setAttribute("basket", rowOrders);
         }
         else {
+            Boolean flag=false;
 
             for (RowOrderDTO o : rowOrders) {
-                if (!o.getNameProduct().equals(rowOrder.getNameProduct())) {
-                    rowOrders.add(RowOrderDTO.convertRowOrderToRowOrderDTO(rowOrder));
-                    session.setAttribute("basket", rowOrders);
-                } else {
-                    // rowOrders.set(RowOrderDTO.convertRowOrderToRowOrderDTO(rowOrder));
-                    session.setAttribute("basket", rowOrders);
+
+                if (o.getNameProduct().equals(rowOrder.getNameProduct())) {
+                    flag=true;
+                    BigDecimal countFlower = o.getCount();
+                    o.setCount(rowOrder.getCount().add(countFlower));
+
+                    BigDecimal priceFlower = o.getPrice();
+                    o.setPrice(rowOrder.getPrice().add(priceFlower));
+                    break;
                 }
             }
+
+            if (!flag)
+                rowOrders.add(RowOrderDTO.convertRowOrderToRowOrderDTO(rowOrder));
         }
     }
 
