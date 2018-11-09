@@ -162,7 +162,6 @@ public class MainPageServlet extends HttpServlet{
         else
             rowOrders = (List<RowOrderDTO>)session.getAttribute("basket");
 
-
         RowOrder rowOrder = new RowOrder(flower.getNameFlower(), count, flower.getPrice().multiply(count));
 
         if(rowOrders.size()==0) {
@@ -173,7 +172,6 @@ public class MainPageServlet extends HttpServlet{
             Boolean flag=false;
 
             for (RowOrderDTO o : rowOrders) {
-
                 if (o.getNameProduct().equals(rowOrder.getNameProduct())) {
                     flag=true;
                     BigDecimal countFlower = o.getCount();
