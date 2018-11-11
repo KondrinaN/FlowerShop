@@ -4,6 +4,7 @@ import com.accenture.flowershop.fe.dto.CustomerDTO;
 import com.accenture.flowershop.fe.enums.customer.UserShop;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.math.BigDecimal;
 
 @Entity
@@ -20,6 +21,7 @@ import java.math.BigDecimal;
                         query = "SELECT c FROM Customer c WHERE c.idUser = :idUser"),
         }
 )
+@XmlRootElement
 public class Customer extends User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -75,6 +77,7 @@ public class Customer extends User {
         }
         return null;
     }
+
 
     public Long getIdUser() {
         return idUser;

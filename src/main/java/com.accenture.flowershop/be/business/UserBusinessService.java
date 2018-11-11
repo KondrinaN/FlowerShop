@@ -4,6 +4,7 @@ import com.accenture.flowershop.be.entity.user.Customer;
 import com.accenture.flowershop.fe.dto.CustomerDTO;
 import com.accenture.flowershop.fe.enums.customer.UserShop;
 
+import javax.xml.bind.JAXBException;
 import java.math.BigDecimal;
 
 public interface UserBusinessService {
@@ -13,4 +14,5 @@ public interface UserBusinessService {
     Customer register(String login, String password, String surname, String name, String patronymic, String address, BigDecimal cashBalance, BigDecimal discount, UserShop userRole) throws Exception;
     boolean checkPassword(String passwordCurrent, String passwordCustomer);
     Customer updateCashBalance(Customer customer, BigDecimal cash) throws Exception;
+    void customerOXMUsage(Customer customer) throws JAXBException;
 }

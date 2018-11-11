@@ -6,9 +6,16 @@ import com.accenture.flowershop.fe.enums.customer.UserShop;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.xml.bind.JAXBException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -18,6 +25,8 @@ public class UserBusinessServiceImpl implements UserBusinessService{
     @Autowired
     private UserDAO userDAO;
 
+    @Autowired
+    private UserMarshallingService userMarshallingService;
 
     private Map<String, Customer> users;
     private List<Customer> customers;
@@ -27,9 +36,11 @@ public class UserBusinessServiceImpl implements UserBusinessService{
     public UserBusinessServiceImpl()
     {
         users = new HashMap<String, Customer>();
+
        // LOG.debug("User");
         //System.out.println("userBusinessService");
     }
+
 
 
     public void DeleteUserInMap(String loginUser)
@@ -73,6 +84,33 @@ public class UserBusinessServiceImpl implements UserBusinessService{
     }
 
     @Override
+    public void customerOXMUsage(Customer customer) throws JAXBException {
+        try {
+             //загружаем properties
+            Properties properties = new Properties();
+            InputStream propertyInputStream =
+                    getClass().getClassLoader().getResourceAsStream("application.properties");
+            properties.load(propertyInputStream);
+
+            String path= properties.getProperty("customer.xml.path");
+
+            //Создаем xml файл
+            userMarshallingService.convertFromObjectToXML(customer, path);
+
+            Customer customer1 = (Customer)userMarshallingService.convertFromXMLToObject(path);
+            FileInputStream xmlInputStream = new FileInputStream(path);
+
+            //Закрываем соединения
+            propertyInputStream.close();
+            xmlInputStream.close();
+        }
+        catch (IOException exc)
+        {
+            exc.printStackTrace();
+        }
+    }
+
+    @Override
     @Transactional
     public Customer register(String login, String password, String surname, String name, String patronymic, String address, BigDecimal cashBalance, BigDecimal discount, UserShop userRole)
             throws Exception{
@@ -87,8 +125,10 @@ public class UserBusinessServiceImpl implements UserBusinessService{
            if (customer.getIdUser()!=0)
                customers.add(customer);
 
-           if (customer!=null)
+           if (customer!=null) {
+               customerOXMUsage(customer);
                return customer;
+           }
            else
                throw new Exception("User not registered!");
         }
@@ -109,4 +149,6 @@ public class UserBusinessServiceImpl implements UserBusinessService{
             return true;
         return false;
     }
+
+
 }

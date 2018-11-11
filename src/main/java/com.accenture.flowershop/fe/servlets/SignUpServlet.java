@@ -67,6 +67,7 @@ public class SignUpServlet extends HttpServlet{
                         request.getParameter("Name"), request.getParameter("Patronymic"), request.getParameter("Address"),
                         new BigDecimal(2000), new BigDecimal(0), UserShop.buyer);
 
+
                 HttpSession session = request.getSession();
                 session.setAttribute("customer", CustomerDTO.convertCustomerToCustomerDTO(customer));
                 response.sendRedirect("/mainPage");
