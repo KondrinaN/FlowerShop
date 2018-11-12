@@ -8,6 +8,7 @@
        xmlns:util="http://www.springframework.org/schema/util"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
 
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -18,7 +19,9 @@
     http://www.springframework.org/schema/util
     http://www.springframework.org/schema/util/spring-util.xsd
     http://www.springframework.org/schema/jee
-    http://www.springframework.org/schema/jee/spring-jee.xsd">
+    http://www.springframework.org/schema/jee/spring-jee.xsd
+    http://cxf.apache.org/jaxws
+    http://cxf.apache.org/schemas/jaxws.xsd">
 
     <context:annotation-config/>
     <context:component-scan base-package="com.accenture.flowershop"/>
@@ -71,6 +74,11 @@
         </property>
     </bean>
 
+    <bean id="flowerStockWebService" class="com.accenture.flowershop.fe.ws.FlowerStockWebServiceImpl"/>
+    <jaxws:endpoint id="flowerStockWebService1" implementor="#flowerStockWebService" address="/FlowerStockWebService"/>
+
+    <jaxws:client id="FlowerStockWebServiceClient" serviceClass="com.accenture.flowershop.fe.ws.FlowerStockWebService2"
+                  address="http://localhost:8888/ws/FlowerStockWebService"/>
 </beans>
 
 

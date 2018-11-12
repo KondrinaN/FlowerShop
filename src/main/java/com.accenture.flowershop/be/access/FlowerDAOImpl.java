@@ -82,4 +82,23 @@ public class FlowerDAOImpl implements FlowerDAO {
                 throw new Exception("Flower was not updated!");
     }
 
+    @Override
+    public Long addFlowers(Flower flower, BigDecimal count) throws Exception {
+
+        if (flower!=null && flower.getId()!=null) {
+            flower.setBalance(count);
+
+            if(flower.getBalance()==BigDecimal.ZERO)
+                flower.setFlowerAvailability(FlowerAvailability.notAvailable);
+            else
+                flower.setFlowerAvailability(FlowerAvailability.areAvailable);
+
+            entityManager.merge(flower);
+
+            return flower.getId();
+        }
+        else
+            throw new Exception("Flower was not updated!");
+    }
+
 }
