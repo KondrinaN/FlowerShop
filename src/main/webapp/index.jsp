@@ -6,6 +6,7 @@
         <meta charset="UTF-8">
         <title>Flower Shop</title>
         <link href="styleStart.css" rel="stylesheet" type="text/css"/>
+
         <style>
          body{
             background: lavender;
@@ -39,6 +40,7 @@
 
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/eggplant/jquery-ui.css">
 
     <script>
@@ -54,6 +56,5 @@
             window.location.href = pageURL;
         }
     </script>
-
 </body>
 </html>

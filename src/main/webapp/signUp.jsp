@@ -20,6 +20,8 @@
              <p></p>
          </form>
 
+         <script src="login.js"></script>
+
         <script>
                 function openPage(pageURL)
                 {
