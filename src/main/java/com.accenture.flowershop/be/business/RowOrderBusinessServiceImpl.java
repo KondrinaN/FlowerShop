@@ -51,26 +51,28 @@ public class RowOrderBusinessServiceImpl implements  RowOrderBusinessService{
     public void OutRowOrders(HttpServletRequest request, List<Order> orders) {
         List<RowOrder> list = new ArrayList<RowOrder>();
 
-        int count = orders.size();
+        if(orders!=null) {
+            int count = orders.size();
 
-        for (int i=0; i<count; i++) {
-            List<RowOrder> rowOrders2 = findAllRowOrder(orders.get(i).getIdOrder(), orders.get(i));
+            for (int i = 0; i < count; i++) {
+                List<RowOrder> rowOrders2 = findAllRowOrder(orders.get(i).getIdOrder(), orders.get(i));
 
-            if (rowOrders2.size() == 0)
-                request.setAttribute("message3", "Rows order is empty!");
-            else {
-                for (RowOrder o : rowOrders2) {
-                    request.setAttribute("o.orderId.idOrder", o.getOrderId().getIdOrder());
-                    request.setAttribute("nameProduct", o.getNameProduct());
-                    request.setAttribute("count", o.getCount().toString());
-                    request.setAttribute("price", o.getPrice().toString());
-                    list.add(o);
+                if (rowOrders2.size() == 0)
+                    request.setAttribute("message3", "Rows order is empty!");
+                else {
+                    for (RowOrder o : rowOrders2) {
+                        request.setAttribute("o.orderId.idOrder", o.getOrderId().getIdOrder());
+                        request.setAttribute("nameProduct", o.getNameProduct());
+                        request.setAttribute("count", o.getCount().toString());
+                        request.setAttribute("price", o.getPrice().toString());
+                        list.add(o);
+                    }
                 }
             }
-        }
 
-        request.setAttribute("countRowOrders", list.size());
-        request.setAttribute("rowOrders2", list);
+            request.setAttribute("countRowOrders", list.size());
+            request.setAttribute("rowOrders2", list);
+        }
     }
 
 
