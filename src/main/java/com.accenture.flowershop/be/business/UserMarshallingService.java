@@ -9,4 +9,5 @@ public interface UserMarshallingService {
 
     void convertFromObjectToXML(Object object, String filepath) throws IOException, JAXBException;
     Object convertFromXMLToObject(String xmlfile) throws IOException, JAXBException;
+    void addCustomerInQueue(String message);
 }
