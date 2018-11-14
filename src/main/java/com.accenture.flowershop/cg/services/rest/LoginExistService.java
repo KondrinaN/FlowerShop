@@ -1,6 +1,7 @@
 package com.accenture.flowershop.cg.services.rest;
 
 import com.accenture.flowershop.be.access.UserDAO;
+import com.accenture.flowershop.be.entity.user.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,15 +20,16 @@ public class LoginExistService {
     @Path("/check/{login}")
     public boolean existLogin(@PathParam("login") String login)
     {
+        Customer customer = null;
         try {
-
-            if (userDAO.findCustomerByLogin(login) != null)
-                return true;
+            customer = userDAO.findCustomerByLogin(login);
         }
         catch (Exception exc)
         {
         }
 
+        if (customer != null)
+            return true;
         return false;
     }
 }

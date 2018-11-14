@@ -1,22 +1,23 @@
 $(document).ready(function(){
-    $("input[name=Login]").change(function(){
-         alert($(this).val());
 
+    var $but=$('#main2').find("input[type=submit]");
+
+    $("input[name=Login]").on('change', function(){
          $.ajax({
-               url: "http://localhost:8888/rest/checkLoginExist/check/" + $(this).val(),
+               url: "/rest/checkLoginExist/check/" + $(this).val(),
                type: "GET",
-               dataType: "application/json"
           }).done(function(data){
-            if(data)
+            if (data)
             {
-                    alert("Success");
+                $but.prop("disabled", true);
+                alert("User with this login already exists");
+                console.log($but.val());
             }
             else
             {
-
-                alert("Success2");
+                $but.prop("disabled", false);
             }
-          });
+          })
 
         })
 });
