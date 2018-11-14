@@ -14,13 +14,11 @@ public class LoginExistService {
     @Autowired
     private UserDAO userDAO;
 
-    @POST
+    @GET
     @Produces({MediaType.APPLICATION_JSON})
-    @Path("/check")
-    public boolean existLogin(String login)
+    @Path("/check/{login}")
+    public boolean existLogin(@PathParam("login") String login)
     {
-
-        //String logIn = login.substring(login.indexOf('='), login.length());
         try {
 
             if (userDAO.findCustomerByLogin(login) != null)
