@@ -79,6 +79,9 @@
 
     <jaxws:client id="FlowerStockWebServiceClient" serviceClass="com.accenture.flowershop.fe.ws.FlowerStockWebService2"
                   address="http://localhost:8888/ws/FlowerStockWebService"/>
+
+    <jee:jndi-lookup jndi-name="jms/connectionFactory" id="connectionFactory"/>
+    <jee:jndi-lookup jndi-name="jms/outQueue" id="outQueue"/>
 </beans>
 
 
