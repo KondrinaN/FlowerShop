@@ -82,6 +82,7 @@
 
     <jee:jndi-lookup jndi-name="jms/connectionFactory" id="connectionFactory"/>
     <jee:jndi-lookup jndi-name="jms/outQueue" id="outQueue"/>
+    <jee:jndi-lookup jndi-name="jms/inQueue" id="inQueue"/>
 </beans>
 
 

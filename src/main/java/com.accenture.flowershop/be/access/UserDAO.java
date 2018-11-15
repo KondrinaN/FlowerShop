@@ -11,4 +11,5 @@ public interface UserDAO {
     Customer findCustomerByLogin(String login) throws Exception ;
     Long save(Customer customer) throws Exception;
     Customer updateCashBalance(Customer customer, BigDecimal cash) throws Exception;
+    void changeDiscount(Long idUser, BigDecimal discount);
 }

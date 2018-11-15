@@ -1,6 +1,7 @@
 package com.accenture.flowershop.be.business;
 
 import com.accenture.flowershop.be.access.UserDAO;
+import com.accenture.flowershop.be.entity.user.ChangeDiscount;
 import com.accenture.flowershop.be.entity.user.Customer;
 import com.accenture.flowershop.fe.enums.customer.UserShop;
 import org.slf4j.Logger;
@@ -27,6 +28,9 @@ public class UserBusinessServiceImpl implements UserBusinessService{
 
     @Autowired
     private UserMarshallingService userMarshallingService;
+
+    @Autowired
+    private DiscountMarshallingService discountMarshallingService;
 
     private Map<String, Customer> users;
     private List<Customer> customers;
@@ -83,8 +87,16 @@ public class UserBusinessServiceImpl implements UserBusinessService{
         return userDAO.updateCashBalance(customer, cash);
     }
 
+
+    @Transactional
+    public void changeDiscount(ChangeDiscount discount)
+    {
+        userDAO.changeDiscount(discount.getIdUser(), discount.getDiscount());
+    }
+
     @Override
-    public void customerOXMUsage(Customer customer) throws JAXBException {
+    @Transactional
+    public Customer customerOXMUsage(Customer customer) throws JAXBException {
         try {
              //загружаем properties
             Properties properties = new Properties();
@@ -95,9 +107,18 @@ public class UserBusinessServiceImpl implements UserBusinessService{
             String path= properties.getProperty("customer.xml.path");
 
             //Создаем xml файл
-            userMarshallingService.convertFromObjectToXML(customer, path);
 
-            Customer customer1 = (Customer)userMarshallingService.convertFromXMLToObject(path);
+           /* ChangeDiscount discount1 = new ChangeDiscount(customer.getIdUser(), new BigDecimal(20));
+
+            discountMarshallingService.discountFromQueue("IN_QUEUE");
+            customer.setDiscount(discount1.getDiscount());
+            discountMarshallingService.addCustomerInQueue(discountMarshallingService.convertFromObjectToXML(discount1, properties.getProperty("discount.xml.path")), "IN_QUEUE");
+*/
+            userMarshallingService.addCustomerInQueue(userMarshallingService.convertFromObjectToXML(customer, path),"OUT_QUEUE");
+
+
+
+            // Customer customer1 = (Customer)userMarshallingService.convertFromXMLToObject(path);
             FileInputStream xmlInputStream = new FileInputStream(path);
 
             //Закрываем соединения
@@ -108,7 +129,9 @@ public class UserBusinessServiceImpl implements UserBusinessService{
         {
             exc.printStackTrace();
         }
+        return customer;
     }
+
 
     @Override
     @Transactional
@@ -122,11 +145,13 @@ public class UserBusinessServiceImpl implements UserBusinessService{
            customer= new Customer(null, login, password, surname, name, patronymic, address, cashBalance, discount, userRole);
 
            customer.setIdUser(userDAO.save(customer));
+
            if (customer.getIdUser()!=0)
                customers.add(customer);
 
            if (customer!=null) {
-               customerOXMUsage(customer);
+               customer = customerOXMUsage(customer);
+
                return customer;
            }
            else

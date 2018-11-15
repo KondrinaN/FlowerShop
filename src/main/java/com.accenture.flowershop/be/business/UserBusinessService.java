@@ -1,5 +1,6 @@
 package com.accenture.flowershop.be.business;
 
+import com.accenture.flowershop.be.entity.user.ChangeDiscount;
 import com.accenture.flowershop.be.entity.user.Customer;
 import com.accenture.flowershop.fe.dto.CustomerDTO;
 import com.accenture.flowershop.fe.enums.customer.UserShop;
@@ -14,5 +15,6 @@ public interface UserBusinessService {
     Customer register(String login, String password, String surname, String name, String patronymic, String address, BigDecimal cashBalance, BigDecimal discount, UserShop userRole) throws Exception;
     boolean checkPassword(String passwordCurrent, String passwordCustomer);
     Customer updateCashBalance(Customer customer, BigDecimal cash) throws Exception;
-    void customerOXMUsage(Customer customer) throws JAXBException;
+    Customer customerOXMUsage(Customer customer) throws JAXBException;
+    void changeDiscount(ChangeDiscount discount);
 }
