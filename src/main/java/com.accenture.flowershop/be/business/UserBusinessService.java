@@ -17,4 +17,5 @@ public interface UserBusinessService {
     Customer updateCashBalance(Customer customer, BigDecimal cash) throws Exception;
     Customer customerOXMUsage(Customer customer) throws JAXBException;
     void changeDiscount(ChangeDiscount discount);
+    Customer findCustomerById(Long idUser) throws Exception ;
 }

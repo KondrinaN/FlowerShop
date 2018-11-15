@@ -4,6 +4,7 @@ package com.accenture.flowershop.fe.servlets;
 import com.accenture.flowershop.be.business.FlowerBusinessService;
 import com.accenture.flowershop.be.business.OrderBusinessService;
 import com.accenture.flowershop.be.business.RowOrderBusinessService;
+import com.accenture.flowershop.be.business.UserBusinessService;
 import com.accenture.flowershop.be.entity.flower.Flower;
 import com.accenture.flowershop.be.entity.order.RowOrder;
 import com.accenture.flowershop.be.entity.user.Customer;
@@ -31,6 +32,9 @@ import java.util.List;
 public class MainPageServlet extends HttpServlet{
 
     @Autowired
+    private UserBusinessService userBusinessService;
+
+    @Autowired
     private FlowerBusinessService flowerBusinessService;
 
     @Autowired
@@ -49,7 +53,10 @@ public class MainPageServlet extends HttpServlet{
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
         response.setContentType("text/html"); //отображение как html
+
         PrintWriter out = response.getWriter();
+
+        outUser(request);
 
         List<Flower> flowers = flowerBusinessService.findAllFlowers();
 
@@ -78,6 +85,21 @@ public class MainPageServlet extends HttpServlet{
     }
 
 
+    private void outUser(HttpServletRequest request)
+    {
+        HttpSession session = request.getSession();
+        Customer customer = Customer.convertCustomerDTOToCustomer((CustomerDTO) session.getAttribute("customer"));
+        try {
+            Customer customer1 = userBusinessService.findCustomerById(customer.getIdUser());
+            if (customer!=null && customer1!=null) {
+                if (customer.getDiscount().compareTo(customer1.getDiscount()) !=0) {
+                    customer.setDiscount(customer1.getDiscount());
+                    session.setAttribute("customer", CustomerDTO.convertCustomerToCustomerDTO(customer));
+                }
+            }
+        }
+        catch (Exception exc) {}
+    }
 
     private void buttonHandlerSaveOrder(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException
     {

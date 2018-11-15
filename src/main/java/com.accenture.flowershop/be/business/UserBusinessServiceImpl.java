@@ -96,6 +96,12 @@ public class UserBusinessServiceImpl implements UserBusinessService{
 
     @Override
     @Transactional
+    public Customer findCustomerById(Long idUser) throws Exception {
+        return userDAO.findCustomerById(idUser);
+    }
+
+    @Override
+    @Transactional
     public Customer customerOXMUsage(Customer customer) throws JAXBException {
         try {
              //загружаем properties
@@ -174,6 +180,8 @@ public class UserBusinessServiceImpl implements UserBusinessService{
             return true;
         return false;
     }
+
+
 
 
 }
